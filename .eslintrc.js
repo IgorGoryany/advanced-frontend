@@ -49,6 +49,15 @@ module.exports = {
             tabWidth: 4,
         }],
         'no-unsafe-optional-chaining': 0,
+        'jsx-quotes': ['error', 'prefer-double'],
+        'no-restricted-globals': ['error', 'event', 'fdescribe'],
+        // 'sort-imports': ['warn', {
+        //     ignoreCase: true,
+        //     ignoreDeclarationSort: true,
+        //     ignoreMemberSort: false,
+        //     memberSyntaxSortOrder: ['multiple', 'single', 'all', 'none'],
+        //     allowSeparatedGroups: false,
+        // }],
     },
     globals: {
         __IS_DEV__: true,

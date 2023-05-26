@@ -3,7 +3,7 @@
   height: calc(100vh - var(--navbar-height));
   background: var(--inverted-bg-color);
   position: relative;
-  transition: all 0.23s ease;
+  transition: width 0.23s ease;
 }
 
 .open {

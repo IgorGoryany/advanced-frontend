@@ -3,5 +3,9 @@
   "загрузка...": "loading...",
   "О сайте": "About us",
   "Язык": "English",
-  "Перевод": "Translate"
+  "Перевод": "Translate",
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка!": "An unexpected error has occurred!",
+  "Перезагрузить страницу": "Reload page",
+  "бросить ошибку": "throw error"
 }
