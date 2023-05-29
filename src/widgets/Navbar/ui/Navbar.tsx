@@ -15,18 +15,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
             <div className={cls.links}>
-                <AppLink
-                    to={routePaths.main}
-                    theme={AppLinkTheme.INVERTED_SECONDARY}
-                >
-                    {t('Главная').toLowerCase()}
-                </AppLink>
-                <AppLink
-                    to={routePaths.about}
-                    theme={AppLinkTheme.INVERTED_SECONDARY}
-                >
-                    {t('О сайте').toLowerCase()}
-                </AppLink>
+                /
             </div>
         </div>
     );

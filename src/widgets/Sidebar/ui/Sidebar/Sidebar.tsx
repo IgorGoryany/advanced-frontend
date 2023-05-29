@@ -1,9 +1,13 @@
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { classNames } from 'shared/lib';
 import { ThemeSwitcher } from 'features/ThemeSwither';
 import { LangSwitcher } from 'features/LangSwitcher';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { routePaths } from 'shared/config';
 import { useTranslation } from 'react-i18next';
+import AboutPageIcon from 'shared/assets/icons/AboutPageIcon.svg';
+import HomePageIcon from 'shared/assets/icons/HomePageIcon.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -26,13 +30,40 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             <Button
                 data-testid="toggle"
                 type="button"
+                className={cls.toggleBtn}
                 onClick={toggleSidebar}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                square
+                size={ButtonSize.L}
             >
-                {t('toggle')}
+                {open ? '<' : '>'}
             </Button>
+
+            <div className={cls.items}>
+
+                <AppLink
+                    to={routePaths.main}
+                    theme={AppLinkTheme.INVERTED_SECONDARY}
+                    className={cls.item}
+                >
+                    <HomePageIcon className={cls.icon} />
+                    <span className={cls.link}>{t('Главная').toLowerCase()}</span>
+                </AppLink>
+
+                <AppLink
+                    to={routePaths.about}
+                    theme={AppLinkTheme.INVERTED_SECONDARY}
+                    className={cls.item}
+                >
+                    <AboutPageIcon className={cls.icon} />
+                    <span className={cls.link}>{t('О сайте').toLowerCase()}</span>
+                </AppLink>
+
+            </div>
+
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher className={cls.langSwitch} />
+                <LangSwitcher short={!open} />
             </div>
         </div>
     );
