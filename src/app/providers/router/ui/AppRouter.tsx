@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routerConfig } from 'shared/config';
 // import { useTranslation } from 'react-i18next';
-import { PageLoader } from 'widgets/PageLoader';
+import { PageLoader } from 'shared/ui/PageLoader';
 
 const AppRouter = () => (
     // const { t } = useTranslation();
