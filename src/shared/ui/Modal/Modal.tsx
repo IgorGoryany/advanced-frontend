@@ -1,8 +1,9 @@
 import {
     FC, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib';
+import { classNames, useTheme } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
+import { Portal } from 'shared/ui';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -21,6 +22,7 @@ export const Modal: FC<ModalProps> = (props) => {
         onClose,
     } = props;
     const { t } = useTranslation();
+    const { theme } = useTheme();
 
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
@@ -62,14 +64,16 @@ export const Modal: FC<ModalProps> = (props) => {
     }, [isOpen, onKeydown]);
 
     return (
-        <div className={classNames(cls.modal, mods, [className])}>
-            <div className={cls.overlay} onClick={closeHandler}>
-                {/* @ts-ignore */}
-                <div className={cls.content} onClick={contentClickHandler}>
-                    {children}
+        <Portal>
+            <div className={classNames(cls.modal, mods, [className, theme])}>
+                <div className={cls.overlay} onClick={closeHandler}>
+                    {/* @ts-ignore */}
+                    <div className={cls.content} onClick={contentClickHandler}>
+                        {children}
+                    </div>
                 </div>
+                {t('')}
             </div>
-            {t('')}
-        </div>
+        </Portal>
     );
 };

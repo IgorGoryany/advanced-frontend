@@ -3,7 +3,7 @@ import { Button } from 'shared/ui';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getCounterValue,
-} from 'entities/Counter/model/selectors/getCounterValue/getCounterValue';
+} from 'entities.entities/Counter/model/selectors/getCounterValue/getCounterValue';
 import { counterAction } from '../model/slice/counterSlice';
 
 interface CounterProps {
