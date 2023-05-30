@@ -1,6 +1,5 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { utimesSync } from 'fs';
+import { StateSchema } from 'shared/config';
 import { getCounter } from './getCounter';
 
 describe('getCounter', () => {
