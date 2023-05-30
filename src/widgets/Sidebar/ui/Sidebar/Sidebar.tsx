@@ -2,8 +2,9 @@ import React, { FC, useState } from 'react';
 import { classNames } from 'shared/lib';
 import { ThemeSwitcher } from 'features/ThemeSwither';
 import { LangSwitcher } from 'features/LangSwitcher';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import {
+    Button, ButtonSize, ButtonTheme, AppLink, AppLinkTheme,
+} from 'shared/ui';
 import { routePaths } from 'shared/config';
 import { useTranslation } from 'react-i18next';
 import AboutPageIcon from 'shared/assets/icons/AboutPageIcon.svg';

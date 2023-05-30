@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Button } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 
 // Компонент для тестированния ErrorBoundary

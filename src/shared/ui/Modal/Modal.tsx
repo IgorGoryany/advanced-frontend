@@ -3,14 +3,12 @@ import {
 } from 'react';
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string
     isOpen?: boolean
     onClose?: () => void
-    element?: HTMLElement,
 }
 
 const ANIMATION_DELAY = 200;
@@ -21,7 +19,6 @@ export const Modal: FC<ModalProps> = (props) => {
         children,
         isOpen,
         onClose,
-        element,
     } = props;
     const { t } = useTranslation();
 
