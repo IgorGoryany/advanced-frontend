@@ -48,12 +48,12 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={onShowModal}>
                 {t('Войти')}
             </Button>
-            <Portal>
+            {isAuthModal && (
                 <LoginModal
                     isOpen={isAuthModal}
                     onClose={onCloseModal}
                 />
-            </Portal>
+            )}
         </div>
     );
 };
