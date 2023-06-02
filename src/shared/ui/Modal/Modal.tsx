@@ -1,15 +1,15 @@
 import {
-    FC, useCallback, useEffect, useRef, useState,
+    FC, MouseEventHandler, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames, useTheme } from 'shared/lib';
-import { useTranslation } from 'react-i18next';
-import { Portal } from 'shared/ui';
+import { classNames, useTheme } from '../../lib';
+import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string
     isOpen?: boolean
     onClose?: () => void
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY = 200;
@@ -20,11 +20,12 @@ export const Modal: FC<ModalProps> = (props) => {
         children,
         isOpen,
         onClose,
+        lazy,
     } = props;
-    const { t } = useTranslation();
     const { theme } = useTheme();
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
 
     const closeHandler = useCallback(() => {
@@ -63,6 +64,16 @@ export const Modal: FC<ModalProps> = (props) => {
         };
     }, [isOpen, onKeydown]);
 
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
+
+    if (!isMounted && lazy) {
+        return null;
+    }
+
     return (
         <Portal>
             <div className={classNames(cls.modal, mods, [className, theme])}>
@@ -72,7 +83,6 @@ export const Modal: FC<ModalProps> = (props) => {
                         {children}
                     </div>
                 </div>
-                {t('')}
             </div>
         </Portal>
     );

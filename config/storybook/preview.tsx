@@ -1,8 +1,9 @@
+import { Suspense } from 'react';
 import type { Preview } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Theme } from '../../src/shared/lib';
-
 import '../../src/app/styles/index.scss';
+import { ThemeProvider } from '../../src/app/providers/ThemeProvider';
 
 const preview: Preview = {
     parameters: {
@@ -17,9 +18,13 @@ const preview: Preview = {
     decorators: [
         (Story) => (
             <MemoryRouter>
-                <div className={`app ${Theme.LIGHT}`}>
-                    <Story />
-                </div>
+                <Suspense fallback="">
+                    <ThemeProvider>
+                        <div className={`app ${Theme.LIGHT}`}>
+                            <Story />
+                        </div>
+                    </ThemeProvider>
+                </Suspense>
             </MemoryRouter>
         ),
     ],

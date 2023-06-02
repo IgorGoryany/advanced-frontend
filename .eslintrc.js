@@ -20,6 +20,7 @@ module.exports = {
         'react-hooks',
     ],
     rules: {
+        'consistent-return': 'off',
         'react/jsx-indent': [2, 4, {
             checkAttributes: true,
             indentLogicalExpressions: true,

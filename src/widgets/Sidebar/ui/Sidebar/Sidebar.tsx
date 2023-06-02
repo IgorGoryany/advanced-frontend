@@ -1,9 +1,7 @@
 import React, { FC, useState } from 'react';
 import { classNames } from 'shared/lib';
-import { ThemeSwitcher } from 'features/ThemeSwither';
-import { LangSwitcher } from 'features/LangSwitcher';
 import {
-    Button, ButtonSize, ButtonTheme, AppLink, AppLinkTheme,
+    Button, ButtonSize, ButtonTheme, AppLink, AppLinkTheme, ThemeSwitcher, LangSwitcher,
 } from 'shared/ui';
 import { routePaths } from 'shared/config';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +14,7 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-    const [open, setOpen] = useState<boolean>(true);
+    const [open, setOpen] = useState<boolean>(false);
     const { t } = useTranslation();
 
     const toggleSidebar = () => {
@@ -64,7 +62,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher short={!open} />
+                <LangSwitcher short={!open} className={cls.langSwitch} />
             </div>
         </div>
     );

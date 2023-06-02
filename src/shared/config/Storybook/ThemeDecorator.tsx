@@ -1,11 +1,13 @@
 import { StoryFn } from '@storybook/react';
 import { Theme } from 'shared/lib';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 
-// eslint-disable-next-line func-names
-export const ThemeDecorator = (theme: Theme, id?: string) => function (Story: StoryFn) {
+export const ThemeDecorator = (theme: Theme) => function (Story: StoryFn) {
     return (
-        <div className={`app ${theme}`} id={id || ''}>
-            <Story />
-        </div>
+        <ThemeProvider initialTheme={theme}>
+            <div className={`app ${theme}`}>
+                <Story />
+            </div>
+        </ThemeProvider>
     );
 };

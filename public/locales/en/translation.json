@@ -10,5 +10,10 @@
   "бросить ошибку": "throw error",
   "toggle": "toggle",
   "Сокращение от язык": "En",
-  "Войти": "Log in"
+  "Войти": "Log in",
+  "Введите username": "enter username",
+  "Введите пароль": "enter password",
+  "Форма авторизации": "Authorization form",
+  "Вы ввели неверный логин или пароль": "You entered an incorrect username or password",
+  "Выйти": "Log out"
 }

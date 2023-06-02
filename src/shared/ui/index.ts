@@ -4,3 +4,7 @@ export { Button, ButtonTheme, ButtonSize } from './Button/Button';
 export { Loader } from './Loader/Loader';
 export { Modal } from './Modal/Modal';
 export { Portal } from './Portal/Portal';
+export { LangSwitcher } from './LangSwitcher/LangSwitcher';
+export { ThemeSwitcher } from './ThemeSwither/ThemeSwitcher';
+export { Input } from './Input/Input';
+export { Text, TextTheme } from './Text/Text';

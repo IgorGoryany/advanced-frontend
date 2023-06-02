@@ -14,11 +14,9 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 20px;
 
   .langSwitch {
-    padding: 10px;
-    background-color: var(--bg-color);
+    padding: 5px 30px;
   }
 }
 
@@ -53,11 +51,15 @@
   width: 0;
   opacity: 0;
   overflow: hidden;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .open {
   width: var(--sidebar-width-open);
+
+  .langSwitch {
+    margin-left: 30px;
+  }
 
   .link {
     opacity: 1;
