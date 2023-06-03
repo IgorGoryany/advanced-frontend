@@ -1,4 +1,6 @@
-import { memo, useCallback } from 'react';
+import {
+    FormEvent, memo, useCallback,
+} from 'react';
 import { classNames, DynamicModuleLoader, ReducersList } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
@@ -45,6 +47,8 @@ const LoginForm = memo((props:LoginFormProps) => {
         dispatch(loginByUsername({ username, password }));
     }, [dispatch, password, username]);
 
+    const onSubmit = (event: FormEvent<HTMLFormElement>) => event.preventDefault();
+
     return (
         <DynamicModuleLoader
             removeAfterUnmount
@@ -52,7 +56,7 @@ const LoginForm = memo((props:LoginFormProps) => {
         >
             <form
                 className={classNames(cls.loginForm, {}, [className])}
-                onSubmit={(event) => event.preventDefault()}
+                onSubmit={onSubmit}
             >
                 <Text title={t('Форма авторизации')} />
                 {error && <Text text={t(error)} theme={TextTheme.ERROR} />}

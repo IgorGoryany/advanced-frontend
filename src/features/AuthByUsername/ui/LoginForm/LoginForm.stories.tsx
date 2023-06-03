@@ -25,7 +25,7 @@ export const Dark: Story = {
         loginForm: {
             username: '',
             password: '',
-            isLoading: true,
+            isLoading: false,
         },
     })],
 };

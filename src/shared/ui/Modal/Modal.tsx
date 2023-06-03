@@ -1,5 +1,5 @@
 import {
-    FC, MouseEventHandler, useCallback, useEffect, useRef, useState,
+    FC, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames, useTheme } from '../../lib';
 import { Portal } from '../Portal/Portal';
@@ -10,6 +10,7 @@ interface ModalProps {
     isOpen?: boolean
     onClose?: () => void
     lazy?: boolean
+    children: ReactNode
 }
 
 const ANIMATION_DELAY = 200;

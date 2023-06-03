@@ -23,9 +23,6 @@ describe('counterSlice.test', () => {
     });
 
     test('should work with empty state', () => {
-        const state: CounterSchema = {
-            value: 10,
-        };
         expect(
             counterReducer(undefined, counterAction.increment),
         )

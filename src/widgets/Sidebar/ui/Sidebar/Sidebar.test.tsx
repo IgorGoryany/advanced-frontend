@@ -17,9 +17,9 @@ describe('Sidebar.tsx', () => {
         const toggleBtn = screen.getByTestId('toggle');
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         fireEvent.click(toggleBtn);
-        expect(screen.getByTestId('sidebar')).not.toHaveClass('open');
-        fireEvent.click(toggleBtn);
         expect(screen.getByTestId('sidebar')).toHaveClass('open');
+        fireEvent.click(toggleBtn);
+        expect(screen.getByTestId('sidebar')).not.toHaveClass('open');
     });
     //
     // test('with only first param', () => {

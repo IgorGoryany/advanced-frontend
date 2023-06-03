@@ -1,0 +1,31 @@
+.item {
+  display: flex;
+  align-items: center;
+
+  &:not(:first-child) {
+    margin-top: 12px;
+  }
+}
+
+.icon {
+  position: relative;
+  fill: var(--inverted-primary-color);
+  margin-right: 10px;
+}
+
+.link {
+  background: none;
+  width: 0;
+  height: 24px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.open {
+  .link {
+    opacity: 1;
+    width: fit-content;
+    overflow: hidden;
+    transition: opacity 0.2s ease 0.1s, width 3s linear 1s;
+  }
+}

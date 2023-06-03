@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Игорь",
+    "lastname": "Горяный",
+    "age": 22,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "Mjbaron",
+    "avatar": "https://sun9-36.userapi.com/impg/fLq93Dc7rsfo9dV0XPusmJVLyzeSr9Qv9YTCtg/OyaApqk3w2c.jpg?size=445x700&quality=96&sign=0cc20e2c75de2edf194b8ae9a0d9e904&type=album"
+  }
 }

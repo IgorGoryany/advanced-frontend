@@ -12,8 +12,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         mode,
         entry: paths.entry,
         output: {
-            filename: 'bundle.[contenthash].js',
-            chunkFilename: isDev ? '[local].[contenthash].js' : 'bundle.[contenthash].js',
+            filename: 'main.[contenthash].js',
+            chunkFilename: 'asyncComponents.[contenthash].js',
             path: paths.build,
             clean: true,
         },

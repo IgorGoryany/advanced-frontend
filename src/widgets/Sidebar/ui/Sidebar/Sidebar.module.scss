@@ -27,31 +27,11 @@
   z-index: 20;
 }
 
-.items {
+.links {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   margin-left: 30px;
-}
-
-.item {
-  margin-top: 0;
-  display: flex;
-  align-items: center;
-}
-
-.icon {
-  position: relative;
-  fill: var(--inverted-secondary-color);
-}
-
-.link {
-  background: none;
-  margin-left: 10px;
-  width: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: opacity 0.2s ease;
 }
 
 .open {
@@ -59,15 +39,5 @@
 
   .langSwitch {
     margin-left: 30px;
-  }
-
-  .link {
-    opacity: 1;
-    width: fit-content;
-    overflow: hidden;
-  }
-
-  .item:not(:first-child) {
-    margin-top: 10px;
   }
 }

@@ -3,7 +3,6 @@ import { User, UserSchema } from '../types/user';
 
 const initialState: UserSchema = {};
 
-// eslint-disable-next-line no-undef
 export const userSlice = createSlice({
     name: 'user',
     initialState,
