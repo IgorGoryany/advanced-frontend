@@ -9,8 +9,8 @@ export enum TextTheme {
 
 interface TextProps {
     className?: string
-    title?: string
-    text?: string
+    title?: string | number
+    text?: string | number
     theme?: TextTheme
 }
 

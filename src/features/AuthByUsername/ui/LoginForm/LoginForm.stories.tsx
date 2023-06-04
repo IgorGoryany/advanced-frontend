@@ -9,11 +9,7 @@ const meta = {
     component: LoginForm,
     tags: ['autodocs'],
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
-        loginForm: {
-            username: '',
-            password: '',
-            isLoading: true,
-        },
+        loginForm: {},
     })],
 } as Meta<typeof LoginForm>;
 
@@ -42,8 +38,6 @@ export const Light: Story = {
 export const DarkError: Story = {
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
         loginForm: {
-            username: '',
-            password: '',
             isLoading: false,
             error: 'неправильный логин или пароль',
         },
@@ -52,8 +46,6 @@ export const DarkError: Story = {
 export const LightError: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         loginForm: {
-            username: '',
-            password: '',
             isLoading: false,
             error: 'неправильный логин или пароль',
         },
@@ -63,8 +55,6 @@ export const LightError: Story = {
 export const DarkLoading: Story = {
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
         loginForm: {
-            username: '',
-            password: '',
             isLoading: true,
         },
     })],
@@ -72,8 +62,6 @@ export const DarkLoading: Story = {
 export const LightLoading: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         loginForm: {
-            username: '',
-            password: '',
             isLoading: true,
         },
     })],

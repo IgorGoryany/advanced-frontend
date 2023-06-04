@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
         user: {
-            authData: null,
+            authData: undefined,
         },
     })],
 };
@@ -24,7 +24,7 @@ export const Dark: Story = {
 export const Light: Story = {
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
         user: {
-            authData: null,
+            authData: undefined,
         },
     })],
 };

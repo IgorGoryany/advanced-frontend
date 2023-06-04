@@ -8,7 +8,7 @@ import { SidebarLink } from '../SidebarLink/SidebarLink';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string | null
+    className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {

@@ -1,5 +1,5 @@
 import {
-    FC, ReactNode, useCallback, useEffect, useRef, useState,
+    FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { classNames, useTheme } from '../../lib';
 import { Portal } from '../Portal/Portal';
@@ -27,7 +27,7 @@ export const Modal: FC<ModalProps> = (props) => {
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>(null);
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
     const closeHandler = useCallback(() => {
         if (onClose) {
