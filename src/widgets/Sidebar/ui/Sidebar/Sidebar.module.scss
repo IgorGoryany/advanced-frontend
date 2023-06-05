@@ -22,8 +22,8 @@
 
 .toggleBtn {
   position: absolute;
-  right: calc(0px - var(--font-line-l));
-  bottom: 32px;
+  left: 0;
+  top: -10px;
   z-index: 20;
 }
 

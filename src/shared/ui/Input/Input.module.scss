@@ -17,11 +17,13 @@
 
 .placeholder {
   margin-right: 5px;
+  display: flex;
 }
 
 .caretWrapper {
   position: relative;
   flex-grow: 1;
+  margin-left: 5px;
 }
 
 .caret {
@@ -32,6 +34,10 @@
   width: 8px;
   height: 3px;
   animation: caret-blinking alternate infinite 0.55s;
+}
+
+.disabled {
+  opacity: 0.7;
 }
 
 @keyframes caret-blinking {

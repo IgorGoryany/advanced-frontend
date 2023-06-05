@@ -1,17 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Profile } from '../../types/profile';
-
-interface LoginByUsernameProps {
-    username: string
-    password: string
-}
+import { Profile } from 'entities.entities/Profile';
 
 export const fetchingProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
     'profile/fetchingProfileData',
     async (_, thunkAPI) => {
         const {
-            dispatch,
             extra,
             rejectWithValue,
         } = thunkAPI;
@@ -28,6 +22,5 @@ export const fetchingProfileData = createAsyncThunk<Profile, void, ThunkConfig<s
             console.log(e);
             return rejectWithValue('Вы ввели неверный логин или пароль');
         }
-    }
-    ,
+    },
 );

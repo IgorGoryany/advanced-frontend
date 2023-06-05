@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib';
 import {
     Button, ButtonSize, ButtonTheme, LangSwitcher, ThemeSwitcher,
@@ -17,6 +17,19 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     const toggleSidebar = () => {
         setOpen((prevState) => !prevState);
     };
+
+    const linksList = useMemo(() => SidebarLinksList.map(({
+        Icon, path, text, authOnly,
+    }) => (
+        <SidebarLink
+            key={path}
+            text={text}
+            Icon={Icon}
+            path={path}
+            open={open}
+            authOnly={authOnly}
+        />
+    )), [open]);
 
     return (
         <div
@@ -37,15 +50,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
             <div className={cls.links}>
 
-                {SidebarLinksList.map(({ Icon, path, text }) => (
-                    <SidebarLink
-                        key={path}
-                        text={text}
-                        Icon={Icon}
-                        path={path}
-                        open={open}
-                    />
-                ))}
+                {linksList}
 
             </div>
 

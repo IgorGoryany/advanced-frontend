@@ -2,6 +2,8 @@ import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AppLink, AppLinkTheme } from 'shared/ui';
 import { classNames } from 'shared/lib';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities.entities/User';
 import cls from './SidebarLink.module.scss';
 
 interface SidebarLinksProps {
@@ -9,6 +11,7 @@ interface SidebarLinksProps {
     Icon: React.VFC<React.SVGProps<SVGSVGElement>>
     text: string
     open?: boolean
+    authOnly?: boolean
 }
 
 export const SidebarLink: FC<SidebarLinksProps> = memo((props: SidebarLinksProps) => {
@@ -17,9 +20,15 @@ export const SidebarLink: FC<SidebarLinksProps> = memo((props: SidebarLinksProps
         path,
         Icon,
         open,
+        authOnly,
     } = props;
 
     const { t } = useTranslation();
+    const isAuth = useSelector(getUserAuthData);
+    if (authOnly && !isAuth) {
+        return null;
+    }
+
     return (
         <AppLink
             to={path}

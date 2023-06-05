@@ -3,7 +3,8 @@ import { AsyncThunkAction } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 
 type ActionCreator<Return, Arg, RejectedValue>
-    = (arg: Arg) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue; }>;
+    = (arg: Arg) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue; state: StateSchema
+    extra: {api: jest.MockedFunctionDeep<AxiosStatic>; navigate?: jest.MockedFn<any>; } }>;
 
 jest.mock('axios');
 

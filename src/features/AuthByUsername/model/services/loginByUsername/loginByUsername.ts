@@ -3,7 +3,7 @@ import { User, userAction } from 'entities.entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 
-interface LoginByUsernameProps {
+export interface LoginByUsernameProps {
     username: string
     password: string
 }

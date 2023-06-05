@@ -2,8 +2,9 @@ import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from 'entities.entities/Profile';
+
 import { ReducersList } from 'shared/lib';
+import { profileReducer } from 'features/EditableProfileCard/model/slice/ProfileSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,

@@ -3,5 +3,14 @@
   "Профиль": "Profile",
   "Редактировать": "Edit",
   "Ваше имя": "Your name",
-  "Ваша фамилия": "Your last name"
+  "Ваша фамилия": "Your lastname",
+  "Произошла ошибка при загрузке пользователя": "An error occurred while loading the user",
+  "Попробуйте перезагрузить страницу": "Try reloading the page",
+  "Ваш ник": "Your username",
+  "Ваш возраст": "your name",
+  "Отменить": "Cancel",
+  "Сохранить": "Save",
+  "Ваш город": "Your city",
+  "Ссылка на автар": "Link to avatar",
+  "Валюта": "Currency"
 }

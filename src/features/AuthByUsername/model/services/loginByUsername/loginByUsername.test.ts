@@ -1,8 +1,5 @@
-import axios from 'axios';
-import { Dispatch } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { userAction } from 'entities.entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { userAction } from '../../../../../entities.entities/User/model/slice/userSlice';
 import { loginByUsername } from './loginByUsername';
 
 describe('loginByUsername.test', () => {
