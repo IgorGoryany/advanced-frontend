@@ -3,6 +3,7 @@ import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildСssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { buildFileLoader } from './loaders/buildFileLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
@@ -10,6 +11,8 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         use: 'ts-loader',
         exclude: /node_modules/,
     };
+
+    const babelLoader = buildBabelLoader(isDev);
 
     const svgLoader = buildSvgLoader();
 
@@ -19,6 +22,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     return [
         fileLoader,
         svgLoader,
+        babelLoader,
         typescriptLoader,
         cssLoader,
     ];
