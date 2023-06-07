@@ -21,11 +21,11 @@ export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 export const Light: Story = {
+};
+export const DarkSmall: Story = {
     args: {
         size: 50,
     },
-};
-export const DarkSmall: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 export const LightSmall: Story = {

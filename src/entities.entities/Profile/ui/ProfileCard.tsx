@@ -62,10 +62,10 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
         return (
             <div className={classNames(cls.profileCard, mods, [className, cls.error])}>
                 <Text
-                    title={t('Произошла ошибка при загрузке пользователя')}
-                    text={t('Попробуйте перезагрузить страницу')}
                     theme={TextTheme.ERROR}
                     align={Align.CENTER}
+                    title={t('Произошла ошибка при загрузке пользователя')}
+                    text={t('Попробуйте перезагрузить страницу')}
                 />
             </div>
 

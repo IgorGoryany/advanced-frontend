@@ -12,5 +12,12 @@
   "Сохранить": "Save",
   "Ваш город": "Your city",
   "Ссылка на автар": "Link to avatar",
-  "Валюта": "Currency"
+  "Валюта": "Currency",
+  "Серверная ошибка при сохранении": "Something went wrong, please refresh the page and try again",
+  "Данные не указаны": "Data not specified",
+  "Фамилия обязательное поле": "Surname required field",
+  "Имя обязательное поле": "Имя обязательное поле",
+  "Heкорректный возраст": "Name required field",
+  "Некорректный регион": "Incorrect region",
+  "Имя и фамилии обязателные поля": "First name and last name required fields"
 }

@@ -4,7 +4,7 @@ import { ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 
 import { ReducersList } from 'shared/lib';
-import { profileReducer } from 'features/EditableProfileCard/model/slice/ProfileSlice';
+import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,

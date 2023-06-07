@@ -3,6 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config';
 import { Theme } from 'shared/lib';
 import img from 'shared/assets/test/storybook.png';
+import { Country } from 'entities.entities/Country';
+import { Currency } from 'entities.entities/Currency';
 import { ProfileCard } from './ProfileCard';
 
 const meta = {
@@ -10,11 +12,14 @@ const meta = {
     component: ProfileCard,
     tags: ['autodocs'],
     args: {
+        readonly: true,
         data: {
             first: 'Игорь',
             lastname: 'Горяный',
             age: 22,
             city: 'Москва',
+            country: Country.Armenia,
+            currency: Currency.EUR,
             username: 'Mjbaron',
             avatar: img,
         },

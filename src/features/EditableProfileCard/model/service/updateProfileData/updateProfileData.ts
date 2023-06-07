@@ -1,13 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Profile } from 'entities.entities/Profile';
-import {
-    getProfileFormData,
-} from '../../selectors/getProfileFormData/getProfileFormData';
+import { Profile, ValidateProfileError } from 'entities.entities/Profile';
+import { validateProfileData } from '../validateProfileData/validateProfileData';
+import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
 
-export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileError[]>>(
     'profile/updateProfileData',
-    async (data, thunkAPI) => {
+    async (_, thunkAPI) => {
         const {
             extra,
             rejectWithValue,
@@ -15,6 +14,10 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<str
         } = thunkAPI;
 
         const formData = getProfileFormData(getState());
+        const errors = validateProfileData(formData);
+        if (errors.length) {
+            return rejectWithValue(errors);
+        }
         try {
             const response = await extra.api.put<Profile>('/profile', formData);
 
@@ -24,8 +27,7 @@ export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<str
 
             return response.data;
         } catch (e) {
-            console.log(e);
-            return rejectWithValue('Вы ввели неверный логин или пароль');
+            return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
         }
     },
 );

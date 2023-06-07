@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import {
     getProfileReadonly,
 } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
-import { profileAction } from '../../model/slice/ProfileSlice';
+import { profileAction } from '../../model/slice/profileSlice';
 import {
     updateProfileData,
 } from '../../model/service/updateProfileData/updateProfileData';

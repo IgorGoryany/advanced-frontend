@@ -3,16 +3,21 @@ import {
 } from 'react';
 import { DynamicModuleLoader, ReducersList, useAppDispatch } from 'shared/lib';
 import { useSelector } from 'react-redux';
-import { ProfileCard } from 'entities.entities/Profile';
+import { ProfileCard, ValidateProfileError } from 'entities.entities/Profile';
 import { Currency } from 'entities.entities/Currency';
 import { Country } from 'entities.entities/Country';
+import { Align, Text, TextTheme } from 'shared/ui';
+import { useTranslation } from 'react-i18next';
 import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
-import { profileAction, profileReducer } from '../model/slice/ProfileSlice';
+import { profileAction, profileReducer } from '../model/slice/profileSlice';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { fetchingProfileData } from '../model/service/fetchingProfileData/fetchingProfileData';
+import {
+    getProfileValidateError,
+} from '../model/selectors/getProfileValidateError/getProfileValidateError';
 
 interface EditableProfileCardProps {
 }
@@ -24,15 +29,27 @@ const reducers: ReducersList = {
 const isNumber = (value: string) => Number.isInteger(Number(value));
 
 export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
+    const { t } = useTranslation('profile');
+    const dispatch = useAppDispatch();
     const formData = useSelector(getProfileFormData);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
-
-    const dispatch = useAppDispatch();
+    const validateErrors = useSelector(getProfileValidateError);
+    const validateErrorsTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_SECOND_NAME_DATA]: t('Фамилия обязательное поле'),
+        [ValidateProfileError.INCORRECT_AGE_DATA]: t('Heкорректный возраст'),
+        [ValidateProfileError.INCORRECT_NAME_DATA]: t('Имя обязательное поле'),
+        [ValidateProfileError.INCORRECT_COUNTRY_DATA]: t('Некорректный регион'),
+        [ValidateProfileError.INCORRECT_FULL_NAME_DATA]: t('Имя и фамилии обязателные поля'),
+    };
 
     useEffect(() => {
-        dispatch(fetchingProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchingProfileData());
+        }
     }, [dispatch]);
 
     const onChangeLastname = useCallback((value: string) => {
@@ -71,6 +88,13 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            {validateErrors?.length && validateErrors.map((error) => (
+                <Text
+                    text={validateErrorsTranslates[error]}
+                    key={error}
+                    theme={TextTheme.ERROR}
+                />
+            ))}
             <ProfileCard
                 data={formData}
                 isLoading={isLoading}
