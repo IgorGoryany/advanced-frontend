@@ -13,8 +13,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { getLoginFormPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
-import { getLoginFormUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { loginAction, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -30,8 +30,8 @@ const LoginForm = memo((props:LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
-    const username = useSelector(getLoginFormUsername);
-    const password = useSelector(getLoginFormPassword);
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 

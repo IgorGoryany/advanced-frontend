@@ -5,7 +5,7 @@ import { PageLoader } from './PageLoader';
 import { ThemeDecorator } from '../../config';
 
 const meta = {
-    title: 'widgets/PageLoader',
+    title: 'shared/PageLoader',
     component: PageLoader,
     tags: ['autodocs'],
 } as Meta<typeof PageLoader>;
@@ -18,5 +18,5 @@ export const Dark: Story = {
 };
 
 export const Light: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)],
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };

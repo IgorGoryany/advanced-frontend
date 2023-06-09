@@ -22,14 +22,14 @@ export const Dark: Story = {
 };
 
 export const Light: Story = {
-    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         user: {
             authData: undefined,
         },
     })],
 };
 
-export const DarkEnterednull: Story = {
+export const DarkAuth: Story = {
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
         user: {
             authData: {},
@@ -37,8 +37,8 @@ export const DarkEnterednull: Story = {
     })],
 };
 
-export const LightEnterednull: Story = {
-    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
+export const LightAuth: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({
         user: {
             authData: {},
         },

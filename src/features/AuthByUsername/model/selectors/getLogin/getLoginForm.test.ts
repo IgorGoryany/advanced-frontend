@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getLoginForm } from 'features/AuthByUsername/model/selectors/getLogin/getLoginForm';
+import { getLoginForm } from './getLoginForm';
 
 describe('getLoginForm.test', () => {
     test('should return loginState', () => {

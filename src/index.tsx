@@ -10,11 +10,11 @@ import 'shared/config/i18n/i18n';
 render(
     <BrowserRouter>
         <StoreProvider>
-            <ErrorBoundary>
-                <ThemeProvider>
+            <ThemeProvider>
+                <ErrorBoundary>
                     <App />
-                </ThemeProvider>
-            </ErrorBoundary>
+                </ErrorBoundary>
+            </ThemeProvider>
         </StoreProvider>
     </BrowserRouter>,
     document.getElementById('root'),

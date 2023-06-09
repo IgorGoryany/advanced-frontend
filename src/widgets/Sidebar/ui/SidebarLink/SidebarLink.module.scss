@@ -1,24 +1,36 @@
 .item {
   display: flex;
   align-items: center;
+  position: relative;
 
   &:not(:first-child) {
     margin-top: 12px;
+  }
+
+  &:first-child {
+    margin-top: 32px;
   }
 }
 
 .icon {
   position: relative;
   fill: var(--inverted-primary-color);
-  margin-right: 10px;
+  flex-grow: 0;
+  width: 20px;
+  height: 20px;
+  z-index: 100;
 }
 
 .link {
-  background: none;
+  position: absolute;
+  left: 30px;
+  z-index: 0;
+  background: transparent;
   width: 0;
   height: 24px;
   opacity: 0;
   overflow: hidden;
+  transition: opacity 0.2s ease;
 }
 
 .open {
@@ -26,6 +38,5 @@
     opacity: 1;
     width: fit-content;
     overflow: hidden;
-    transition: opacity 0.2s ease 0.1s, width 3s linear 1s;
   }
 }

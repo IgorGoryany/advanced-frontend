@@ -1,9 +1,9 @@
 import React, { memo, Suspense, useMemo } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routerConfig } from 'shared/config';
 import { PageLoader } from 'shared/ui';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities.entities/User';
+import { routerConfig } from '../config/routerConfig';
 
 const AppRouter = memo(() => {
     const isAuth = useSelector(getUserAuthData);
