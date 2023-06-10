@@ -2,6 +2,7 @@ import React from 'react';
 import HomePageIcon from 'shared/assets/icons/HomePageIcon.svg';
 import AboutPageIcon from 'shared/assets/icons/AboutPageIcon.svg';
 import ProfilePageIcon from 'shared/assets/icons/ProfilePageIcon.svg';
+import ArticlePageIcon from 'shared/assets/icons/ArticlePageIcon.svg';
 import { routePaths } from 'shared/config';
 
 interface sidebarLinkType {
@@ -26,6 +27,12 @@ export const SidebarLinksList: sidebarLinkType[] = [
         Icon: ProfilePageIcon,
         path: routePaths.profile,
         text: 'Профиль',
+        authOnly: true,
+    },
+    {
+        Icon: ArticlePageIcon,
+        path: routePaths.articles,
+        text: 'Статьи',
         authOnly: true,
     },
 ];

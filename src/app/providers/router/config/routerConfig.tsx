@@ -3,6 +3,8 @@ import { AboutPage } from 'pages/AboutPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { AppRoutesProps, routePaths } from 'shared/config';
+import { ArticlePage } from 'pages/ArticlePage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 
 export const routerConfig: AppRoutesProps[] = [
     {
@@ -16,6 +18,16 @@ export const routerConfig: AppRoutesProps[] = [
     {
         path: routePaths.profile,
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    {
+        path: routePaths.articles,
+        element: <ArticlePage />,
+        authOnly: true,
+    },
+    {
+        path: routePaths.article_details,
+        element: <ArticleDetailsPage />,
         authOnly: true,
     },
 
