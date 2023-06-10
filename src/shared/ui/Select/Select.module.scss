@@ -23,4 +23,8 @@
 
 .disabled {
   opacity: 0.9;
+
+  .select:disabled {
+    opacity: 1;
+  }
 }

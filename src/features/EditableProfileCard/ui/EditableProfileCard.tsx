@@ -1,23 +1,21 @@
 import {
-    FC, memo, useCallback, useEffect,
+    FC, memo, useCallback, useEffect, useMemo,
 } from 'react';
 import { DynamicModuleLoader, ReducersList, useAppDispatch } from 'shared/lib';
 import { useSelector } from 'react-redux';
 import { ProfileCard, ValidateProfileError } from 'entities.entities/Profile';
 import { Currency } from 'entities.entities/Currency';
 import { Country } from 'entities.entities/Country';
-import { Align, Text, TextTheme } from 'shared/ui';
+import { Text, TextTheme } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
 import { profileAction, profileReducer } from '../model/slice/profileSlice';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
-
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { fetchingProfileData } from '../model/service/fetchingProfileData/fetchingProfileData';
-import {
-    getProfileValidateError,
-} from '../model/selectors/getProfileValidateError/getProfileValidateError';
+import { getProfileValidateError } from '../model/selectors/getProfileValidateError/getProfileValidateError';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface EditableProfileCardProps {
 }
@@ -36,7 +34,8 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateError);
-    const validateErrorsTranslates = {
+
+    const validateErrorsTranslates = useMemo(() => ({
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.INCORRECT_SECOND_NAME_DATA]: t('Фамилия обязательное поле'),
@@ -44,13 +43,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
         [ValidateProfileError.INCORRECT_NAME_DATA]: t('Имя обязательное поле'),
         [ValidateProfileError.INCORRECT_COUNTRY_DATA]: t('Некорректный регион'),
         [ValidateProfileError.INCORRECT_FULL_NAME_DATA]: t('Имя и фамилии обязателные поля'),
-    };
-
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchingProfileData());
-        }
-    }, [dispatch]);
+    }), [t]);
 
     const onChangeLastname = useCallback((value: string) => {
         dispatch(profileAction.editForm({ lastname: value || '' }));
@@ -86,29 +79,38 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
         dispatch(profileAction.editForm({ country: value || Country.Russia }));
     }, [dispatch]);
 
+    useEffect(() => {
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchingProfileData());
+        }
+    }, [dispatch]);
+
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            {validateErrors?.length && validateErrors.map((error) => (
-                <Text
-                    text={validateErrorsTranslates[error]}
-                    key={error}
-                    theme={TextTheme.ERROR}
+        <>
+            <ProfilePageHeader />
+            <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+                {validateErrors?.length && validateErrors.map((error) => (
+                    <Text
+                        text={validateErrorsTranslates[error]}
+                        key={error}
+                        theme={TextTheme.ERROR}
+                    />
+                ))}
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    readonly={readonly}
+                    onChangeLastname={onChangeLastname}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCounty}
                 />
-            ))}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                readonly={readonly}
-                onChangeLastname={onChangeLastname}
-                onChangeFirstname={onChangeFirstname}
-                onChangeUsername={onChangeUsername}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCounty}
-            />
-        </DynamicModuleLoader>
+            </DynamicModuleLoader>
+        </>
     );
 });

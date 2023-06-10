@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config';
 import { Theme } from 'shared/lib';
-import img from 'shared/assets/test/storybook.png';
+import img from 'shared/assets/test/storybook.jpg';
 import { Country } from 'entities.entities/Country';
 import { Currency } from 'entities.entities/Currency';
 import { ProfileCard } from './ProfileCard';

@@ -7,8 +7,8 @@ import {
     Button, ButtonTheme,
 } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userAction } from 'entities.entities/User';
+import { useDispatch } from 'react-redux';
+import { useAuth, userAction } from 'entities.entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import cls from './Navbar.module.scss';
 
@@ -19,7 +19,7 @@ interface NavbarProps {
 export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
-    const authData = useSelector(getUserAuthData);
+    const authData = useAuth();
     const dispatch = useDispatch();
 
     const onCloseModal = useCallback(() => {
