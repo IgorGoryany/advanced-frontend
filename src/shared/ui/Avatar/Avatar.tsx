@@ -1,9 +1,8 @@
 import {
-    CSSProperties, FC, memo, useMemo, useRef,
+    CSSProperties, FC, memo, useMemo,
 } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import PresetScss from '@storybook/preset-scss';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -11,6 +10,7 @@ interface AvatarProps {
     src?: string
     size?: number
     alt?: string
+    zoom?: number
 }
 
 export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
@@ -19,6 +19,7 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
         src,
         size = 100,
         alt = 'Аватар',
+        zoom = 1,
     } = props;
 
     const mods: Mods = {};
@@ -27,6 +28,10 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
         { width: `${size}px`, height: `${size}px` }
     ), [size]);
 
+    const styleAvatar = useMemo<CSSProperties>(() => (
+        { height: `${100 * zoom}%` }
+    ), [zoom]);
+
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.avatarWrapper, mods, [className])} style={styleWrapper}>
@@ -34,6 +39,7 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
                 src={src}
                 alt={t(alt)}
                 className={cls.avatar}
+                style={styleAvatar}
             />
         </div>
     );

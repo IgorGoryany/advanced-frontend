@@ -5,6 +5,10 @@ export { Loader } from './Loader/Loader';
 export { Modal } from './Modal/Modal';
 export { Portal } from './Portal/Portal';
 export { Input } from './Input/Input';
-export { Text, TextTheme, Align } from './Text/Text';
+export {
+    Text, TextTheme, Align, TextSize,
+} from './Text/Text';
 export { Avatar } from './Avatar/Avatar';
 export { Select, SelectOption } from './Select/Select';
+export { Skeleton } from './Skeleton/Skeleton';
+export { Icon } from './Icon/Icon';

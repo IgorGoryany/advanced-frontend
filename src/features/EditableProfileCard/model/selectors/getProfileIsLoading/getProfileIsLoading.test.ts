@@ -3,7 +3,7 @@ import {
     getProfileIsLoading,
 } from './getProfileIsLoading';
 
-describe('getProfileIsLoading.test', () => {
+describe('getArticleDetailsIsLoading.test', () => {
     test('', () => {
         const data: DeepPartial<StateSchema> = {
             profile: {

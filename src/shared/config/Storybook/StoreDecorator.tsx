@@ -5,10 +5,12 @@ import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 
 import { ReducersList } from 'shared/lib';
 import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
+import { articleDetailsReducer } from 'entities.entities/Article/model/slice/articleDetailsSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
+    articleDetails: articleDetailsReducer,
 };
 
 export const StoreDecorator = (
