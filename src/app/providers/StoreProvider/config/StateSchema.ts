@@ -6,10 +6,9 @@ import {
 } from '@reduxjs/toolkit';
 
 import { AxiosInstance } from 'axios';
-import { To } from '@remix-run/router';
-import { NavigateOptions } from 'react-router/dist/lib/context';
 import { ProfileSchema } from 'entities.entities/Profile';
 import { ArticleDetailsSchema } from 'entities.entities/Article';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 
 export interface StateSchema {
     counter: CounterSchema
@@ -19,6 +18,7 @@ export interface StateSchema {
     loginForm?: LoginSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
+    articleDetailsComments?: ArticleDetailsCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -36,7 +36,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArgs {
     api: AxiosInstance
-    navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T> {

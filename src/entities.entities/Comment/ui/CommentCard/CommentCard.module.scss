@@ -1,0 +1,27 @@
+.commentCard {
+  width: 100%;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 12px 20px;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  margin-top: 10px;
+}
+
+.avatarMock {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--inverted-bg-color);
+}
+
+.avatar,
+.avatarMock {
+  margin-right: 10px;
+}

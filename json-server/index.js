@@ -12,7 +12,7 @@ server.use(jsonServer.bodyParser);
 // Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
     await new Promise((res) => {
-        setTimeout(res, 800);
+        setTimeout(res, 300);
     });
     next();
 });
@@ -29,7 +29,11 @@ server.post('/login', (req, res) => {
         );
 
         if (userFromBd) {
-            return res.json({ id: userFromBd?.id, username: userFromBd?.username });
+            return res.json({
+                id: userFromBd?.id,
+                username: userFromBd?.username,
+                avatar: userFromBd?.avatar,
+            });
         }
 
         return res.status(403).json({ message: 'User not found' });

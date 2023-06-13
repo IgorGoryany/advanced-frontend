@@ -1,0 +1,7 @@
+.commentList {
+  margin-top: 10px;
+}
+
+.comment:not(:first-child) {
+  margin-top: 20px;
+}

@@ -6,11 +6,12 @@ import { useTranslation } from 'react-i18next';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {
-    className?: string
-    src?: string
-    size?: number
-    alt?: string
-    zoom?: number
+    className?: string;
+    src?: string;
+    size?: number;
+    alt?: string;
+    zoom?: number;
+    position?: string;
 }
 
 export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
@@ -20,6 +21,7 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
         size = 100,
         alt = 'Аватар',
         zoom = 1,
+        position = '0, 0',
     } = props;
 
     const mods: Mods = {};
@@ -29,8 +31,8 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
     ), [size]);
 
     const styleAvatar = useMemo<CSSProperties>(() => (
-        { height: `${100 * zoom}%` }
-    ), [zoom]);
+        { height: `${100 * zoom}%`, transform: `translate(${position})` }
+    ), [position, zoom]);
 
     const { t } = useTranslation();
     return (
