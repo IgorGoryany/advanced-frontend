@@ -24,7 +24,7 @@ import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
-} from '../../model/selectors/getArticleDetailsюеуыеюеы/getArticleDetails';
+} from '../../model/selectors/getArticleDetails/getArticleDetails';
 import { ArticleDetailsLoader } from '../ArticleDetailsLoader/ArticleDetailsLoader';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';

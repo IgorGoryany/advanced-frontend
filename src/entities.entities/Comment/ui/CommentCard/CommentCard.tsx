@@ -1,6 +1,9 @@
 import { FC, memo } from 'react';
 import { classNames, Mods } from 'shared/lib';
-import { Avatar, Skeleton, Text } from 'shared/ui';
+import {
+    AppLink, Avatar, Skeleton, Text,
+} from 'shared/ui';
+import { routePaths } from 'shared/config';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
 
@@ -43,7 +46,7 @@ export const CommentCard: FC<CommentCardProps> = memo(
 
         return (
             <div className={classNames(cls.commentCard, mods, [className])}>
-                <div className={cls.commentHeader}>
+                <AppLink className={cls.commentHeader} to={`${routePaths.profile}/${user.id}`}>
                     {user.avatar
                         ? (
                             <Avatar
@@ -54,7 +57,7 @@ export const CommentCard: FC<CommentCardProps> = memo(
                         )
                         : <div className={cls.avatarMock} />}
                     <Text title={user.username} />
-                </div>
+                </AppLink>
                 <Text text={text} className={cls.text} />
             </div>
         );

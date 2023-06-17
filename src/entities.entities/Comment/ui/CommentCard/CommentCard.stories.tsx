@@ -8,6 +8,13 @@ const meta = {
     title: 'entities/CommentCard',
     component: CommentCard,
     tags: ['autodocs'],
+    args: {
+        comment: {
+            id: 1,
+            user: { id: 1, username: 'Mjbaron' },
+            text: 'some comment',
+        },
+    },
 } as Meta<typeof CommentCard>;
 
 export default meta;
@@ -18,4 +25,16 @@ export const Dark: Story = {
 };
 export const Light: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+};
+export const DarkLoading: Story = {
+    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+    args: {
+        isLoading: true,
+    },
+};
+export const LightLoading: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+    args: {
+        isLoading: true,
+    },
 };

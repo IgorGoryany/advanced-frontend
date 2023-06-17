@@ -22,5 +22,7 @@
   "Аватар": "Avatar",
   "Валюта": "Currency",
   "Страна": "Country",
-  "Комментарии не найдены": "Comments not found"
+  "Комментарии не найдены": "Comments not found",
+  "Введите текст комментария": "Enter comment text",
+  "Отправить": "Send"
 }

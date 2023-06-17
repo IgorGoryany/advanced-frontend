@@ -8,6 +8,25 @@ const meta = {
     title: 'entities/CommentList',
     component: CommentList,
     tags: ['autodocs'],
+    args: {
+        comments: [
+            {
+                id: 1,
+                user: { id: 1, username: 'Mjbaron' },
+                text: 'some comment 1',
+            },
+            {
+                id: 2,
+                user: { id: 1, username: 'Mjbaron' },
+                text: 'some comment 2',
+            },
+            {
+                id: 3,
+                user: { id: 1, username: 'Mjbaron' },
+                text: 'some comment 3',
+            },
+        ],
+    },
 } as Meta<typeof CommentList>;
 
 export default meta;
@@ -18,4 +37,16 @@ export const Dark: Story = {
 };
 export const Light: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+};
+export const DarkLoading: Story = {
+    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+    args: {
+        isLoading: true,
+    },
+};
+export const LightLoading: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+    args: {
+        isLoading: true,
+    },
 };

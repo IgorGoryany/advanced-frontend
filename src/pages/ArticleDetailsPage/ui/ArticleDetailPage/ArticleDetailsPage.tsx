@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import {
     classNames,
     DynamicModuleLoader,
@@ -13,11 +13,14 @@ import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui';
 import { CommentList } from 'entities.entities/Comment';
 import { useSelector } from 'react-redux';
+import { AddCommentForm } from 'features/AddCommentForm';
 import {
     fetchCommentByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentByArticleId/fetchCommentByArticleId';
+} from '../../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
 import {
-    getArticleDetailsCommentsError,
+    addCommentForArticle,
+} from '../../model/services/addCommentForArticle/addCommentForArticle';
+import {
     getArticleDetailsCommentsIsLoading,
 } from '../../model/selectors/comments';
 import {
@@ -41,15 +44,31 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
     const { id } = useParams<{id: string}>();
     const { t } = useTranslation('article');
 
+    const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComment.selectAll);
     const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
-    // const commentsError = useSelector(getArticleDetailsCommentsError);
-    const dispatch = useAppDispatch();
+
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentByArticleId(id));
     }, [id]);
 
+    if (__PROJECT__ === 'storybook') {
+        return (
+            <div className={classNames(cls.articleDetailPage, mods, [className])}>
+                <ArticleDetails id="1" />
+                <Text title={t('Комментарии')} className={cls.commentTitle} />
+                <AddCommentForm onSendComment={onSendComment} />
+                <CommentList
+                    isLoading={commentsIsLoading}
+                    comments={comments}
+                />
+            </div>
+        );
+    }
     if (!id) {
         return (
             <div className={classNames(cls.articleDetailPage, mods, [className])}>
@@ -62,21 +81,12 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
         );
     }
 
-    if (__PROJECT__ === 'storybook') {
-        return (
-            <div className={classNames(cls.articleDetailPage, mods, [className])}>
-                <ArticleDetails id="1" />
-                <Text title={t('Комментарии')} className={cls.commentTitle} />
-                <CommentList />
-            </div>
-        );
-    }
-
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.articleDetailPage, mods, [className])}>
                 <ArticleDetails id={id} />
                 <Text title={t('Комментарии')} className={cls.commentTitle} />
+                <AddCommentForm onSendComment={onSendComment} />
                 <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}

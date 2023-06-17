@@ -1,13 +1,16 @@
 import {
-    FC, memo, useCallback, useEffect, useMemo,
+    FC, memo, useCallback, useMemo,
 } from 'react';
-import { DynamicModuleLoader, ReducersList, useAppDispatch } from 'shared/lib';
+import {
+    DynamicModuleLoader, ReducersList, useAppDispatch, useInitialEffect,
+} from 'shared/lib';
 import { useSelector } from 'react-redux';
 import { ProfileCard, ValidateProfileError } from 'entities.entities/Profile';
 import { Currency } from 'entities.entities/Currency';
 import { Country } from 'entities.entities/Country';
 import { Text, TextTheme } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
 import { profileAction, profileReducer } from '../model/slice/profileSlice';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -34,6 +37,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateError);
+    const { id } = useParams<{ id: string }>();
 
     const validateErrorsTranslates = useMemo(() => ({
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -79,11 +83,9 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
         dispatch(profileAction.editForm({ country: value || Country.Russia }));
     }, [dispatch]);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchingProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => {
+        if (id) dispatch(fetchingProfileData(id));
+    }, [dispatch, id]);
 
     return (
         <>

@@ -14,12 +14,13 @@ const profile: DeepPartial<Profile> = {
     country: Country.Armenia,
     currency: Currency.EUR,
     username: 'Mjbaron',
+    id: 1,
 };
 describe('fetchingProfileData.test', () => {
     test('success fetch profile', async () => {
         const thunk = new TestAsyncThunk(fetchingProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data: profile }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -29,7 +30,7 @@ describe('fetchingProfileData.test', () => {
     test('not success login', async () => {
         const thunk = new TestAsyncThunk(fetchingProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');

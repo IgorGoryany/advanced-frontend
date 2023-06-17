@@ -5,7 +5,8 @@ import {
 } from 'shared/ui';
 import { ThemeSwitcher } from 'features/ThemeSwither';
 import { LangSwitcher } from 'features/LangSwitcher';
-import { SidebarLinksList } from '../../model/links';
+import { useSelector } from 'react-redux';
+import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
 import { SidebarLink } from '../SidebarLink/SidebarLink';
 import cls from './Sidebar.module.scss';
 
@@ -19,8 +20,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     const toggleSidebar = () => {
         setOpen((prevState) => !prevState);
     };
+    const sidebarLinksList = useSelector(getSidebarLinks);
 
-    const linksList = useMemo(() => SidebarLinksList.map(({
+    const linksList = useMemo(() => sidebarLinksList.map(({
         Icon, path, text, authOnly,
     }) => (
         <SidebarLink
@@ -31,7 +33,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             open={open}
             authOnly={authOnly}
         />
-    )), [open]);
+    )), [open, sidebarLinksList]);
 
     return (
         <div
