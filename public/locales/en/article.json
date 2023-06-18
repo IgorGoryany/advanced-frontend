@@ -2,5 +2,8 @@
   "Не удалось загрузить статью": "Failed to load article",
   "Попробуйте перезагрузить страницу": "Try reloading the page",
   "Произошла ошибка при загрузке статьи": "An error occurred while loading the article",
-  "Комментарии": "Comments"
+  "Комментарии": "Comments",
+  "Статьи не найдены": "Articles not found",
+  "Читать далее": "Read more...",
+  "Назад к списку": "Back to list"
 }

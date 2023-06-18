@@ -1,8 +1,8 @@
 import {
     ChangeEvent, FC, memo, useCallback, useMemo,
 } from 'react';
-import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
+import { classNames, Mods } from '../../lib';
 import cls from './Select.module.scss';
 
 export interface SelectOption {

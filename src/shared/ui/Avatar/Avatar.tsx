@@ -1,8 +1,8 @@
 import {
     CSSProperties, FC, memo, useMemo,
 } from 'react';
-import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
+import { classNames, Mods } from '../../lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {

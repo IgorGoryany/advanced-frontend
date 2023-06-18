@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
-    Align, Avatar,
+    TextAlign, Avatar,
     Input,
     Loader,
     Text,
@@ -63,7 +63,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
             <div className={classNames(cls.profileCard, mods, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
-                    align={Align.CENTER}
+                    align={TextAlign.CENTER}
                     title={t('Произошла ошибка при загрузке пользователя')}
                     text={t('Попробуйте перезагрузить страницу')}
                 />

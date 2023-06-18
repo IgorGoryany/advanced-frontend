@@ -8,23 +8,25 @@ import {
     useInitialEffect,
 } from 'shared/lib';
 import { ArticleDetails } from 'entities.entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Text, TextTheme } from 'shared/ui';
+import {
+    Button, ButtonTheme, Text, TextTheme,
+} from 'shared/ui';
 import { CommentList } from 'entities.entities/Comment';
 import { useSelector } from 'react-redux';
 import { AddCommentForm } from 'features/AddCommentForm';
+import { routePaths } from 'shared/config';
 import {
     fetchCommentByArticleId,
 } from '../../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
 import {
     addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
 import {
-    getArticleDetailsCommentsIsLoading,
-} from '../../model/selectors/comments';
-import {
-    articleDetailsCommentReducer, getArticleComment,
+    articleDetailsCommentReducer,
+    getArticleComment,
 } from '../../model/slice/articleDetailsCommentSlice';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -47,10 +49,15 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComment.selectAll);
     const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+    const navigate = useNavigate();
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
+
+    const onBackToList = useCallback(() => {
+        navigate(routePaths.articles);
+    }, [navigate]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentByArticleId(id));
@@ -59,6 +66,9 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
     if (__PROJECT__ === 'storybook') {
         return (
             <div className={classNames(cls.articleDetailPage, mods, [className])}>
+                <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id="1" />
                 <Text title={t('Комментарии')} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
@@ -84,6 +94,9 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.articleDetailPage, mods, [className])}>
+                <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text title={t('Комментарии')} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />

@@ -7,9 +7,9 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
-    Align, Avatar, Icon, Text, TextSize,
+    TextAlign, Avatar, Icon, Text, TextSize,
 } from 'shared/ui';
-import ViewsIcon from 'shared/assets/icons/VievsIcon.svg';
+import ViewsIcon from 'shared/assets/icons/ViewsIcon.svg';
 import DateIcon from 'shared/assets/icons/DateIcon.svg';
 import {
     ArticleParagraphsBlock,
@@ -67,6 +67,12 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
             }
         }, []);
 
+        useEffect(() => {
+            if (__PROJECT__ !== 'storybook') {
+                dispatch(fetchArticleDetailsById(id));
+            }
+        }, [dispatch, id]);
+
         let content;
 
         if (isLoading) {
@@ -81,7 +87,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
         } else if (error) {
             content = (
                 <Text
-                    align={Align.CENTER}
+                    align={TextAlign.CENTER}
                     title={t('Произошла ошибка при загрузке статьи')}
                 />
             );
@@ -107,11 +113,6 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
                 </>
             );
         }
-        useEffect(() => {
-            if (__PROJECT__ !== 'storybook') {
-                dispatch(fetchArticleDetailsById(id));
-            }
-        }, [dispatch, id]);
 
         return (
             <DynamicModuleLoader reducers={reducers}>

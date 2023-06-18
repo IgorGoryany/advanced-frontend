@@ -16,7 +16,7 @@ export const routerConfig: AppRoutesProps[] = [
         element: <AboutPage />,
     },
     {
-        path: `${routePaths.profile}/:id`,
+        path: `${routePaths.profile}:id`,
         element: <ProfilePage />,
         authOnly: true,
     },
@@ -26,7 +26,7 @@ export const routerConfig: AppRoutesProps[] = [
         authOnly: true,
     },
     {
-        path: `${routePaths.article_details}/:id`,
+        path: `${routePaths.article_details}:id`,
         element: <ArticleDetailsPage />,
         authOnly: true,
     },

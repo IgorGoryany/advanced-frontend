@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'shared/lib';
 import { StoreDecorator, ThemeDecorator } from 'shared/config';
-import { ArticleBlockType, ArticleType } from 'entities.entities/Article/model/types/article';
+import { ArticleBlockType, ArticleType } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 const meta = {
@@ -89,7 +89,42 @@ type Story = StoryObj<typeof meta>;
 
 export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
+
 };
 export const Light: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT)],
+};
+
+export const DarkLoading: Story = {
+    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
+        articleDetails: {
+            isLoading: true,
+        },
+    })],
+
+};
+
+export const LightLoading: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+        articleDetails: {
+            isLoading: true,
+        },
+    })],
+};
+
+export const DarkError: Story = {
+    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
+        articleDetails: {
+            error: 'some error',
+        },
+    })],
+
+};
+
+export const LightError: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({
+        articleDetails: {
+            error: 'some error',
+        },
+    })],
 };

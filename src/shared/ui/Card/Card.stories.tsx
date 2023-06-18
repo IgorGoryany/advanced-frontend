@@ -3,25 +3,17 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from '../../lib/theme/ThemeContext/ThemeContext';
 import { StoreDecorator } from '../../config/Storybook/StoreDecorator';
 import { ThemeDecorator } from '../../config/Storybook/ThemeDecorator';
-import { Code } from './Code';
+import { Text } from '../Text/Text';
+import { Card } from './Card';
 
 const meta = {
-    title: 'shared/Code',
-    component: Code,
+    title: 'shared/Card',
+    component: Card,
     tags: ['autodocs'],
     args: {
-        children: 'import type { Meta, StoryObj } from \'@storybook/react\';\n'
-            + '\n'
-            + 'import { Theme } from \'shared/lib\';\n'
-            + 'import { StoreDecorator, ThemeDecorator } from \'shared/config\';\n'
-            + 'import { Code } from \'./Code\';\n'
-            + '\n'
-            + 'const meta = {\n'
-            + '    title: \'shared/Code\',\n'
-            + '    component: Code,\n'
-            + '    tags: [\'autodocs\'],',
+        children: <Text text="someText" title="someTitle" />,
     },
-} as Meta<typeof Code>;
+} as Meta<typeof Card>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

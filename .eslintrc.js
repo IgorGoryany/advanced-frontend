@@ -72,10 +72,14 @@ module.exports = {
         __PROJECT__: true,
     },
     overrides: [{
-        files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+        files: [
+            '**/src/**/*.{test,stories}.{ts,tsx}',
+            '**/src/shared/ui/**/*.tsx',
+        ],
         rules: {
             'i18next/no-literal-string': 'off',
             'max-len': 'off',
+            'react/jsx-props-no-spreading': 'off',
         },
     }],
 };

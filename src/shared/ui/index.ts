@@ -6,9 +6,10 @@ export { Modal } from './Modal/Modal';
 export { Portal } from './Portal/Portal';
 export { Input } from './Input/Input';
 export {
-    Text, TextTheme, Align, TextSize,
+    Text, TextTheme, TextAlign, TextSize,
 } from './Text/Text';
 export { Avatar } from './Avatar/Avatar';
 export { Select, SelectOption } from './Select/Select';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Icon } from './Icon/Icon';
+export { Card } from './Card/Card';

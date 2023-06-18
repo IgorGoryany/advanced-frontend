@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib';
+import { classNames } from '../../lib';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
@@ -7,7 +7,7 @@ export enum TextTheme {
     ERROR = 'error',
 }
 
-export enum Align {
+export enum TextAlign {
     RIGHT = 'right',
     LEFT = 'left',
     CENTER = 'center',
@@ -23,9 +23,9 @@ interface TextProps {
     title?: string | number
     text?: string | number
     theme?: TextTheme
-    titleAlign?: Align
-    textAlign?: Align
-    align?: Align
+    titleAlign?: TextAlign
+    textAlign?: TextAlign
+    align?: TextAlign
     size?: TextSize
 }
 
@@ -36,7 +36,7 @@ export const Text = memo((props: TextProps) => {
         text,
         theme = TextTheme.PRIMARY,
         titleAlign = '',
-        align = Align.LEFT,
+        align = TextAlign.LEFT,
         textAlign = '',
         size = TextSize.SIZE_M,
     } = props;
@@ -47,11 +47,11 @@ export const Text = memo((props: TextProps) => {
     return (
         <div className={classNames(cls.text, mods, additional)}>
             {title && (
-                <h2
+                <p
                     className={classNames(cls.title, {}, [cls[titleAlign]])}
                 >
                     {title}
-                </h2>
+                </p>
             )}
             {text && (
                 <p
