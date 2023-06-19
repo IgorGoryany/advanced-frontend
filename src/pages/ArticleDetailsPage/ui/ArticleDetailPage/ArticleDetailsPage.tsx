@@ -23,7 +23,7 @@ import {
 import {
     addCommentForArticle,
 } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
+import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/getComments';
 import {
     articleDetailsCommentReducer,
     getArticleComment,

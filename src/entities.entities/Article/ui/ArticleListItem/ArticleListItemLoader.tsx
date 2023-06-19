@@ -8,12 +8,12 @@ import ViewsIcon from 'shared/assets/icons/ViewsIcon.svg';
 import {
     ArticleParagraphsBlock,
 } from '../ArticleParagraphsBlock/ArticleParagraphsBlock';
-import { ArticleView } from '../../model/types/article';
+import { ArticlesView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
     className?: string;
-    view: ArticleView
+    view: ArticlesView
 }
 
 export const ArticleListItemLoader: FC<ArticleListItemProps> = memo(
@@ -48,9 +48,7 @@ export const ArticleListItemLoader: FC<ArticleListItemProps> = memo(
         return (
             <div className={classNames(cls.articleListItem, mods, [className, cls[view]])}>
                 <Card className={cls.card}>
-                    <div className={cls.imgWrapper}>
-                        <Skeleton height={200} width={200} className={cls.img} />
-                    </div>
+                    <Skeleton height={230} width={200} border="10px" />
                     <div className={cls.cardInfo}>
                         <Skeleton height={16} width={115} className={cls.type} />
                     </div>

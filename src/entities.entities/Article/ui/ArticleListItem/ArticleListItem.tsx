@@ -12,14 +12,14 @@ import {
     ArticleParagraphsBlock,
 } from '../ArticleParagraphsBlock/ArticleParagraphsBlock';
 import {
-    Article, ArticleBlockText, ArticleBlockType, ArticleView,
+    Article, ArticleBlockText, ArticleBlockType, ArticlesView,
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
     className?: string;
     article: Article;
-    view: ArticleView
+    view: ArticlesView
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = memo(

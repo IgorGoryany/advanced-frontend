@@ -1,0 +1,13 @@
+.articleViewSelector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.viewBtn {
+  transform: scale(1.2);
+}
+
+.notSelected {
+  fill: var(--inverted-primary-color);
+}

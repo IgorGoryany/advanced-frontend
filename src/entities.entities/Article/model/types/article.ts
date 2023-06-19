@@ -35,7 +35,7 @@ export enum ArticleType {
     SCIENCE = 'SCIENCE',
 }
 
-export type ArticleView = 'BIG' | 'SMALL'
+export type ArticlesView = 'BIG' | 'SMALL'
 
 export interface Article {
     id: number;

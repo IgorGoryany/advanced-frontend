@@ -1,7 +1,6 @@
 import {
-    CSSProperties, FC, memo, useMemo,
+    CSSProperties, FC, memo, MutableRefObject, useEffect, useMemo, useRef,
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '../../lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 
@@ -34,12 +33,11 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
         { height: `${100 * zoom}%`, transform: `translate(${position})` }
     ), [position, zoom]);
 
-    const { t } = useTranslation();
     return (
         <div className={classNames(cls.avatarWrapper, mods, [className])} style={styleWrapper}>
             <img
                 src={src}
-                alt={t(alt)}
+                alt={alt}
                 className={cls.avatar}
                 style={styleAvatar}
             />

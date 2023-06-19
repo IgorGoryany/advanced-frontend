@@ -1,5 +1,5 @@
 .articleListItem {
-  margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .BIG {
@@ -77,11 +77,18 @@
 
   .imgWrapper {
     position: relative;
+    height: 230px;
     overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
   }
 
   .img {
     width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     object-fit: cover;
   }
 
