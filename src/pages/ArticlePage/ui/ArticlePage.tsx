@@ -7,9 +7,13 @@ import { ArticleList, ArticlesView } from 'entities.entities/Article';
 import { useSelector } from 'react-redux';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { ARTICLE_VIEW_KEY } from 'shared/const/localStorage';
+import { Page } from 'shared/ui';
 import {
-    getArticlesError,
-    getArticlesIsLoading, getArticlesView,
+    fetchNextArticlesPage,
+} from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import {
+    getArticlesError, getArticlesHasMore,
+    getArticlesIsLoading, getArticlesPage, getArticlesView,
 } from '../model/selectors/getArticles';
 import {
     fetchArticleList,
@@ -46,15 +50,24 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
         dispatch(articlePageAction.setView(newView));
     }, [dispatch]);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     useInitialEffect(() => {
         const initialView = localStorage.getItem(ARTICLE_VIEW_KEY) as ArticlesView;
-        dispatch(articlePageAction.initView(initialView));
-        dispatch(fetchArticleList());
+        dispatch(articlePageAction.initState(initialView));
+        dispatch(fetchArticleList({
+            page: 1,
+        }));
     });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.articlePage, mods, [className])}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames(cls.articlePage, mods, [className])}
+            >
                 <ArticleViewSelector view={view} onViewClick={onViewClick} />
                 <ArticleList
                     view={view}
@@ -62,7 +75,7 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
                     isLoading={isLoading}
                     articles={articles}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

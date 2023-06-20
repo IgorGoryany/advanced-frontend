@@ -11,7 +11,7 @@ import { ArticleDetails } from 'entities.entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
-    Button, ButtonTheme, Text, TextTheme,
+    Button, ButtonTheme, Page, Text, TextTheme,
 } from 'shared/ui';
 import { CommentList } from 'entities.entities/Comment';
 import { useSelector } from 'react-redux';
@@ -65,7 +65,7 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
 
     if (__PROJECT__ === 'storybook') {
         return (
-            <div className={classNames(cls.articleDetailPage, mods, [className])}>
+            <Page className={classNames(cls.articleDetailPage, mods, [className])}>
                 <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
                     {t('Назад к списку')}
                 </Button>
@@ -76,24 +76,24 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         );
     }
     if (!id) {
         return (
-            <div className={classNames(cls.articleDetailPage, mods, [className])}>
+            <Page className={classNames(cls.articleDetailPage, mods, [className])}>
                 <Text
                     title={t('Не удалось загрузить статью')}
                     text={t('Попробуйте перезагрузить страницу')}
                     theme={TextTheme.ERROR}
                 />
-            </div>
+            </Page>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.articleDetailPage, mods, [className])}>
+            <Page className={classNames(cls.articleDetailPage, mods, [className])}>
                 <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
                     {t('Назад к списку')}
                 </Button>
@@ -104,7 +104,7 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

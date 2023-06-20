@@ -42,17 +42,9 @@ export const ArticleList: FC<ArticleListProps> = memo(
             />
         ), [view]);
 
-        if (isLoading) {
-            return (
-                <div className={classNames(cls.articleList, mods, [className, cls[view]])}>
-                    {cardLoaders(view)}
-                </div>
-            );
-        }
-
         if (error) {
             return (
-                <div className={classNames(cls.articleList, mods, [className, cls[view]])}>
+                <div className={classNames(cls.articleList, mods, [className])}>
                     <Text
                         align={TextAlign.CENTER}
                         title={t('Не удалось загрузить посты')}
@@ -66,7 +58,8 @@ export const ArticleList: FC<ArticleListProps> = memo(
             <div className={classNames(cls.articleList, mods, [className, cls[view]])}>
                 {articles.length ? (
                     articles?.map(renderArticle)
-                ) : <Text title={t('Статьи не найдены')} align={TextAlign.CENTER} />}
+                ) : !isLoading && <Text title={t('Статьи не найдены')} align={TextAlign.CENTER} />}
+                {isLoading && cardLoaders(view)}
             </div>
         );
     },

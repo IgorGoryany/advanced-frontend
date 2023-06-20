@@ -25,18 +25,19 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
     const linksList = useMemo(() => sidebarLinksList.map(({
         Icon, path, text, authOnly,
     }) => (
-        <SidebarLink
-            key={path}
-            text={text}
-            Icon={Icon}
-            path={path}
-            open={open}
-            authOnly={authOnly}
-        />
+        <li className={cls.link} key={path}>
+            <SidebarLink
+                text={text}
+                Icon={Icon}
+                path={path}
+                open={open}
+                authOnly={authOnly}
+            />
+        </li>
     )), [open, sidebarLinksList]);
 
     return (
-        <div
+        <aside
             data-testid="sidebar"
             className={classNames(cls.sidebar, { [cls.open]: open }, [className])}
         >
@@ -52,16 +53,14 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 {open ? '<' : '>'}
             </Button>
 
-            <div className={cls.links}>
-
+            <ul className={cls.links}>
                 {linksList}
-
-            </div>
+            </ul>
 
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher short={!open} className={cls.langSwitch} />
             </div>
-        </div>
+        </aside>
     );
 };

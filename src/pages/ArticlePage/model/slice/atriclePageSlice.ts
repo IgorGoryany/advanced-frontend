@@ -19,13 +19,19 @@ export const articlePageSlice = createSlice({
         ids: [],
         entities: {},
         view: 'SMALL',
+        hasMore: true,
+        page: 1,
     }),
     reducers: {
         setView: (state, action:PayloadAction<ArticlesView>) => {
             state.view = action.payload;
         },
-        initView: (state, action:PayloadAction<ArticlesView>) => {
+        setPage: (state, action:PayloadAction<number>) => {
+            state.page = action.payload;
+        },
+        initState: (state, action:PayloadAction<ArticlesView>) => {
             state.view = action.payload;
+            state.limit = action.payload === 'BIG' ? 4 : 10;
         },
     },
     extraReducers: (builder) => {
@@ -35,7 +41,8 @@ export const articlePageSlice = createSlice({
             })
             .addCase(fetchArticleList.fulfilled, (state, action) => {
                 state.isLoading = false;
-                articleAdapter.setAll(state, action.payload);
+                articleAdapter.addMany(state, action.payload);
+                state.hasMore = action.payload.length > 0;
             })
             .addCase(fetchArticleList.rejected, (state, action) => {
                 state.isLoading = false;

@@ -1,6 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Article } from 'entities.entities/Article';
 import { ArticleType } from 'entities.entities/Article/model/types/article';
+import { StateSchema } from 'app/providers/StoreProvider';
 import {
     fetchArticleList,
 } from './fetchArticleList';
@@ -28,11 +29,18 @@ const article: DeepPartial<Article[]> = [
     },
 ];
 
+const state: DeepPartial<StateSchema> = {
+    articlesPage: {
+        hasMore: true,
+        limit: 2,
+    },
+};
+
 describe('fetchArticleList', () => {
     test('success get Article[]', async () => {
-        const thunk = new TestAsyncThunk(fetchArticleList);
+        const thunk = new TestAsyncThunk(fetchArticleList, state);
         thunk.api.get.mockReturnValue(Promise.resolve({ data: article }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk({ page: 1 });
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -40,9 +48,9 @@ describe('fetchArticleList', () => {
     });
 
     test('not success get Article[]', async () => {
-        const thunk = new TestAsyncThunk(fetchArticleList);
+        const thunk = new TestAsyncThunk(fetchArticleList, state);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk({ page: 1 });
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');

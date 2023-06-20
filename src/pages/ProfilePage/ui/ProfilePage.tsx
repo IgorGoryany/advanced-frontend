@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { EditableProfileCard } from 'features/EditableProfileCard';
+import { Page } from 'shared/ui';
 
 interface ProfilePageProps {
     className?: string
@@ -13,9 +14,9 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     const mods: Mods = {};
 
     return (
-        <div className={classNames('', mods, [className])}>
+        <Page className={classNames('', mods, [className])}>
             <EditableProfileCard />
-        </div>
+        </Page>
     );
 };
 
