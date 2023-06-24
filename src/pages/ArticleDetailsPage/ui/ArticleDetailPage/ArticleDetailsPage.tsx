@@ -94,7 +94,10 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <PageLayout className={classNames(cls.articleDetailPage, mods, [className])}>
+            <PageLayout
+                saveScroll={false}
+                className={classNames(cls.articleDetailPage, mods, [className])}
+            >
                 <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
                     {t('Назад к списку')}
                 </Button>

@@ -4,6 +4,7 @@ import {
 import { counterReducer } from 'entities.entities/Counter';
 import { userReducer } from 'entities.entities/User';
 import { $api } from 'shared/api/api';
+import { scrollSaveReducer } from 'widgets/PageLayout';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 
@@ -15,6 +16,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scrollSave: scrollSaveReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);

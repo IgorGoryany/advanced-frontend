@@ -8,3 +8,6 @@ export { classNames, Mods } from './classNames/classNames';
 export { useTheme } from './hooks/useTheme/useTheme';
 export { useInitialEffect } from './hooks/useInitialEffect/useInitialEffect';
 export { useHover } from './hooks/useHover/useHover';
+export { useThrottle } from './hooks/useThrottle/useThrottle';
+export { useInfiniteScroll } from './hooks/useInfiniteScroll/useInfiniteScroll';
+export { useLayoutInitialEffect } from './hooks/useLayoutInitialEffect/useLayoutInitialEffect';
