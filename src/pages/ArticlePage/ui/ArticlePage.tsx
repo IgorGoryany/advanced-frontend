@@ -7,17 +7,16 @@ import { ArticleList, ArticlesView } from 'entities.entities/Article';
 import { useSelector } from 'react-redux';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { ARTICLE_VIEW_KEY } from 'shared/const/localStorage';
-import { Page } from 'shared/ui';
+import { PageLayout } from 'widgets/PageLayout';
+import { initArticlePage } from '../model/services/initArticlePage/initArticlePage';
 import {
     fetchNextArticlesPage,
 } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
-    getArticlesError, getArticlesHasMore,
-    getArticlesIsLoading, getArticlesPage, getArticlesView,
+    getArticlesError,
+    getArticlesIsLoading, getArticlesView,
 } from '../model/selectors/getArticles';
-import {
-    fetchArticleList,
-} from '../model/services/fetchArticleList/fetchArticleList';
+
 import {
     articlePageAction,
     articlePageReducer,
@@ -56,15 +55,12 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
 
     useInitialEffect(() => {
         const initialView = localStorage.getItem(ARTICLE_VIEW_KEY) as ArticlesView;
-        dispatch(articlePageAction.initState(initialView));
-        dispatch(fetchArticleList({
-            page: 1,
-        }));
+        dispatch(initArticlePage(initialView));
     });
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
-            <Page
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+            <PageLayout
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.articlePage, mods, [className])}
             >
@@ -75,7 +71,7 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
                     isLoading={isLoading}
                     articles={articles}
                 />
-            </Page>
+            </PageLayout>
         </DynamicModuleLoader>
     );
 };

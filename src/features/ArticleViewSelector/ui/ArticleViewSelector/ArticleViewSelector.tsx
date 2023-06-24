@@ -49,8 +49,8 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
                     <Button
                         theme={ButtonTheme.CLEAR}
                         onClick={onViewClickHandler(viewType.view)}
-                        key={viewType.view}
                         className={cls.viewBtn}
+                        key={viewType.view}
                     >
                         <Icon
                             Svg={viewType.icon}

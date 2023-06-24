@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Page } from 'shared/ui';
+import { PageLayout } from 'widgets/PageLayout';
 
 const AboutPage = () => {
     const { t } = useTranslation('about');
     return (
-        <Page>
+        <PageLayout>
             {t('О сайте')}
-        </Page>
+        </PageLayout>
     );
 };
 

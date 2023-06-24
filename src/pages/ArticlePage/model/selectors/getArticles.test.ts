@@ -6,6 +6,7 @@ import {
     getArticlesLimit,
     getArticlesPage,
     getArticlesHasMore,
+    getArticlesInited,
 } from './getArticles';
 
 describe('getArticleDetailsComments', () => {
@@ -39,7 +40,7 @@ describe('getArticleDetailsComments', () => {
             expect(getArticlesError(state as StateSchema)).toBe(undefined);
         },
     );
-    test('should return loginState', () => {
+    test('should return article view', () => {
         const state: DeepPartial<StateSchema> = {
             articlesPage: {
                 error: 'abd',
@@ -55,7 +56,7 @@ describe('getArticleDetailsComments', () => {
             expect(getArticlesView(state as StateSchema)).toBe('SMALL');
         },
     );
-    test('should return loginState', () => {
+    test('should return article limit', () => {
         const state: DeepPartial<StateSchema> = {
             articlesPage: {
                 error: 'abd',
@@ -72,7 +73,7 @@ describe('getArticleDetailsComments', () => {
             expect(getArticlesLimit(state as StateSchema)).toBe(9);
         },
     );
-    test('should return loginState', () => {
+    test('should return article page', () => {
         const state: DeepPartial<StateSchema> = {
             articlesPage: {
                 error: 'abd',
@@ -83,13 +84,13 @@ describe('getArticleDetailsComments', () => {
         expect(getArticlesPage(state as StateSchema)).toBe(5);
     });
     test(
-        'should work with empty state and return SMALL',
+        'should work with empty state and return undefined',
         () => {
             const state: DeepPartial<StateSchema> = {};
             expect(getArticlesPage(state as StateSchema)).toBe(undefined);
         },
     );
-    test('should return loginState', () => {
+    test('should return article has more', () => {
         const state: DeepPartial<StateSchema> = {
             articlesPage: {
                 error: 'abd',
@@ -100,10 +101,28 @@ describe('getArticleDetailsComments', () => {
         expect(getArticlesHasMore(state as StateSchema)).toBe(false);
     });
     test(
-        'should work with empty state and return SMALL',
+        'should work with empty state and return undefined',
         () => {
             const state: DeepPartial<StateSchema> = {};
             expect(getArticlesHasMore(state as StateSchema)).toBe(undefined);
+        },
+    );
+    test('should return article inited', () => {
+        const state: DeepPartial<StateSchema> = {
+            articlesPage: {
+                error: 'abd',
+                view: 'BIG',
+                hasMore: false,
+                inited: true,
+            },
+        };
+        expect(getArticlesInited(state as StateSchema)).toBe(true);
+    });
+    test(
+        'should work with empty state and return true',
+        () => {
+            const state: DeepPartial<StateSchema> = {};
+            expect(getArticlesInited(state as StateSchema)).toBe(false);
         },
     );
 });

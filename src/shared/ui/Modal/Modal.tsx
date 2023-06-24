@@ -27,6 +27,7 @@ export const Modal: FC<ModalProps> = (props) => {
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
+    const [isOpened, setIsOpened] = useState(false);
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
     const closeHandler = useCallback(() => {
@@ -40,7 +41,7 @@ export const Modal: FC<ModalProps> = (props) => {
     }, [onClose]);
 
     const mods: Record<string, boolean | undefined> = {
-        [cls.opened]: isOpen,
+        [cls.opened]: isOpened,
         [cls.isClosing]: isClosing,
     };
 
@@ -66,10 +67,18 @@ export const Modal: FC<ModalProps> = (props) => {
     }, [isOpen, onKeydown]);
 
     useEffect(() => {
-        if (isOpen) {
+        if (isOpen && !isMounted) {
             setIsMounted(true);
+
+            setTimeout(() => {
+                setIsOpened(true);
+            }, 0);
+        } else if (isOpen && isMounted) {
+            setIsOpened(true);
+        } else {
+            setIsOpened(false);
         }
-    }, [isOpen]);
+    }, [isMounted, isOpen]);
 
     if (!isMounted && lazy) {
         return null;

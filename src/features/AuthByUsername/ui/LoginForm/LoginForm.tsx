@@ -21,12 +21,13 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 
 export interface LoginFormProps {
     className?: string
+    isOpen?: boolean
 }
 
 const initialReducers: ReducersList = { loginForm: loginReducer };
 
 const LoginForm = memo((props:LoginFormProps) => {
-    const { className } = props;
+    const { className, isOpen } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
@@ -61,7 +62,7 @@ const LoginForm = memo((props:LoginFormProps) => {
                 <Text title={t('Форма авторизации')} />
                 {error && <Text text={t(error)} theme={TextTheme.ERROR} />}
                 <Input
-                    autofocus
+                    autofocus={isOpen}
                     className={cls.input}
                     placeholder={t('Введите username')}
                     onChange={onChangeUsername}

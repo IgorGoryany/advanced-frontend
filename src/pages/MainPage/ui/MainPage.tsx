@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import { Page } from 'shared/ui';
+import { PageLayout } from 'widgets/PageLayout';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
     return (
-        <Page>
+        <PageLayout>
             {t('Главная страница')}
-        </Page>
+        </PageLayout>
     );
 };
 

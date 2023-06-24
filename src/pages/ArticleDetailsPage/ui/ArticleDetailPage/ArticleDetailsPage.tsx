@@ -11,12 +11,13 @@ import { ArticleDetails } from 'entities.entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
-    Button, ButtonTheme, Page, Text, TextTheme,
+    Button, ButtonTheme, Text, TextTheme,
 } from 'shared/ui';
 import { CommentList } from 'entities.entities/Comment';
 import { useSelector } from 'react-redux';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { routePaths } from 'shared/config';
+import { PageLayout } from 'widgets/PageLayout';
 import {
     fetchCommentByArticleId,
 } from '../../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
@@ -65,7 +66,7 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
 
     if (__PROJECT__ === 'storybook') {
         return (
-            <Page className={classNames(cls.articleDetailPage, mods, [className])}>
+            <PageLayout className={classNames(cls.articleDetailPage, mods, [className])}>
                 <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
                     {t('Назад к списку')}
                 </Button>
@@ -76,24 +77,24 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </Page>
+            </PageLayout>
         );
     }
     if (!id) {
         return (
-            <Page className={classNames(cls.articleDetailPage, mods, [className])}>
+            <PageLayout className={classNames(cls.articleDetailPage, mods, [className])}>
                 <Text
                     title={t('Не удалось загрузить статью')}
                     text={t('Попробуйте перезагрузить страницу')}
                     theme={TextTheme.ERROR}
                 />
-            </Page>
+            </PageLayout>
         );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Page className={classNames(cls.articleDetailPage, mods, [className])}>
+            <PageLayout className={classNames(cls.articleDetailPage, mods, [className])}>
                 <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
                     {t('Назад к списку')}
                 </Button>
@@ -104,7 +105,7 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
                     isLoading={commentsIsLoading}
                     comments={comments}
                 />
-            </Page>
+            </PageLayout>
         </DynamicModuleLoader>
     );
 };
