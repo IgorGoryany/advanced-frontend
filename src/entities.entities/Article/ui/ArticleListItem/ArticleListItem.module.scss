@@ -55,7 +55,8 @@
 }
 
 .SMALL {
-  width: 230px;
+  min-width: 230px;
+  max-width: 230px;
   transition: transform 0.1s, opacity 0.1s;
   cursor: pointer;
 

@@ -64,7 +64,7 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
             className={classNames(cls.page, mods, [className])}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd && <div ref={triggerRef} />}
         </section>
     );
 };

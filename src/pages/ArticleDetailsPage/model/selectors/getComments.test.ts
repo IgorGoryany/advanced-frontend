@@ -4,8 +4,10 @@ import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } fr
 describe('getArticleDetailsComments.test', () => {
     test('should return loginState', () => {
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments: {
-                isLoading: true,
+            articleDetailsPage: {
+                comment: {
+                    isLoading: true,
+                },
             },
         };
         expect(getArticleDetailsCommentsIsLoading(state as StateSchema)).toBe(true);
@@ -19,8 +21,10 @@ describe('getArticleDetailsComments.test', () => {
     );
     test('should return loginState', () => {
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments: {
-                error: 'abd',
+            articleDetailsPage: {
+                comment: {
+                    error: 'abd',
+                },
             },
         };
         expect(getArticleDetailsCommentsError(state as StateSchema)).toBe('abd');

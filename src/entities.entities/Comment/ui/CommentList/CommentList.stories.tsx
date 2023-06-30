@@ -5,7 +5,7 @@ import { StoreDecorator, ThemeDecorator } from 'shared/config';
 import { CommentList } from './CommentList';
 
 const meta = {
-    title: 'entities/CommentList',
+    title: 'entities/Comment/CommentList',
     component: CommentList,
     tags: ['autodocs'],
     args: {

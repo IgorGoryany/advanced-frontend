@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'shared/lib';
-import { ThemeDecorator } from 'shared/config';
+import { StoreDecorator, ThemeDecorator } from 'shared/config';
 import MainPage from './MainPage';
 
 const meta = {
     title: 'pages/MainPage',
     component: MainPage,
     tags: ['autodocs'],
+    decorators: [StoreDecorator({})],
 } as Meta<typeof MainPage>;
 
 export default meta;

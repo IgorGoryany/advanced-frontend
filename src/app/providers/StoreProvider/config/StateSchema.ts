@@ -8,10 +8,13 @@ import {
 import { AxiosInstance } from 'axios';
 import { ProfileSchema } from 'entities.entities/Profile';
 import { ArticleDetailsSchema } from 'entities.entities/Article';
-import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
+import {
+    ArticleDetailsPageSchema,
+} from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlePage';
 import { ScrollSaveSchema } from 'widgets/PageLayout';
+import { ArticleSortSchema } from 'features/ArticleSort';
 
 export interface StateSchema {
     counter: CounterSchema
@@ -22,9 +25,10 @@ export interface StateSchema {
     loginForm?: LoginSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
-    articleDetailsComments?: ArticleDetailsCommentSchema
+    articleDetailsPage?: ArticleDetailsPageSchema
     addCommentForm?: AddCommentFormSchema
     articlesPage?: ArticlesPageSchema
+    articleSort?: ArticleSortSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

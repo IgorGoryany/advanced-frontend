@@ -1,6 +1,13 @@
 .card {
   height: fit-content;
   border-radius: 20px;
-  background-color: var(--card-bg);
   padding: 15px;
+}
+
+.normal {
+  background-color: var(--card-bg);
+}
+
+.outlined {
+  border: 1px solid var(--primary-color);
 }

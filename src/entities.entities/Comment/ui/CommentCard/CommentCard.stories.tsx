@@ -5,11 +5,11 @@ import { StoreDecorator, ThemeDecorator } from 'shared/config';
 import { CommentCard } from './CommentCard';
 
 const meta = {
-    title: 'entities/CommentCard',
+    title: 'entities/Comment/CommentCard',
     component: CommentCard,
     tags: ['autodocs'],
     args: {
-        comment: {
+        comments: {
             id: 1,
             user: { id: 1, username: 'Mjbaron' },
             text: 'some comment',

@@ -7,11 +7,13 @@ import { ReducersList } from 'shared/lib';
 import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
 import { articleDetailsReducer } from 'entities.entities/Article/model/slice/articleDetailsSlice';
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
     addCommentForm: addCommentFormReducer,
 };
 

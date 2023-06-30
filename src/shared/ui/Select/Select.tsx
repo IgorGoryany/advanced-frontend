@@ -5,21 +5,22 @@ import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '../../lib';
 import cls from './Select.module.scss';
 
-export interface SelectOption {
-    value: string
-    content: string
+export interface SelectOption<T extends string = string> {
+    value: T;
+    content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
     className?: string
     label?: string
-    option?: SelectOption[]
-    value?: string
-    onChange?: (value: string) => void
+    option?: SelectOption<T>[]
+    value?: T
+    onChange?: (value: T) => void
     disabled?: boolean
 }
+const genericMemo: <T>(component: T) => T = memo;
 
-export const Select: FC<SelectProps> = memo((props: SelectProps) => {
+export const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
     const {
         className,
         label,
@@ -44,19 +45,20 @@ export const Select: FC<SelectProps> = memo((props: SelectProps) => {
     );
 
     const onChangeHandler = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
+        onChange?.(e.target.value as T);
     }, [onChange]);
 
     const mods: Mods = {
         [cls.disabled]: disabled,
     };
 
-    const { t } = useTranslation();
     return (
         <div className={classNames(cls.selectWrapper, mods, [className])}>
-            <label className={cls.label}>
-                {label && `${label}>`}
-            </label>
+            {label && (
+                <label className={cls.label}>
+                    {`${label}>`}
+                </label>
+            )}
             <select
                 disabled={disabled}
                 className={cls.select}

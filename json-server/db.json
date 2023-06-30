@@ -14,14 +14,15 @@
   "articles": [
     {
       "id": 1,
-      "title": "Javascript news",
+      "title": "Javascript news СВЕЖАЯ",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://proforientator.ru/publications/articles/New%20Folder/nauka_obr.jpg",
+      "views": 101,
+      "createdAt": "26.02.2023",
       "userId": 1,
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -89,11 +90,12 @@
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 195,
+      "createdAt": "26.02.2019",
       "userId": 1,
       "type": [
-        "IT"
+        "IT",
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -161,11 +163,12 @@
       "title": "Java news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://www.vectorlogo.zone/logos/java/java-ar21.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 155,
+      "createdAt": "26.02.2018",
       "userId": 1,
       "type": [
-        "IT"
+        "IT",
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -237,7 +240,8 @@
       "createdAt": "26.02.2022",
       "userId": 1,
       "type": [
-        "IT"
+        "IT",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -304,12 +308,12 @@
       "id": 5,
       "title": "Rust news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://www.vectorlogo.zone/logos/rust-lang/rust-lang-ar21.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://cdnn21.img.ria.ru/images/07e7/06/01/1875490856_0:0:3072:1728_1920x0_80_0_0_dfab61cb1388d1aa2a3f1e78ddb90e50.jpg",
+      "views": 952,
+      "createdAt": "26.02.2021",
       "userId": 1,
       "type": [
-        "IT"
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -377,8 +381,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://logowik.com/content/uploads/images/kotlin.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 102,
+      "createdAt": "26.02.2023",
       "userId": 1,
       "type": [
         "IT"
@@ -449,8 +453,8 @@
       "title": "Go news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://go.dev/blog/go-brand/logos.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 554,
+      "createdAt": "26.02.2020",
       "userId": 1,
       "type": [
         "IT"
@@ -521,8 +525,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 122,
+      "createdAt": "26.02.2019",
       "userId": 1,
       "type": [
         "IT"
@@ -593,8 +597,8 @@
       "title": "C++ news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://media.sketchfab.com/models/1b277fc32bbc451fa6f40e298996ba91/thumbnails/1c9c06b1fa3c4aaaa94a70bc7bfc3c7e/d369fbc48d5b479bb657791e4026ca34.jpeg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 16222,
+      "createdAt": "26.02.2019",
       "userId": 1,
       "type": [
         "IT"
@@ -665,8 +669,8 @@
       "title": "React news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 101230,
+      "createdAt": "26.02.2016",
       "userId": 1,
       "type": [
         "IT"
@@ -737,8 +741,8 @@
       "title": "Redux news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://redux.js.org/img/redux-logo-landscape.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 19222,
+      "createdAt": "26.02.2023",
       "userId": 1,
       "type": [
         "IT"
@@ -809,8 +813,8 @@
       "title": "Webpack news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://cdn.worldvectorlogo.com/logos/webpack.svg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 51,
+      "createdAt": "26.02.2020",
       "userId": 1,
       "type": [
         "IT"
@@ -881,7 +885,7 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
+      "views": 2022,
       "createdAt": "26.02.2022",
       "userId": 1,
       "type": [
@@ -953,8 +957,8 @@
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 10225,
+      "createdAt": "26.02.2021",
       "userId": 1,
       "type": [
         "IT"
@@ -1633,6 +1637,12 @@
       "userId": 2,
       "text": "Первонах!",
       "id": 6
+    },
+    {
+      "articleId": 1,
+      "userId": 1,
+      "text": "werwrwewr",
+      "id": 7
     }
   ],
   "users": [

@@ -11,3 +11,5 @@ export { useHover } from './hooks/useHover/useHover';
 export { useThrottle } from './hooks/useThrottle/useThrottle';
 export { useInfiniteScroll } from './hooks/useInfiniteScroll/useInfiniteScroll';
 export { useLayoutInitialEffect } from './hooks/useLayoutInitialEffect/useLayoutInitialEffect';
+export { useDebounce } from './hooks/useDebounce/useDebounce';
+export { addQueryParams } from './url/addQueryParams/addQueryParams';

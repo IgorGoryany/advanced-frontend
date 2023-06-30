@@ -5,23 +5,26 @@ import {
 import { useTranslation } from 'react-i18next';
 import { ArticleList, ArticlesView } from 'entities.entities/Article';
 import { useSelector } from 'react-redux';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { ARTICLE_VIEW_KEY } from 'shared/const/localStorage';
 import { PageLayout } from 'widgets/PageLayout';
-import { initArticlePage } from '../model/services/initArticlePage/initArticlePage';
+import { ArticleFilters } from 'features/ArticleSort';
+import {
+    fetchArticleList,
+} from '../../model/services/fetchArticleList/fetchArticleList';
+import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 import {
     fetchNextArticlesPage,
-} from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+} from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
     getArticlesError,
     getArticlesIsLoading, getArticlesView,
-} from '../model/selectors/getArticles';
+} from '../../model/selectors/getArticles';
 
 import {
     articlePageAction,
     articlePageReducer,
     getArticles,
-} from '../model/slice/atriclePageSlice';
+} from '../../model/slice/atriclePageSlice';
 import cls from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
@@ -49,14 +52,22 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
         dispatch(articlePageAction.setView(newView));
     }, [dispatch]);
 
-    const onLoadNextPart = useCallback(() => {
-        dispatch(fetchNextArticlesPage());
+    const onChangeSort = useCallback(() => {
+        dispatch(fetchArticleList({
+            replace: true,
+        }));
     }, [dispatch]);
 
-    useInitialEffect(() => {
+    const onLoadNextPart = useCallback(() => {
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchNextArticlesPage());
+        }
+    }, [dispatch]);
+
+    const onInitArticlePage = useCallback(() => {
         const initialView = localStorage.getItem(ARTICLE_VIEW_KEY) as ArticlesView;
         dispatch(initArticlePage(initialView));
-    });
+    }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
@@ -64,7 +75,12 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.articlePage, mods, [className])}
             >
-                <ArticleViewSelector view={view} onViewClick={onViewClick} />
+                <ArticleFilters
+                    initArticlePage={onInitArticlePage}
+                    view={view}
+                    onViewClick={onViewClick}
+                    onChangeSort={onChangeSort}
+                />
                 <ArticleList
                     view={view}
                     error={error}

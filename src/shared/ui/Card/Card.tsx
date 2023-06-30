@@ -4,9 +4,12 @@ import {
 import { classNames, Mods } from '../../lib';
 import cls from './Card.module.scss';
 
+export type CardTheme = 'normal' | 'outlined'
+
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children?: ReactNode;
+    theme?: CardTheme
 }
 
 export const Card: FC<CardProps> = memo(
@@ -14,13 +17,14 @@ export const Card: FC<CardProps> = memo(
         const {
             className,
             children,
+            theme = 'normal',
             ...otherProps
         } = props;
 
         const mods: Mods = {};
 
         return (
-            <div className={classNames(cls.card, mods, [className])} {...otherProps}>
+            <div className={classNames(cls.card, mods, [className, cls[theme]])} {...otherProps}>
                 {children}
             </div>
         );

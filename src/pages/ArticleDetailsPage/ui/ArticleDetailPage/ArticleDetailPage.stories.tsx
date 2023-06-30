@@ -11,23 +11,25 @@ const meta = {
     tags: ['autodocs'],
     decorators: [StoreDecorator({
         user: { authData: {} },
-        articleDetailsComments: {
-            ids: [1, 2, 3],
-            entities: {
-                1: {
-                    id: 1,
-                    user: { username: 'Mjbaron', id: 1 },
-                    text: 'some Comment 1',
-                },
-                2: {
-                    id: 1,
-                    user: { username: 'Mjbaron', id: 1 },
-                    text: 'some Comment 2',
-                },
-                3: {
-                    id: 1,
-                    user: { username: 'Mjbaron', id: 1 },
-                    text: 'some Comment 3',
+        articleDetailsPage: {
+            comment: {
+                ids: [1, 2, 3],
+                entities: {
+                    1: {
+                        id: 1,
+                        user: { username: 'Mjbaron', id: 1 },
+                        text: 'some Comment 1',
+                    },
+                    2: {
+                        id: 1,
+                        user: { username: 'Mjbaron', id: 1 },
+                        text: 'some Comment 2',
+                    },
+                    3: {
+                        id: 1,
+                        user: { username: 'Mjbaron', id: 1 },
+                        text: 'some Comment 3',
+                    },
                 },
             },
         },

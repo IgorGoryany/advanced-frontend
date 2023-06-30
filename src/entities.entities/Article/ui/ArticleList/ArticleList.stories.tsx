@@ -39,7 +39,7 @@ const article = {
 } as Article;
 
 const meta = {
-    title: 'entities/ArticleList',
+    title: 'entities/Article/ArticleList',
     component: ArticleList,
     tags: ['autodocs'],
     args: {

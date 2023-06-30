@@ -14,7 +14,7 @@ const commentsAdapter = createEntityAdapter<Comment>({
 });
 
 export const getArticleComment = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state?.articleDetailsComments || commentsAdapter.getInitialState(),
+    (state) => state?.articleDetailsPage?.comment || commentsAdapter.getInitialState(),
 );
 
 const articleDetailsCommentSlice = createSlice({

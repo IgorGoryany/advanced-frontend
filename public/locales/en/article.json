@@ -7,5 +7,19 @@
   "Читать далее": "Read more...",
   "Назад к списку": "Back to list",
   "Не удалось загрузить посты": "Failed to load posts",
-  "попробуйте перезагрузить страницу": "try reloading the page"
+  "попробуйте перезагрузить страницу": "try reloading the page",
+  "Сортировать по": "Sort by",
+  "Поиск": "Search",
+  "по": "по",
+  "По убыванию": "Descending",
+  "По возрастанию": "Ascending",
+  "дате": "date",
+  "заголовку": "title",
+  "просмотрам": "views",
+  "IT": "IT",
+  "Наука": "Science",
+  "Экономика": "Economy",
+  "Политика": "Policy",
+  "Все статьи": "All articles",
+  "Рекоммендации": "Recommendation"
 }
