@@ -18,6 +18,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'ubgbigtv-fsd',
     ],
     rules: {
         'consistent-return': 'off',
@@ -37,7 +38,7 @@ module.exports = {
         'react/react-in-jsx-scope': 'off',
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'no-unused-vars': 'warn',
+        'no-unused-vars': 'off',
         'react/jsx-props-no-spreading': 'warn',
         'no-shadow': 'off',
         'import/extensions': 'off',
@@ -64,6 +65,7 @@ module.exports = {
         'no-undef': 'off',
         'jsx-a11y/control-has-associated-label': 'off', // выруби если чо
         'jsx-a11y/label-has-associated-control': 'off',
+        'ubgbigtv-fsd/path-checker': 'error',
     },
 
     globals: {
@@ -71,15 +73,28 @@ module.exports = {
         __API__: true,
         __PROJECT__: true,
     },
-    overrides: [{
-        files: [
-            '**/src/**/*.{test,stories}.{ts,tsx}',
-            '**/src/shared/ui/**/*.tsx',
-        ],
-        rules: {
-            'i18next/no-literal-string': 'off',
-            'max-len': 'off',
-            'react/jsx-props-no-spreading': 'off',
+    overrides: [
+        {
+            files: [
+                '**/src/**/*.{test,stories}.{ts,tsx}',
+                '**/src/shared/ui/**/*.tsx',
+            ],
+            rules: {
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off',
+                'react/jsx-props-no-spreading': 'off',
+            },
         },
-    }],
+        {
+            files: [
+                '**/src/**/*.{test,stories}.{ts,tsx}',
+                '**/src/shared/lib/tests/**/*.{ts,tsx}',
+                '**/src/shared/config/Storybook/**/*.{ts,tsx}',
+                '**/config/**/*.{ts,tsx}',
+            ],
+            rules: {
+                'import/no-extraneous-dependencies': 'off',
+            },
+        },
+    ],
 };

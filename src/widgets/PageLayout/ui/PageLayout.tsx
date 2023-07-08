@@ -1,10 +1,10 @@
 import {
     FC, MutableRefObject, ReactNode, useRef,
-    UIEvent, useLayoutEffect,
+    UIEvent,
 } from 'react';
 import {
     classNames, Mods, useAppDispatch, useThrottle,
-    useInfiniteScroll, useInitialEffect, useLayoutInitialEffect,
+    useInfiniteScroll, useLayoutInitialEffect,
 } from 'shared/lib';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -21,6 +21,8 @@ interface PageProps {
     onScrollEnd?: () => void
     saveScroll?: boolean
 }
+
+export const PAGE_ID = 'PAGE_ID';
 
 export const PageLayout: FC<PageProps> = (props: PageProps) => {
     const {
@@ -51,7 +53,7 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
                 path: pathname,
             }));
         }
-    }, 200);
+    }, 100);
 
     useLayoutInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
@@ -62,6 +64,7 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.page, mods, [className])}
+            id={PAGE_ID}
         >
             {children}
             {onScrollEnd && <div ref={triggerRef} />}

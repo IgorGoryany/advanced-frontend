@@ -28,5 +28,6 @@
 		"./src/**/*.tsx",
 		"./config/**/*.ts",
 		"./config/**/*.tsx",
-	]
+	],
+	"exclude": ["node_modules"]
 }

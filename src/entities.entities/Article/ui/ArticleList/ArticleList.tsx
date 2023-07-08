@@ -11,7 +11,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 interface ArticleListProps {
     className?: string;
-    articles?: Article[]
+    articles: Article[]
     isLoading?: boolean
     error?: string
     view?: ArticlesView

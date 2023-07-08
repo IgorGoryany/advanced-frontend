@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useAuth } from 'entities.entities/User';
 import {
     getProfileData,
-} from 'features/EditableProfileCard/model/selectors/getProfileData/getProfileData';
+} from '../../model/selectors/getProfileData/getProfileData';
 import {
     getProfileReadonly,
 } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
