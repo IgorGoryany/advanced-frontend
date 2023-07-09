@@ -1,9 +1,8 @@
 import { FC, memo } from 'react';
 import { classNames, Mods } from 'shared/lib';
-import { Text } from 'shared/ui';
+import { Text, VStack } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { CommentCard } from '../CommentCard/CommentCard';
-import cls from './CommentList.module.scss';
 import { Comment } from '../../model/types/comment';
 
 interface CommentListProps {
@@ -24,18 +23,17 @@ export const CommentList: FC<CommentListProps> = memo(
 
         const { t } = useTranslation();
         return (
-            <div className={classNames(cls.commentList, mods, [className])}>
+            <VStack gap="16" max className={classNames('', mods, [className])}>
                 {comments?.length
                     ? comments.map((comment) => (
                         <CommentCard
-                            className={cls.comments}
                             key={comment.id}
                             comment={comment}
                             isLoading={isLoading}
                         />
                     ))
                     : <Text text={t('Комментарии не найдены')} />}
-            </div>
+            </VStack>
         );
     },
 );

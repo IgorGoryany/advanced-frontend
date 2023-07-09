@@ -7,7 +7,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {
-    TextAlign, Avatar, Icon, Text, TextSize,
+    TextAlign, Avatar, Icon, Text, TextSize, VStack, HStack,
 } from 'shared/ui';
 import ViewsIcon from 'shared/assets/icons/ViewsIcon.svg';
 import DateIcon from 'shared/assets/icons/DateIcon.svg';
@@ -93,24 +93,28 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
             );
         } else {
             content = (
-                <>
-                    <Avatar size={200} src={articleDetails?.img} zoom={1.2} className={cls.avatar} />
+                <VStack gap="16" max>
+                    <HStack justify="center" max>
+                        <Avatar size={200} src={articleDetails?.img} zoom={1.2} />
+                    </HStack>
                     <Text
                         title={articleDetails?.title}
                         text={articleDetails?.subtitle}
                         className={cls.title}
                         size={TextSize.SIZE_L}
                     />
-                    <div className={cls.info}>
-                        <Icon Svg={ViewsIcon} className={cls.icon} />
-                        <Text text={articleDetails?.views} />
-                    </div>
-                    <div className={cls.info}>
-                        <Icon Svg={DateIcon} className={cls.icon} />
-                        <Text text={articleDetails?.createdAt} />
-                    </div>
+                    <VStack>
+                        <HStack gap="8" className={cls.info}>
+                            <Icon Svg={ViewsIcon} />
+                            <Text text={articleDetails?.views} />
+                        </HStack>
+                        <HStack gap="8" className={cls.info}>
+                            <Icon Svg={DateIcon} />
+                            <Text text={articleDetails?.createdAt} />
+                        </HStack>
+                    </VStack>
                     {articleDetails?.blocks.map(renderBlock)}
-                </>
+                </VStack>
             );
         }
 

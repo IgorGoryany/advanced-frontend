@@ -1,7 +1,7 @@
 import React, { FC, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib';
 import {
-    Button, ButtonSize, ButtonTheme,
+    Button, ButtonSize, ButtonTheme, VStack,
 } from 'shared/ui';
 import { ThemeSwitcher } from 'features/ThemeSwither';
 import { LangSwitcher } from 'features/LangSwitcher';
@@ -53,9 +53,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 {open ? '<' : '>'}
             </Button>
 
-            <ul className={cls.links}>
+            <VStack role="list" max gap="16" className={cls.links}>
                 {linksList}
-            </ul>
+            </VStack>
 
             <div className={cls.switchers}>
                 <ThemeSwitcher />

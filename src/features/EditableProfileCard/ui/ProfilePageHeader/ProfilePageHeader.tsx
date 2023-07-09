@@ -1,7 +1,9 @@
 import { FC, memo, useCallback } from 'react';
 import { classNames, Mods, useAppDispatch } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme, Text } from 'shared/ui';
+import {
+    Button, ButtonTheme, HStack, Text,
+} from 'shared/ui';
 import { useSelector } from 'react-redux';
 import { useAuth } from 'entities.entities/User';
 import {
@@ -14,7 +16,6 @@ import { profileAction } from '../../model/slice/profileSlice';
 import {
     updateProfileData,
 } from '../../model/service/updateProfileData/updateProfileData';
-import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
     className?: string
@@ -47,17 +48,16 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo((props: Profil
     const { t } = useTranslation('profile');
 
     return (
-        <div className={classNames(cls.profilePageHeader, mods, [className])}>
+        <HStack justify="between" className={classNames('', mods, [className])}>
             <Text title={t('Профиль')} />
             {canEdit && (
                 readonly ? (
-                    <Button className={cls.editBtn} theme={ButtonTheme.OUTLINED} onClick={onEdit}>
+                    <Button theme={ButtonTheme.OUTLINED} onClick={onEdit}>
                         {t('Редактировать')}
                     </Button>
                 ) : (
-                    <>
+                    <HStack gap="8">
                         <Button
-                            className={cls.cancelBtn}
                             theme={ButtonTheme.OUTLINED_RED}
                             onClick={onCancelEdit}
                         >
@@ -66,9 +66,9 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo((props: Profil
                         <Button theme={ButtonTheme.OUTLINED} onClick={onSave}>
                             {t('Сохранить')}
                         </Button>
-                    </>
+                    </HStack>
                 )
             )}
-        </div>
+        </HStack>
     );
 });

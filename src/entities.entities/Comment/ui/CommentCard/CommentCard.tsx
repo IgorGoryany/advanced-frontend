@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import {
-    AppLink, Avatar, Skeleton, Text,
+    AppLink, Avatar, HStack, Skeleton, Text, VStack,
 } from 'shared/ui';
 import { routePaths } from 'shared/config';
 import cls from './CommentCard.module.scss';
@@ -25,8 +25,8 @@ export const CommentCard: FC<CommentCardProps> = memo(
 
         if (isLoading) {
             return (
-                <div className={classNames(cls.commentCard, mods, [className])}>
-                    <div className={cls.commentHeader}>
+                <VStack gap="4" className={classNames(cls.commentCard, mods, [className])}>
+                    <HStack gap="8">
                         <Skeleton
                             className={cls.avatar}
                             height={30}
@@ -38,28 +38,29 @@ export const CommentCard: FC<CommentCardProps> = memo(
                             width={70}
                             border="5px"
                         />
-                    </div>
+                    </HStack>
                     <Skeleton height={50} className={cls.text} />
-                </div>
+                </VStack>
             );
         }
 
         return (
-            <div className={classNames(cls.commentCard, mods, [className])}>
-                <AppLink className={cls.commentHeader} to={`${routePaths.profile}/${user.id}`}>
-                    {user.avatar
-                        ? (
-                            <Avatar
-                                className={cls.avatar}
-                                src={user.avatar}
-                                size={30}
-                            />
-                        )
-                        : <div className={cls.avatarMock} />}
-                    <Text title={user.username} />
+            <VStack gap="4" className={classNames(cls.commentCard, mods, [className])}>
+                <AppLink to={`${routePaths.profile}/${user.id}`}>
+                    <HStack gap="8">
+                        {user.avatar
+                            ? (
+                                <Avatar
+                                    src={user.avatar}
+                                    size={30}
+                                />
+                            )
+                            : <div className={cls.avatarMock} />}
+                        <Text title={user.username} />
+                    </HStack>
                 </AppLink>
                 <Text text={text} className={cls.text} />
-            </div>
+            </VStack>
         );
     },
 );

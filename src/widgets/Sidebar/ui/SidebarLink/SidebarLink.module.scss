@@ -1,6 +1,4 @@
 .item {
-  display: flex;
-  align-items: center;
   position: relative;
 
   &:hover {
@@ -23,7 +21,7 @@
   z-index: 0;
   background: transparent;
   width: 0;
-  height: 24px;
+  height: var(--font-line-m);
   opacity: 0;
   overflow: hidden;
   transition: opacity 0.2s ease;
@@ -32,7 +30,6 @@
 .open {
   .link {
     opacity: 1;
-    width: fit-content;
-    overflow: hidden;
+    width: 200px;
   }
 }

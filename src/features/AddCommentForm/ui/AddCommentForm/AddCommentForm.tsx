@@ -4,7 +4,7 @@ import {
 } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
-    Button, ButtonTheme, Input, Text, TextTheme,
+    Button, ButtonTheme, HStack, Input, Text, TextTheme,
 } from 'shared/ui';
 import { useSelector } from 'react-redux';
 import { addCommentFormAction, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
@@ -48,7 +48,11 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
         return (
             <DynamicModuleLoader reducers={reducers}>
                 {error && <Text text={error} theme={TextTheme.ERROR} />}
-                <div className={classNames(cls.addCommentForm, mods, [className])}>
+                <HStack
+                    justify="between"
+                    max
+                    className={classNames(cls.addCommentForm, mods, [className])}
+                >
                     <Input
                         className={cls.input}
                         placeholder={t('Введите текст комментария')}
@@ -61,7 +65,7 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
                     >
                         {t('Отправить')}
                     </Button>
-                </div>
+                </HStack>
             </DynamicModuleLoader>
         );
     },

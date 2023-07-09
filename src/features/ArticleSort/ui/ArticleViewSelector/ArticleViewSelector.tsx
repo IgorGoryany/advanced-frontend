@@ -1,10 +1,11 @@
 import React, { FC, memo } from 'react';
 import { classNames, Mods } from 'shared/lib';
-import { useTranslation } from 'react-i18next';
 import { ArticlesView } from 'entities.entities/Article';
 import SmallArticleViewIcon from 'shared/assets/icons/SmallArticleViewIcon.svg';
 import BigArticleViewIcon from 'shared/assets/icons/BigArticleViewIcon.svg';
-import { Button, ButtonTheme, Icon } from 'shared/ui';
+import {
+    Button, ButtonTheme, HStack, Icon,
+} from 'shared/ui';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
@@ -42,9 +43,8 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
             onViewClick?.(newView);
         };
 
-        const { t } = useTranslation();
         return (
-            <div className={classNames(cls.articleViewSelector, mods, [className])}>
+            <HStack gap="8" className={classNames(cls.articleViewSelector, mods, [className])}>
                 {viewTypes.map((viewType) => (
                     <Button
                         theme={ButtonTheme.CLEAR}
@@ -62,7 +62,7 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
                         />
                     </Button>
                 ))}
-            </div>
+            </HStack>
         );
     },
 );

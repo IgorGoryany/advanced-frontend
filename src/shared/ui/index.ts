@@ -13,3 +13,5 @@ export { Skeleton } from './Skeleton/Skeleton';
 export { Icon } from './Icon/Icon';
 export { Card, CardTheme } from './Card/Card';
 export { Tabs, TabItem } from './Tabs/Tabs';
+export { HStack } from './Stack/HStack/HStack';
+export { VStack } from './Stack/VStack/VStack';

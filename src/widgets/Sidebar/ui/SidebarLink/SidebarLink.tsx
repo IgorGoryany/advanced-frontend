@@ -1,6 +1,6 @@
 import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppLinkTheme } from 'shared/ui';
+import { AppLink, AppLinkTheme, HStack } from 'shared/ui';
 import { classNames } from 'shared/lib';
 import { useAuth } from 'entities.entities/User';
 
@@ -36,8 +36,10 @@ export const SidebarLink: FC<SidebarLinksProps> = memo((props: SidebarLinksProps
             theme={AppLinkTheme.INVERTED_PRIMARY}
             className={classNames(cls.item, { [cls.open]: open })}
         >
-            <Icon className={cls.icon} />
-            <span className={cls.link}>{t(text).toLowerCase()}</span>
+            <HStack align="center">
+                <Icon className={cls.icon} />
+                <span className={cls.link}>{t(text).toLowerCase()}</span>
+            </HStack>
         </AppLink>
     );
 });

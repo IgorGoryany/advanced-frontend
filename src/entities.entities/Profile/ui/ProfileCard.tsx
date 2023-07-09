@@ -6,7 +6,7 @@ import {
     Input,
     Loader,
     Text,
-    TextTheme,
+    TextTheme, HStack, VStack,
 } from 'shared/ui';
 import { Currency, CurrencySelect } from 'entities.entities/Currency';
 import { Country, CountrySelect } from 'entities.entities/Country';
@@ -52,41 +52,48 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.profileCard, mods, [className, cls.loading])}>
+            <HStack
+                justify="center"
+                max
+                className={classNames(cls.profileCard, mods, [className, cls.loading])}
+            >
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(cls.profileCard, mods, [className, cls.error])}>
+            <HStack
+                justify="center"
+                max
+                className={classNames(cls.profileCard, mods, [className, cls.error])}
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     align={TextAlign.CENTER}
                     title={t('Произошла ошибка при загрузке пользователя')}
                     text={t('Попробуйте перезагрузить страницу')}
                 />
-            </div>
+            </HStack>
 
         );
     }
 
     return (
         <div className={classNames(cls.profileCard, mods, [className])}>
-            <div className={cls.data}>
+            <VStack gap="8" max>
                 {data?.avatar && (
-                    <div className={cls.avatar}>
+                    <HStack max justify="center" className={cls.avatar}>
                         <Avatar
                             src={data?.avatar}
                             size={100}
                         />
-                    </div>
+                    </HStack>
                 )}
                 <Input
                     placeholder={t('Ваше имя')}
                     value={data?.first}
-                    className={cls.input}
                     disabled={readonly}
                     onChange={onChangeFirstname}
                 />
@@ -94,7 +101,6 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                     placeholder={t('Ваша фамилия')}
                     value={data?.lastname}
                     onChange={onChangeLastname}
-                    className={cls.input}
                     disabled={readonly}
                 />
                 {(!readonly || data?.age) && (
@@ -102,7 +108,6 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                         placeholder={t('Ваш возраст')}
                         value={data?.age}
                         onChange={onChangeAge}
-                        className={cls.input}
                         disabled={readonly}
                     />
                 )}
@@ -111,7 +116,6 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                         placeholder={t('Ваш ник')}
                         value={data?.username}
                         onChange={onChangeUsername}
-                        className={cls.input}
                         disabled={readonly}
                     />
                 )}
@@ -120,20 +124,17 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                         placeholder={t('Ваш город')}
                         value={data?.city}
                         onChange={onChangeCity}
-                        className={cls.input}
                         disabled={readonly}
                     />
                 )}
                 <CurrencySelect
                     value={data?.currency}
                     disabled={readonly}
-                    className={cls.input}
                     onChange={onChangeCurrency}
                 />
                 <CountrySelect
                     value={data?.country}
                     disabled={readonly}
-                    className={cls.input}
                     onChange={onChangeCountry}
                 />
                 {!readonly && (
@@ -141,11 +142,10 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                         placeholder={t('Ссылка на автар')}
                         value={data?.avatar}
                         onChange={onChangeAvatar}
-                        className={cls.input}
                         disabled={readonly}
                     />
                 )}
-            </div>
+            </VStack>
         </div>
     );
 });
