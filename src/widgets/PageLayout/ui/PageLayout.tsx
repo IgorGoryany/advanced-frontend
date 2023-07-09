@@ -60,7 +60,7 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
     });
 
     return (
-        <section
+        <main
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.page, mods, [className])}
@@ -68,6 +68,6 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
         >
             {children}
             {onScrollEnd && <div ref={triggerRef} />}
-        </section>
+        </main>
     );
 };

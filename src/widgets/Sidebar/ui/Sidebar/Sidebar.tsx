@@ -1,7 +1,7 @@
 import React, { FC, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib';
 import {
-    Button, ButtonSize, ButtonTheme, VStack,
+    Button, ButtonSize, ButtonTheme, HStack, VStack,
 } from 'shared/ui';
 import { ThemeSwitcher } from 'features/ThemeSwither';
 import { LangSwitcher } from 'features/LangSwitcher';
@@ -52,15 +52,13 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             >
                 {open ? '<' : '>'}
             </Button>
-
-            <VStack role="list" max gap="16" className={cls.links}>
+            <VStack role="navigation" max gap="16" className={cls.links}>
                 {linksList}
             </VStack>
-
-            <div className={cls.switchers}>
+            <HStack justify="center" className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher short={!open} className={cls.langSwitch} />
-            </div>
+            </HStack>
         </aside>
     );
 };

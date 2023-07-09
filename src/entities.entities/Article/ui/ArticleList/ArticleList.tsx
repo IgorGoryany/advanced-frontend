@@ -62,7 +62,7 @@ export const ArticleList: FC<ArticleListProps> = memo(
             return (
                 <Text
                     className={cls.notFound}
-                    size={TextSize.SIZE_L}
+                    size={TextSize.L}
                     title={t('Статьи не найдены')}
                     align={TextAlign.CENTER}
                 />

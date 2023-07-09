@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from '../../lib';
+import { classNames, Mods } from '../../lib';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
@@ -14,8 +14,9 @@ export enum TextAlign {
 }
 
 export enum TextSize {
-    SIZE_M = 'size_m',
-    SIZE_L = 'size_l',
+    S = 'size_s',
+    M = 'size_m',
+    L = 'size_l',
 }
 
 interface TextProps {
@@ -29,6 +30,14 @@ interface TextProps {
     size?: TextSize
 }
 
+type HeaderTagType = 'h1' | 'h2' | 'h3'
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+    [TextSize.L]: 'h1',
+    [TextSize.M]: 'h2',
+    [TextSize.S]: 'h3',
+};
+
 export const Text = memo((props: TextProps) => {
     const {
         className,
@@ -38,25 +47,23 @@ export const Text = memo((props: TextProps) => {
         titleAlign = '',
         align = TextAlign.LEFT,
         textAlign = '',
-        size = TextSize.SIZE_M,
+        size = TextSize.M,
     } = props;
 
-    const mods: Record<string, boolean | undefined> = {};
+    const HeaderTag = mapSizeToHeaderTag[size];
+
+    const mods: Mods = {};
     const additional = [className, cls[theme], cls[align], cls[size]];
 
     return (
         <div className={classNames(cls.text, mods, additional)}>
             {title && (
-                <p
-                    className={classNames(cls.title, {}, [cls[titleAlign]])}
-                >
+                <HeaderTag className={classNames(cls.title, {}, [cls[titleAlign]])}>
                     {title}
-                </p>
+                </HeaderTag>
             )}
             {text && (
-                <p
-                    className={classNames(cls.text, {}, [cls[textAlign]])}
-                >
+                <p className={classNames(cls.text, {}, [cls[textAlign]])}>
                     {text}
                 </p>
             )}

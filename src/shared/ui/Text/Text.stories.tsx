@@ -39,7 +39,7 @@ export const PrimaryDarkSizeL: Story = {
     args: {
         text: 'Text',
         title: 'Title',
-        size: TextSize.SIZE_L,
+        size: TextSize.L,
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };

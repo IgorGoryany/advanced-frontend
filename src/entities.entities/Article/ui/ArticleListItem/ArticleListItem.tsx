@@ -58,7 +58,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
                         </div>
                         <Text
                             title={article.title}
-                            size={TextSize.SIZE_L}
+                            size={TextSize.L}
                             className={cls.title}
                         />
                         {types}

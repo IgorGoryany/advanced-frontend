@@ -101,7 +101,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
                         title={articleDetails?.title}
                         text={articleDetails?.subtitle}
                         className={cls.title}
-                        size={TextSize.SIZE_L}
+                        size={TextSize.L}
                     />
                     <VStack>
                         <HStack gap="8" className={cls.info}>
