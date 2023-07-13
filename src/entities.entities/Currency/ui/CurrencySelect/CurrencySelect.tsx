@@ -1,7 +1,9 @@
 import { FC, memo, useCallback } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Select, SelectOption } from 'shared/ui';
+import {
+    ListBox, ListBoxItem,
+} from 'shared/ui';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {
@@ -10,7 +12,7 @@ interface CurrencySelectProps {
     disabled?: boolean
     value?: Currency
 }
-const optionList: SelectOption[] = [
+const optionList: ListBoxItem<Currency>[] = [
     { value: Currency.EUR, content: Currency.EUR },
     { value: Currency.RUB, content: Currency.RUB },
     { value: Currency.USD, content: Currency.USD },
@@ -25,19 +27,21 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo((props: CurrencySele
     } = props;
     const mods: Mods = {};
 
-    const onChangeCurrency = useCallback((value: string) => {
-        onChange?.(value as Currency);
+    const onChangeCurrency = useCallback((value: Currency) => {
+        onChange?.(value);
     }, [onChange]);
 
     const { t } = useTranslation();
+
     return (
-        <Select
+        <ListBox<Currency>
             className={classNames('', mods, [className])}
-            disabled={disabled}
-            value={value}
+            items={optionList}
             onChange={onChangeCurrency}
+            value={value}
+            disabled={disabled}
             label={t('Валюта')}
-            option={optionList}
+            defaultValue={(t('Валюта'))}
         />
     );
 });

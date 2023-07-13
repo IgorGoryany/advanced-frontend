@@ -15,3 +15,4 @@ export { Card, CardTheme } from './Card/Card';
 export { Tabs, TabItem } from './Tabs/Tabs';
 export { HStack } from './Stack/HStack/HStack';
 export { VStack } from './Stack/VStack/VStack';
+export { ListBoxItem, ListBox, DropdownDirection } from './ListBox/ListBox';

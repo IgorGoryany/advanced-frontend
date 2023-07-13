@@ -1,0 +1,33 @@
+.listBox {
+  position: relative;
+  width: fit-content;
+}
+
+.options {
+  background: var(--list-box-bg);
+  position: absolute;
+  z-index: 10000;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--list-box-bg);
+  overflow: hidden;
+  min-width: 100%;
+
+  &.top {
+    bottom: 100%;
+    box-shadow: 4px -4px 8px var(--list-box-bg);
+  }
+}
+
+.option {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.active {
+  background: var(--inverted-primary-color);
+}
+
+.disabled {
+  opacity: 0.7;
+}

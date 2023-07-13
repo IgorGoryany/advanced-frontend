@@ -5,7 +5,7 @@ const MainPage = () => {
     const { t } = useTranslation('main');
     return (
         <PageLayout>
-            {t('Главная страница')}
+            <div>{t('Главная страница')}</div>
         </PageLayout>
     );
 };

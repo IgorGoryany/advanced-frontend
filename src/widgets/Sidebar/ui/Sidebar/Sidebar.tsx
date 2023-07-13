@@ -52,7 +52,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
             >
                 {open ? '<' : '>'}
             </Button>
-            <VStack role="navigation" max gap="16" className={cls.links}>
+            <VStack Tag="ul" max gap="16" className={cls.links}>
                 {linksList}
             </VStack>
             <HStack justify="center" className={cls.switchers}>

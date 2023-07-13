@@ -1,7 +1,9 @@
 import { FC, memo, useCallback } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Select, SelectOption } from 'shared/ui';
+import {
+    ListBox, ListBoxItem, Select, SelectOption,
+} from 'shared/ui';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
@@ -11,7 +13,7 @@ interface CountrySelectProps {
     onChange?: (value: Country) => void
 }
 
-const optionList: SelectOption[] = [
+const optionList: ListBoxItem<Country>[] = [
     { value: Country.Belarus, content: Country.Belarus },
     { value: Country.Russia, content: Country.Russia },
     { value: Country.Ukraine, content: Country.Ukraine },
@@ -35,13 +37,13 @@ export const CountrySelect: FC<CountrySelectProps> = memo((props: CountrySelectP
 
     const { t } = useTranslation();
     return (
-        <Select
+        <ListBox<Country>
             className={classNames('', mods, [className])}
             disabled={disabled}
             value={value}
-            onChange={onChangeCountry}
             label={t('Страна')}
-            option={optionList}
+            onChange={onChangeCountry}
+            items={optionList}
         />
     );
 });

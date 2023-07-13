@@ -1,11 +1,15 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import {
+    DetailedHTMLProps, HTMLAttributes, JSXElementConstructor, ReactNode, JSX,
+} from 'react';
 import { classNames, Mods } from 'shared/lib';
 import cls from './Flex.module.scss';
 
 type FlexAlign = 'start' | 'end' | 'center';
 type FlexJustify = FlexAlign | 'between';
 type FlexDirection = 'row' | 'column';
-type FlexGap = '4' | '8' | '16' | '32';
+type FlexGap = '4' | 4 | '8' | 8 | '16' | 16 | '32' | 32;
+
+type ReactTag = keyof JSX.IntrinsicElements | JSXElementConstructor<any>;
 
 const justifyClasses: Record<FlexJustify, string> = {
     end: cls.justifyEnd,
@@ -41,6 +45,7 @@ export interface FlexProps extends DivProps {
     direction?: FlexDirection;
     gap?: FlexGap;
     max?: boolean
+    Tag?: ReactTag
 }
 
 export const Flex = (props: FlexProps) => {
@@ -53,6 +58,7 @@ export const Flex = (props: FlexProps) => {
         gap,
         max,
         role,
+        Tag = 'div',
     } = props;
 
     const mods: Mods = {
@@ -67,8 +73,8 @@ export const Flex = (props: FlexProps) => {
     ];
 
     return (
-        <div role={role} className={classNames(cls.flex, mods, additional)}>
+        <Tag role={role} className={classNames(cls.flex, mods, additional)}>
             {children}
-        </div>
+        </Tag>
     );
 };
