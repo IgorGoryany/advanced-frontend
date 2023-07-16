@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { ProfileCard, ValidateProfileError } from 'entities.entities/Profile';
 import { Currency } from 'entities.entities/Currency';
 import { Country } from 'entities.entities/Country';
-import { Text, TextTheme } from 'shared/ui';
+import { Text, TextTheme, VStack } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
@@ -18,9 +18,10 @@ import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getP
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { fetchingProfileData } from '../model/service/fetchingProfileData/fetchingProfileData';
 import { getProfileValidateError } from '../model/selectors/getProfileValidateError/getProfileValidateError';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
+    id?: string
 }
 
 const reducers: ReducersList = {
@@ -29,7 +30,7 @@ const reducers: ReducersList = {
 
 const isNumber = (value: string) => Number.isInteger(Number(value));
 
-export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
+export const EditableProfileCard = memo(({ id }:EditableProfileCardProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileFormData);
@@ -37,7 +38,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateError);
-    const { id } = useParams<{ id: string }>();
 
     const validateErrorsTranslates = useMemo(() => ({
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -88,14 +88,15 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
     }, [dispatch, id]);
 
     return (
-        <>
-            <ProfilePageHeader />
-            <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            <VStack gap={8} max>
+                <EditableProfileCardHeader />
                 {validateErrors?.length && validateErrors.map((error) => (
                     <Text
                         text={validateErrorsTranslates[error]}
                         key={error}
                         theme={TextTheme.ERROR}
+                        data-testid="EditableProfileCard.Error"
                     />
                 ))}
                 <ProfileCard
@@ -112,7 +113,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = memo(() => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCounty}
                 />
-            </DynamicModuleLoader>
-        </>
+            </VStack>
+        </DynamicModuleLoader>
     );
 });

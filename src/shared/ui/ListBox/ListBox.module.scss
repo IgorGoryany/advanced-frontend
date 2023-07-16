@@ -11,11 +11,6 @@
   box-shadow: 4px 4px 8px var(--list-box-bg);
   overflow: hidden;
   min-width: 100%;
-
-  &.top {
-    bottom: 100%;
-    box-shadow: 4px -4px 8px var(--list-box-bg);
-  }
 }
 
 .option {

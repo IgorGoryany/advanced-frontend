@@ -29,3 +29,27 @@
   border-radius: 20px;       /* закругления плашки */
   border: 2px solid var(--inverted-primary-color);  /* padding вокруг плашки */
 }
+
+.top-left {
+  bottom: 100%;
+  right: 0;
+  box-shadow: 4px -4px 8px var(--list-box-bg);
+}
+
+.top-right {
+  bottom: 100%;
+  left: 0;
+  box-shadow: -4px -4px 8px var(--list-box-bg);
+}
+
+.bottom-left {
+  top: 100%;
+  right: 0;
+  box-shadow: 4px 4px 8px var(--list-box-bg);
+}
+
+.bottom-right {
+  top: 100%;
+  left: 0;
+  box-shadow: -4px 4px 8px var(--list-box-bg);
+}

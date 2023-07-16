@@ -1,19 +1,16 @@
-import {
-    Fragment, memo, ReactNode, useState,
-} from 'react';
+import { Fragment, memo, ReactNode } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { Listbox as HListBox } from '@headlessui/react';
+import { DropdownDirection } from 'shared/types';
 import { HStack } from '../Stack/HStack/HStack';
 import { Button, ButtonTheme } from '../Button/Button';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxItem<T extends string> {
     value: T;
-    content: ReactNode
-    disabled?: boolean
+    content: ReactNode;
+    disabled?: boolean;
 }
-
-export type DropdownDirection = 'top' | 'bottom';
 
 interface ListBoxProps<T extends string> {
     className?: string;
@@ -35,12 +32,12 @@ export const ListBox = genericMemo(<T extends string>(props: ListBoxProps<T>) =>
         defaultValue,
         onChange,
         disabled,
-        direction = 'bottom',
+        direction = 'bottom-right',
         label,
     } = props;
 
     const mods: Mods = {};
-    const additionalClasses = [cls[direction]];
+    const additionalClasses = [direction];
 
     return (
         <HStack gap={8}>

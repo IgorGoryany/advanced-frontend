@@ -6,13 +6,11 @@ import { Sidebar } from './Sidebar';
 
 describe('Sidebar.tsx', () => {
     test('test render', () => {
-        // eslint-disable-next-line i18next/no-literal-string
         componentRender(<Sidebar />);
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
 
     test('test toggle', () => {
-        // eslint-disable-next-line i18next/no-literal-string
         componentRender(<Sidebar />);
         const toggleBtn = screen.getByTestId('toggle');
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();

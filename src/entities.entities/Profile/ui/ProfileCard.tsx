@@ -96,12 +96,14 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                     value={data?.first}
                     disabled={readonly}
                     onChange={onChangeFirstname}
+                    data-testid="ProfileCard.first"
                 />
                 <Input
                     placeholder={t('Ваша фамилия')}
                     value={data?.lastname}
                     onChange={onChangeLastname}
                     disabled={readonly}
+                    data-testid="ProfileCard.lastname"
                 />
                 {(!readonly || data?.age) && (
                     <Input
@@ -109,6 +111,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                         value={data?.age}
                         onChange={onChangeAge}
                         disabled={readonly}
+                        data-testid="ProfileCard.age"
                     />
                 )}
                 { (!readonly || data?.username) && (
@@ -117,6 +120,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                         value={data?.username}
                         onChange={onChangeUsername}
                         disabled={readonly}
+                        data-testid="ProfileCard.username"
                     />
                 )}
                 {(!readonly || data?.city) && (
@@ -125,17 +129,20 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                         value={data?.city}
                         onChange={onChangeCity}
                         disabled={readonly}
+                        data-testid="ProfileCard.city"
                     />
                 )}
                 <CurrencySelect
                     value={data?.currency}
                     disabled={readonly}
                     onChange={onChangeCurrency}
+                    data-testid="ProfileCard.currency"
                 />
                 <CountrySelect
                     value={data?.country}
                     disabled={readonly}
                     onChange={onChangeCountry}
+                    data-testid="ProfileCard.country"
                 />
                 {!readonly && (
                     <Input
@@ -143,6 +150,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                         value={data?.avatar}
                         onChange={onChangeAvatar}
                         disabled={readonly}
+                        data-testid="ProfileCard.avatar"
                     />
                 )}
             </VStack>

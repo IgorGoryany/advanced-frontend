@@ -21,7 +21,7 @@ interface ProfilePageHeaderProps {
     className?: string
 }
 
-export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo((props: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader: FC<ProfilePageHeaderProps> = memo((props: ProfilePageHeaderProps) => {
     const {
         className,
     } = props;
@@ -52,7 +52,11 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo((props: Profil
             <Text title={t('Профиль')} />
             {canEdit && (
                 readonly ? (
-                    <Button theme={ButtonTheme.OUTLINED} onClick={onEdit}>
+                    <Button
+                        data-testid="EditableProfileCardHeader.EditButton"
+                        theme={ButtonTheme.OUTLINED}
+                        onClick={onEdit}
+                    >
                         {t('Редактировать')}
                     </Button>
                 ) : (
@@ -60,10 +64,15 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = memo((props: Profil
                         <Button
                             theme={ButtonTheme.OUTLINED_RED}
                             onClick={onCancelEdit}
+                            data-testid="EditableProfileCardHeader.CancelEditButton"
                         >
                             {t('Отменить')}
                         </Button>
-                        <Button theme={ButtonTheme.OUTLINED} onClick={onSave}>
+                        <Button
+                            theme={ButtonTheme.OUTLINED}
+                            onClick={onSave}
+                            data-testid="EditableProfileCardHeader.SaveEditButton"
+                        >
                             {t('Сохранить')}
                         </Button>
                     </HStack>

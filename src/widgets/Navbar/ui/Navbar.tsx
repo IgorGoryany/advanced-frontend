@@ -4,12 +4,14 @@ import React, {
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
-    Button, ButtonTheme,
+    Avatar,
+    Button, ButtonTheme, Dropdown,
 } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch } from 'react-redux';
 import { useAuth, userAction } from 'entities.entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { routePaths } from 'shared/config';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -38,9 +40,21 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
-                <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={onLogout}>
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    direction="bottom-left"
+                    className={cls.dropdown}
+                    trigger={<Avatar src={authData.avatar} size={30} />}
+                    items={[
+                        {
+                            content: t('Профиль'),
+                            href: routePaths.profile + authData.id,
+                        },
+                        {
+                            content: t('Выйти'),
+                            onClick: onLogout,
+                        },
+                    ]}
+                />
             </header>
         );
     }

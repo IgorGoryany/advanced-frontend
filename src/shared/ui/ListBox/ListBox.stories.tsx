@@ -27,6 +27,28 @@ type Story = StoryObj<typeof meta>;
 export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
 };
-export const Light: Story = {
+
+export const LightBottomRight: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+};
+
+export const LightBottomLeft: Story = {
+    args: {
+        direction: 'bottom-left',
+    },
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+};
+
+export const LightTopLeft: Story = {
+    args: {
+        direction: 'top-left',
+    },
+    decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+};
+
+export const LightTopRight: Story = {
+    args: {
+        direction: 'top-right',
+    },
     decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
 };
