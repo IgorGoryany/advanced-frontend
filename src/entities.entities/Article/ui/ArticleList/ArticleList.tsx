@@ -4,6 +4,8 @@ import {
 import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import { Text, TextAlign, TextSize } from 'shared/ui';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
+import { SerializedError } from '@reduxjs/toolkit';
 import { ArticleListItemLoader } from '../ArticleListItem/ArticleListItemLoader';
 import { Article, ArticlesView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
@@ -11,9 +13,9 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 interface ArticleListProps {
     className?: string;
-    articles: Article[]
+    articles?: Article[]
     isLoading?: boolean
-    error?: string
+    error?: FetchBaseQueryError | SerializedError | string
     view?: ArticlesView
     target?: HTMLAttributeAnchorTarget
 }

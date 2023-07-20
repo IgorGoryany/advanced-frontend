@@ -15,11 +15,13 @@ import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageSchema } from 'pages/ArticlePage';
 import { ScrollSaveSchema } from 'widgets/PageLayout';
 import { ArticleSortSchema } from 'features/ArticleSort';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
     scrollSave: ScrollSaveSchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema
@@ -45,7 +47,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 }
 
 export interface ThunkExtraArgs {
-    api: AxiosInstance
+    $api: AxiosInstance
 }
 
 export interface ThunkConfig<T> {

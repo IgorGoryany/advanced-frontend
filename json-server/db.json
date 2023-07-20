@@ -1643,6 +1643,18 @@
       "userId": 1,
       "text": "werwrwewr",
       "id": 7
+    },
+    {
+      "articleId": 10,
+      "userId": 1,
+      "text": "asdasd",
+      "id": 8
+    },
+    {
+      "articleId": 10,
+      "userId": 1,
+      "text": "asdasdasd",
+      "id": 9
     }
   ],
   "users": [

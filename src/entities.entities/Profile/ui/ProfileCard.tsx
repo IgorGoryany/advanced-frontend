@@ -81,79 +81,78 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
     }
 
     return (
-        <div className={classNames(cls.profileCard, mods, [className])}>
-            <VStack gap="8" max>
-                {data?.avatar && (
-                    <HStack max justify="center" className={cls.avatar}>
-                        <Avatar
-                            src={data?.avatar}
-                            size={100}
-                        />
-                    </HStack>
-                )}
+
+        <VStack gap="8" max className={classNames(cls.profileCard, mods, [className])}>
+            {data?.avatar && (
+                <HStack max justify="center" className={cls.avatar}>
+                    <Avatar
+                        src={data?.avatar}
+                        size={100}
+                    />
+                </HStack>
+            )}
+            <Input
+                placeholder={t('Ваше имя')}
+                value={data?.first}
+                disabled={readonly}
+                onChange={onChangeFirstname}
+                data-testid="ProfileCard.first"
+            />
+            <Input
+                placeholder={t('Ваша фамилия')}
+                value={data?.lastname}
+                onChange={onChangeLastname}
+                disabled={readonly}
+                data-testid="ProfileCard.lastname"
+            />
+            {(!readonly || data?.age) && (
                 <Input
-                    placeholder={t('Ваше имя')}
-                    value={data?.first}
+                    placeholder={t('Ваш возраст')}
+                    value={data?.age}
+                    onChange={onChangeAge}
                     disabled={readonly}
-                    onChange={onChangeFirstname}
-                    data-testid="ProfileCard.first"
+                    data-testid="ProfileCard.age"
                 />
+            )}
+            { (!readonly || data?.username) && (
                 <Input
-                    placeholder={t('Ваша фамилия')}
-                    value={data?.lastname}
-                    onChange={onChangeLastname}
+                    placeholder={t('Ваш ник')}
+                    value={data?.username}
+                    onChange={onChangeUsername}
                     disabled={readonly}
-                    data-testid="ProfileCard.lastname"
+                    data-testid="ProfileCard.username"
                 />
-                {(!readonly || data?.age) && (
-                    <Input
-                        placeholder={t('Ваш возраст')}
-                        value={data?.age}
-                        onChange={onChangeAge}
-                        disabled={readonly}
-                        data-testid="ProfileCard.age"
-                    />
-                )}
-                { (!readonly || data?.username) && (
-                    <Input
-                        placeholder={t('Ваш ник')}
-                        value={data?.username}
-                        onChange={onChangeUsername}
-                        disabled={readonly}
-                        data-testid="ProfileCard.username"
-                    />
-                )}
-                {(!readonly || data?.city) && (
-                    <Input
-                        placeholder={t('Ваш город')}
-                        value={data?.city}
-                        onChange={onChangeCity}
-                        disabled={readonly}
-                        data-testid="ProfileCard.city"
-                    />
-                )}
-                <CurrencySelect
-                    value={data?.currency}
+            )}
+            {(!readonly || data?.city) && (
+                <Input
+                    placeholder={t('Ваш город')}
+                    value={data?.city}
+                    onChange={onChangeCity}
                     disabled={readonly}
-                    onChange={onChangeCurrency}
-                    data-testid="ProfileCard.currency"
+                    data-testid="ProfileCard.city"
                 />
-                <CountrySelect
-                    value={data?.country}
+            )}
+            <CurrencySelect
+                value={data?.currency}
+                disabled={readonly}
+                onChange={onChangeCurrency}
+                data-testid="ProfileCard.currency"
+            />
+            <CountrySelect
+                value={data?.country}
+                disabled={readonly}
+                onChange={onChangeCountry}
+                data-testid="ProfileCard.country"
+            />
+            {!readonly && (
+                <Input
+                    placeholder={t('Ссылка на автар')}
+                    value={data?.avatar}
+                    onChange={onChangeAvatar}
                     disabled={readonly}
-                    onChange={onChangeCountry}
-                    data-testid="ProfileCard.country"
+                    data-testid="ProfileCard.avatar"
                 />
-                {!readonly && (
-                    <Input
-                        placeholder={t('Ссылка на автар')}
-                        value={data?.avatar}
-                        onChange={onChangeAvatar}
-                        disabled={readonly}
-                        data-testid="ProfileCard.avatar"
-                    />
-                )}
-            </VStack>
-        </div>
+            )}
+        </VStack>
     );
 });

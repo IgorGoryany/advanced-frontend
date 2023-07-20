@@ -25,7 +25,11 @@ describe('scrollSave', () => {
             .toEqual(500);
     });
     test('should work with empty state and return 0', () => {
-        const state: DeepPartial<StateSchema> = {};
+        const state: DeepPartial<StateSchema> = {
+            scrollSave: {
+                scroll: {},
+            },
+        };
         expect(getScrollSaveScrollByPath(state as StateSchema, 'article'))
             .toEqual(0);
     });

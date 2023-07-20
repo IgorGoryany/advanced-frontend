@@ -26,7 +26,7 @@ describe('getArticleDetailsComments.test', () => {
             },
             {
                 Icon: ProfilePageIcon,
-                path: `${routePaths.profile}/1`,
+                path: `${routePaths.profile}1`,
                 text: 'Профиль',
                 authOnly: true,
             },

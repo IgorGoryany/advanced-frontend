@@ -31,7 +31,7 @@ export const fetchArticleList = createAsyncThunk<Article[], FetchArticleListProp
             addQueryParams({
                 ...sortArticle,
             });
-            const response = await extra.api.get<Article[]>('/articles', {
+            const response = await extra.$api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
                     _page: page,

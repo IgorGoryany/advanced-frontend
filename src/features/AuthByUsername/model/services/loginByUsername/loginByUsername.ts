@@ -18,7 +18,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
         } = thunkAPI;
 
         try {
-            const response = await extra.api.post<User>('/login', authData);
+            const response = await extra.$api.post<User>('/login', authData);
 
             if (!response.data) {
                 throw new Error();

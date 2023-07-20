@@ -39,20 +39,20 @@ const state: DeepPartial<StateSchema> = {
 describe('fetchArticleList', () => {
     test('success get Article[]', async () => {
         const thunk = new TestAsyncThunk(fetchArticleList, state);
-        thunk.api.get.mockReturnValue(Promise.resolve({ data: article }));
+        thunk.$api.get.mockReturnValue(Promise.resolve({ data: article }));
         const result = await thunk.callThunk({ page: 1 });
 
-        expect(thunk.api.get).toHaveBeenCalled();
+        expect(thunk.$api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(article);
     });
 
     test('not success get Article[]', async () => {
         const thunk = new TestAsyncThunk(fetchArticleList, state);
-        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
+        thunk.$api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk({ page: 1 });
 
-        expect(thunk.api.get).toHaveBeenCalled();
+        expect(thunk.$api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
     });
 });

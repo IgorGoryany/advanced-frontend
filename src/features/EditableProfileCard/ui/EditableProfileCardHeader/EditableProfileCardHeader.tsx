@@ -48,7 +48,7 @@ export const EditableProfileCardHeader: FC<ProfilePageHeaderProps> = memo((props
     const { t } = useTranslation('profile');
 
     return (
-        <HStack justify="between" className={classNames('', mods, [className])}>
+        <HStack justify="between" className={classNames('', mods, [className])} max>
             <Text title={t('Профиль')} />
             {canEdit && (
                 readonly ? (

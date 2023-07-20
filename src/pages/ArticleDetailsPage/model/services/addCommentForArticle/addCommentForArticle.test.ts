@@ -14,10 +14,10 @@ describe('addCommentForArticle', () => {
         const thunk = new TestAsyncThunk(addCommentForArticle, {
             user: { authData: {} }, articleDetails: { articleDetailsData: {} },
         });
-        thunk.api.post.mockReturnValue(Promise.resolve({ data: CommentState }));
+        thunk.$api.post.mockReturnValue(Promise.resolve({ data: CommentState }));
         const result = await thunk.callThunk('sadasd');
 
-        expect(thunk.api.post).toHaveBeenCalled();
+        expect(thunk.$api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual(CommentState);
     });
@@ -26,18 +26,18 @@ describe('addCommentForArticle', () => {
         const thunk = new TestAsyncThunk(addCommentForArticle, {
             user: { authData: {} }, articleDetails: { articleDetailsData: {} },
         });
-        thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
+        thunk.$api.post.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk('asdasdas');
 
-        expect(thunk.api.post).toHaveBeenCalled();
+        expect(thunk.$api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
     });
     test('not success post Comment with empty state', async () => {
         const thunk = new TestAsyncThunk(addCommentForArticle);
-        thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
+        thunk.$api.post.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk('asdasdas');
 
-        expect(thunk.api.post).not.toHaveBeenCalled();
+        expect(thunk.$api.post).not.toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
     });
 });

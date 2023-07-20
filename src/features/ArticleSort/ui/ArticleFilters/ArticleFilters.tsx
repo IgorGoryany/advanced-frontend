@@ -62,6 +62,7 @@ const ArticleFilters: FC<ArticleFiltersProps> = memo(
             dispatch(articleSortAction.setSearch(search));
             debouncedOnChangeSort();
         }, [debouncedOnChangeSort, dispatch]);
+
         const [searchParams] = useSearchParams();
 
         const onTabClick = useCallback((tab: TabItem<ArticleType>) => {

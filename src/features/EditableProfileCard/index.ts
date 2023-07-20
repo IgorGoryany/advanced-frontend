@@ -1,1 +1,1 @@
-export { EditableProfileCard } from './ui/EditableProfileCard';
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';

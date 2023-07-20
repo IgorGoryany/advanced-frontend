@@ -1,4 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+
 import {
     initArticlePage,
 } from './initArticlePage';
@@ -15,10 +16,10 @@ describe('initArticlePage', () => {
             },
         });
 
+        await thunk.callThunk('BIG');
+
         expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-        expect(fetchArticleList).toHaveBeenCalledWith({
-            page: 1,
-        });
+        expect(fetchArticleList).toHaveBeenCalledWith({});
     });
 
     test('not success ', async () => {
@@ -28,6 +29,7 @@ describe('initArticlePage', () => {
             },
         });
 
+        await thunk.callThunk('BIG');
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(fetchArticleList).not.toHaveBeenCalled();
     });

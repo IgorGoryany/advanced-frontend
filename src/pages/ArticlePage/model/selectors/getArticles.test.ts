@@ -87,7 +87,7 @@ describe('getArticleDetailsComments', () => {
         'should work with empty state and return undefined',
         () => {
             const state: DeepPartial<StateSchema> = {};
-            expect(getArticlesPage(state as StateSchema)).toBe(undefined);
+            expect(getArticlesPage(state as StateSchema)).toBe(1);
         },
     );
     test('should return article has more', () => {

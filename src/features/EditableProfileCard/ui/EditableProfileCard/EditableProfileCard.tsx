@@ -1,5 +1,5 @@
 import {
-    FC, memo, useCallback, useMemo,
+    memo, useCallback, useMemo,
 } from 'react';
 import {
     DynamicModuleLoader, ReducersList, useAppDispatch, useInitialEffect,
@@ -10,15 +10,14 @@ import { Currency } from 'entities.entities/Currency';
 import { Country } from 'entities.entities/Country';
 import { Text, TextTheme, VStack } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
-import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
-import { profileAction, profileReducer } from '../model/slice/profileSlice';
-import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
-import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
-import { fetchingProfileData } from '../model/service/fetchingProfileData/fetchingProfileData';
-import { getProfileValidateError } from '../model/selectors/getProfileValidateError/getProfileValidateError';
-import { EditableProfileCardHeader } from './EditableProfileCardHeader/EditableProfileCardHeader';
+import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
+import { profileAction, profileReducer } from '../../model/slice/profileSlice';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { fetchingProfileData } from '../../model/service/fetchingProfileData/fetchingProfileData';
+import { getProfileValidateError } from '../../model/selectors/getProfileValidateError/getProfileValidateError';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {
     id?: string
