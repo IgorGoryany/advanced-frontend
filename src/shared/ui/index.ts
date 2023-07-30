@@ -8,13 +8,17 @@ export {
     Text, TextTheme, TextAlign, TextSize,
 } from './Text/Text';
 export { Avatar } from './Avatar/Avatar';
-export { Select, SelectOption } from './Select/Select';
+export { Select } from './Select/Select';
+export type { SelectOption } from './Select/Select';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Icon } from './Icon/Icon';
-export { Card, CardTheme } from './Card/Card';
-export { Tabs, TabItem } from './Tabs/Tabs';
+export { Card } from './Card/Card';
+export type { CardTheme } from './Card/Card';
+export { Tabs } from './Tabs/Tabs';
+export type { TabItem } from './Tabs/Tabs';
 export { HStack } from './Stack/HStack/HStack';
 export { VStack } from './Stack/VStack/VStack';
 export { ListBox } from './ListBox/ListBox';
-export { Dropdown, DropdownItem } from './Dropdown/Dropdown';
-export { ListBoxItem } from 'shared/ui/ListBox/ListBox';
+export { Dropdown } from './Dropdown/Dropdown';
+export type { DropdownItem } from './Dropdown/Dropdown';
+export type { ListBoxItem } from 'shared/ui/ListBox/ListBox';

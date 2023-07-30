@@ -7,11 +7,12 @@ import {
 import ViewsIcon from 'shared/assets/icons/ViewsIcon.svg';
 import { useTranslation } from 'react-i18next';
 import { routePaths } from 'shared/config';
+import { ArticleBlockType } from 'entities.entities/Article/model/consts/ArticleType';
 import {
     ArticleParagraphsBlock,
 } from '../ArticleParagraphsBlock/ArticleParagraphsBlock';
 import {
-    Article, ArticleBlockText, ArticleBlockType, ArticlesView,
+    Article, ArticleBlockText, ArticlesView,
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 

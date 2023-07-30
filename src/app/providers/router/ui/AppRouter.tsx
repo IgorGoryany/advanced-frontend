@@ -4,8 +4,8 @@ import React, {
 import { Route, Routes } from 'react-router-dom';
 
 import { AppRoutesProps } from 'shared/config';
-import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
 import { PageLoader } from 'widgets/PageLoader';
+import { RequireAuth } from './RequireAuth';
 import { routerConfig } from '../config/routerConfig';
 
 const AppRouter = memo(() => {
@@ -19,7 +19,7 @@ const AppRouter = memo(() => {
             <Route
                 key={route.path}
                 path={route.path}
-                element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+                element={route.authOnly ? <RequireAuth roles={route.roles}>{element}</RequireAuth> : element}
             />
         );
     }, []);

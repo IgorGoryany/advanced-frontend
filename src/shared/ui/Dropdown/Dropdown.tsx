@@ -1,8 +1,7 @@
 import {
-    FC, Fragment, memo, ReactNode,
+    Fragment, memo, ReactNode,
 } from 'react';
 import { classNames, Mods } from 'shared/lib';
-import { useTranslation } from 'react-i18next';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types';
 import { AppLink } from '../AppLink/AppLink';
@@ -35,7 +34,6 @@ export const Dropdown = genericMemo(
 
         const mods: Mods = {};
 
-        const { t } = useTranslation();
         const menuItemMods = (active: boolean): Mods => ({
             [cls.active]: active,
         });

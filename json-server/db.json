@@ -1663,14 +1663,21 @@
       "username": "admin",
       "password": "123",
       "avatar": "https://sun9-47.userapi.com/impf/c836332/v836332484/4b320/zGt2w4yBgAQ.jpg?size=1280x960&quality=96&sign=3654f13cf55dc46103b6219fd2115c8f&type=album",
-      "role": "ADMIN"
+      "roles": ["ADMIN"]
     },
     {
       "id": 2,
       "username": "user",
       "password": "123",
       "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album",
-      "role": "USER"
+      "roles": ["USER"]
+    },
+    {
+      "id": 2,
+      "username": "manager",
+      "password": "123",
+      "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album",
+      "roles": ["MANAGER"]
     }
   ],
   "profile": [

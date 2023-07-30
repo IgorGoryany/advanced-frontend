@@ -5,6 +5,8 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { AppRoutesProps, routePaths } from 'shared/config';
 import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { AdminPanelPage } from 'pages/AdminPanelPage';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 
 export const routerConfig: AppRoutesProps[] = [
     {
@@ -30,8 +32,24 @@ export const routerConfig: AppRoutesProps[] = [
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
+    {
+        path: `${routePaths.article_details}:id`,
+        element: <ArticleDetailsPage />,
+        authOnly: true,
+    },
+    {
+        path: `${routePaths.admin_panel}`,
+        element: <AdminPanelPage />,
+        authOnly: true,
+        roles: ['ADMIN'],
+    },
 
     //! last
+    {
+        path: `${routePaths.forbidden}`,
+        element: <ForbiddenPage />,
+        authOnly: true,
+    },
     {
         path: routePaths.notFound,
         element: <NotFoundPage />,

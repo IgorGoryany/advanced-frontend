@@ -33,6 +33,7 @@ server.post('/login', (req, res) => {
                 id: userFromBd?.id,
                 username: userFromBd?.username,
                 avatar: userFromBd?.avatar,
+                roles: userFromBd?.roles,
             });
         }
 

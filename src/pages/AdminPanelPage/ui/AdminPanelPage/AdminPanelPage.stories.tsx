@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'shared/lib';
 import { StoreDecorator, ThemeDecorator } from 'shared/config';
-import { ArticleRecommendationList } from './ArticleRecommendationList';
+import AdminPanelPage from './AdminPanelPage';
 
 const meta = {
-    title: 'features/ArticleRecomendationList',
-    component: ArticleRecommendationList,
+    title: 'pages/AdminPanelPage',
+    component: AdminPanelPage,
     tags: ['autodocs'],
-} as Meta<typeof ArticleRecommendationList>;
+} as Meta<typeof AdminPanelPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

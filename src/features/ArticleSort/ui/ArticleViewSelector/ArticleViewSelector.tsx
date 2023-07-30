@@ -16,7 +16,7 @@ interface ArticleViewSelectorProps {
 
 interface ViewButtonType {
     view: ArticlesView
-    icon: React.VFC<React.SVGProps<SVGSVGElement>>
+    icon: React.FC<React.SVGProps<SVGSVGElement>>
 }
 
 const viewTypes: ViewButtonType[] = [

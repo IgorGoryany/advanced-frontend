@@ -11,6 +11,7 @@ import {
 } from 'shared/ui';
 import ViewsIcon from 'shared/assets/icons/ViewsIcon.svg';
 import DateIcon from 'shared/assets/icons/DateIcon.svg';
+import { ArticleBlockType } from 'entities.entities/Article/model/consts/ArticleType';
 import {
     ArticleParagraphsBlock,
 } from '../ArticleParagraphsBlock/ArticleParagraphsBlock';
@@ -26,7 +27,7 @@ import {
     getArticleDetailsIsLoading,
 } from '../../model/selectors/getArticleDetails/getArticleDetails';
 import { ArticleDetailsLoader } from '../ArticleDetailsLoader/ArticleDetailsLoader';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

@@ -17,7 +17,7 @@ import { routePaths } from 'shared/config';
 import { PageLayout } from 'widgets/PageLayout';
 import {
     ArticleRecommendationList,
-} from 'features/ArticleRecomendationList';
+} from 'features/ArticleRecommendationList';
 import {
     ArticleDetailsComments,
 } from '../ArticleDetailsComments/ArticleDetailsComments';

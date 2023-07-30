@@ -11,6 +11,7 @@ const config: StorybookConfig = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
+        'storybook-addon-mock/register',
     ],
     webpackFinal: async (config: Configuration) => {
         const paths: Pick<BuildPaths, 'src'> = {
@@ -28,7 +29,7 @@ const config: StorybookConfig = {
 
         config!.plugins!.push(new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(true),
-            __API__: JSON.stringify(''),
+            __API__: JSON.stringify('https://testapi.ru'),
             __PROJECT__: JSON.stringify('storybook'),
         }));
         config!.module!.rules!.push(buildSvgLoader());
