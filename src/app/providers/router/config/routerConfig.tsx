@@ -7,6 +7,7 @@ import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { AdminPanelPage } from 'pages/AdminPanelPage';
 import { ForbiddenPage } from 'pages/ForbiddenPage';
+import React from 'react';
 
 export const routerConfig: AppRoutesProps[] = [
     {

@@ -1,8 +1,8 @@
 {
-  "extends": "stylelint-config-standard-scss",
-  "rules": {
-    "indentation": [2],
-    "selector-class-pattern": null,
-    "scss/no-global-function-names": null
-  }
+	"extends": "stylelint-config-standard-scss",
+	"rules": {
+		"indentation": [2],
+		"selector-class-pattern": null,
+		"scss/no-global-function-names": null
+	}
 }

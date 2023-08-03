@@ -5,6 +5,6 @@ export function useInitialEffect(callback: () => void, deps: any[] = []) {
         if (__PROJECT__ === 'frontend') {
             callback();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps);
 }

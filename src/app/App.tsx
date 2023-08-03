@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserMounted, userAction } from 'entities.entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { AppRouter } from './providers/router/ui/AppRouter';
+import './styles/index.scss';
 
 const App = () => {
     const { theme } = useTheme();

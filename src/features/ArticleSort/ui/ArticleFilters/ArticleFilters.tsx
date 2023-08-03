@@ -38,7 +38,6 @@ interface ArticleFiltersProps {
     view: ArticlesView
     onViewClick?: (view: ArticlesView) => void
     onChangeSort: () => void
-    initArticlePage: () => void
 }
 
 const ArticleFilters: FC<ArticleFiltersProps> = memo(
@@ -48,7 +47,6 @@ const ArticleFilters: FC<ArticleFiltersProps> = memo(
             view,
             onViewClick,
             onChangeSort,
-            initArticlePage,
         } = props;
         const { t } = useTranslation('article');
         const mods: Mods = {};
@@ -72,7 +70,6 @@ const ArticleFilters: FC<ArticleFiltersProps> = memo(
 
         useInitialEffect(() => {
             dispatch(initArticleSort(searchParams));
-            initArticlePage();
         });
 
         return (

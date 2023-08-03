@@ -64,10 +64,11 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
         }
     }, [dispatch]);
 
-    const onInitArticlePage = useCallback(() => {
+    useInitialEffect(() => {
         const initialView = localStorage.getItem(ARTICLE_VIEW_KEY) as ArticlesView;
         dispatch(initArticlePage(initialView));
-    }, [dispatch]);
+        console.log(view);
+    });
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
@@ -76,7 +77,6 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
                 className={classNames(cls.articlePage, mods, [className])}
             >
                 <ArticleFilters
-                    initArticlePage={onInitArticlePage}
                     view={view}
                     onViewClick={onViewClick}
                     onChangeSort={onChangeSort}
