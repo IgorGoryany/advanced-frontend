@@ -1,20 +1,18 @@
-import React, {
+import {
     FC, memo, useCallback, useMemo, useState,
 } from 'react';
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
-    Avatar,
-    Button, ButtonTheme, Dropdown, DropdownItem,
+    Avatar, Button, ButtonTheme, Dropdown, DropdownItem, HStack, Icon, Popover,
 } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    isUserAdmin, isUserManager, useAuth, userAction,
-} from 'entities.entities/User';
+import { isUserAdmin, useAuth, userAction } from 'entities.entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { routePaths } from 'shared/config';
-import { getUserRole } from 'entities.entities/User/model/selectors/getUserRole';
+import NotificationIcon from 'shared/assets/icons/Notification.svg';
+import { redirect } from 'react-router-dom';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -73,12 +71,22 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
-                <Dropdown
-                    direction="bottom-left"
-                    className={cls.dropdown}
-                    trigger={<Avatar src={authData.avatar} size={30} />}
-                    items={dropdownItems}
-                />
+                <HStack gap={16} className={cls.items}>
+                    <Popover
+                        trigger={(
+                            <Icon Svg={NotificationIcon} inverted />
+                        )}
+                        direction="bottom-left"
+                    // eslint-disable-next-line i18next/no-literal-string
+                    >
+                        asdsad
+                    </Popover>
+                    <Dropdown
+                        direction="bottom-left"
+                        trigger={<Avatar src={authData.avatar} size={30} />}
+                        items={dropdownItems}
+                    />
+                </HStack>
             </header>
         );
     }

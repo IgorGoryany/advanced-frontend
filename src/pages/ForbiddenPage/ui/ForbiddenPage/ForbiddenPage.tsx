@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useRef } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import { Text, TextAlign } from 'shared/ui';
@@ -15,6 +15,7 @@ export const ForbiddenPage: FC<ForbiddenPageProps> = memo(
         } = props;
 
         const mods: Mods = {};
+        const ref = useRef<HTMLDivElement | null>(null);
 
         const { t } = useTranslation();
         return (

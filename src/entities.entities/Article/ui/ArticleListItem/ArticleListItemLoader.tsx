@@ -14,6 +14,8 @@ import cls from './ArticleListItem.module.scss';
 interface ArticleListItemProps {
     className?: string;
     view: ArticlesView
+    translateY?: number
+    position?: 'static' | 'relative' | 'absolute' | 'sticky' | 'fixed'
 }
 
 export const ArticleListItemLoader: FC<ArticleListItemProps> = memo(
@@ -21,12 +23,20 @@ export const ArticleListItemLoader: FC<ArticleListItemProps> = memo(
         const {
             className,
             view,
+            translateY,
+            position = 'absolute',
         } = props;
         const mods: Mods = {};
 
         if (view === 'BIG') {
             return (
-                <div className={classNames(cls.articleListItem, mods, [className, cls[view]])}>
+                <div
+                    style={{
+                        transform: `translateY(${translateY}px)`,
+                        position,
+                    }}
+                    className={classNames(cls.articleListItem, mods, [className, cls[view]])}
+                >
                     <Card className={cls.card}>
                         <div className={cls.header}>
                             <Skeleton width={30} height={30} border="50%" className={cls.avatar} />
@@ -46,7 +56,13 @@ export const ArticleListItemLoader: FC<ArticleListItemProps> = memo(
             );
         }
         return (
-            <div className={classNames(cls.articleListItem, mods, [className, cls[view]])}>
+            <div
+                style={{
+                    transform: `translateY(${translateY}px)`,
+                    position,
+                }}
+                className={classNames(cls.articleListItem, mods, [className, cls[view]])}
+            >
                 <Card className={cls.card}>
                     <Skeleton height={230} width={200} border="10px" />
                     <div className={cls.cardInfo}>

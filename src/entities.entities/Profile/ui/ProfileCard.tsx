@@ -19,8 +19,8 @@ interface ProfileCardProps {
     isLoading?: boolean
     error?: string
     readonly?: boolean
-    onChangeLastname?: (value: string) => void
-    onChangeFirstname?: (value: string) => void
+    onChangeLastName?: (value: string) => void
+    onChangeFirstName?: (value: string) => void
     onChangeUsername?: (value: string) => void
     onChangeAge?: (value: string) => void
     onChangeCity?: (value: string) => void
@@ -36,8 +36,8 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
         readonly,
         isLoading,
         error,
-        onChangeLastname,
-        onChangeFirstname,
+        onChangeLastName,
+        onChangeFirstName,
         onChangeUsername,
         onChangeAge,
         onChangeCity,
@@ -95,13 +95,13 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                 placeholder={t('Ваше имя')}
                 value={data?.first}
                 disabled={readonly}
-                onChange={onChangeFirstname}
+                onChange={onChangeFirstName}
                 data-testid="ProfileCard.first"
             />
             <Input
                 placeholder={t('Ваша фамилия')}
                 value={data?.lastname}
-                onChange={onChangeLastname}
+                onChange={onChangeLastName}
                 disabled={readonly}
                 data-testid="ProfileCard.lastname"
             />

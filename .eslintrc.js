@@ -37,7 +37,7 @@ module.exports = {
             extensions: ['.js', '.tsx'],
         }],
         'react/function-component-definition': [2, {
-            namedComponents: ['arrow-function', 'function-declaration'],
+            namedComponents: ['arrow-function'],
         }],
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
@@ -82,7 +82,6 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'jsx-a11y/control-has-associated-label': 'off', // выруби если чо
-        'jsx-a11y/label-has-associated-control': 'off',
         'ubgbigtv-fsd/path-checker': 'error',
     },
 

@@ -1,9 +1,13 @@
 .SMALL {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 32px;
 }
 
 .notFound {
   margin-top: 30px;
+}
+
+.listWrapper {
+  position: relative;
 }

@@ -27,14 +27,16 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
     }
 
     return (
-        <VStack max gap={16}>
-            <Text title={t('Рекоммендации')} size={TextSize.L} />
+        <VStack max>
+            <Text title={t('Рекомендации')} size={TextSize.L} />
             <ArticleList
                 className={classNames('', mods, [className])}
                 target="_blank"
                 articles={articles}
                 error={error}
                 isLoading={isLoading}
+                view="SMALL"
+                isRecommendationList
             />
         </VStack>
     );

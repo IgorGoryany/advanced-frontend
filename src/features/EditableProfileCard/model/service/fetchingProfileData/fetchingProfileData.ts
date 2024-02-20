@@ -19,7 +19,7 @@ export const fetchingProfileData = createAsyncThunk<Profile, string, ThunkConfig
 
             return response.data;
         } catch (e) {
-            console.log(e);
+            // console.log(e);
             return rejectWithValue('Вы ввели неверный логин или пароль');
         }
     },

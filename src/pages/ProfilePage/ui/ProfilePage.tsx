@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { EditableProfileCard } from 'features/EditableProfileCard';
 import { PageLayout } from 'widgets/PageLayout';

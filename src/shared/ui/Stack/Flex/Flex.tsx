@@ -44,8 +44,9 @@ export interface FlexProps extends DivProps {
     align?: FlexAlign;
     direction?: FlexDirection;
     gap?: FlexGap;
-    max?: boolean
-    Tag?: ReactTag
+    max?: boolean;
+    wrap?: boolean;
+    Tag?: ReactTag;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -59,10 +60,12 @@ export const Flex = (props: FlexProps) => {
         max,
         role,
         Tag = 'div',
+        wrap,
     } = props;
 
     const mods: Mods = {
         [cls.max]: max,
+        [cls.wrap]: wrap,
     };
     const additional = [
         className,

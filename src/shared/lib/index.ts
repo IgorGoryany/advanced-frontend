@@ -7,7 +7,7 @@ export {
 } from './theme/ThemeContext/ThemeContext';
 export type { ThemeContextProps } from './theme/ThemeContext/ThemeContext';
 export { classNames } from './classNames/classNames';
-export type { Mods } from './classNames/classNames';
+export type { Mods, Additional } from './classNames/classNames';
 export { useTheme } from './hooks/useTheme/useTheme';
 export { useInitialEffect } from './hooks/useInitialEffect/useInitialEffect';
 export { useHover } from './hooks/useHover/useHover';

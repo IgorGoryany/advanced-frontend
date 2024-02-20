@@ -34,7 +34,7 @@ export const articlePageSlice = createSlice({
 
         initState: (state, action:PayloadAction<ArticlesView>) => {
             state.view = action.payload;
-            state.limit = action.payload === 'BIG' ? 4 : 8;
+            state.limit = action.payload === 'BIG' ? 4 : 12;
             state.inited = true;
         },
     },

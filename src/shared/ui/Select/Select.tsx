@@ -1,5 +1,5 @@
 import {
-    ChangeEvent, FC, memo, useCallback, useMemo,
+    ChangeEvent, FC, memo, useCallback, useId, useMemo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '../../lib';
@@ -29,6 +29,7 @@ export const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
         onChange,
         disabled,
     } = props;
+    const id = useId();
 
     const optionList = useMemo(
         () => (
@@ -55,11 +56,12 @@ export const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
     return (
         <div className={classNames(cls.selectWrapper, mods, [className])}>
             {label && (
-                <label className={cls.label}>
+                <label className={cls.label} htmlFor={id}>
                     {`${label}>`}
                 </label>
             )}
             <select
+                id={id}
                 disabled={disabled}
                 className={cls.select}
                 value={value}

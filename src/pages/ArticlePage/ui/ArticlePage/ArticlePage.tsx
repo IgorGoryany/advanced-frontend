@@ -1,4 +1,6 @@
-import { FC, memo, useCallback } from 'react';
+import {
+    FC, memo, useCallback, useRef,
+} from 'react';
 import {
     classNames, DynamicModuleLoader, Mods, ReducersList, useAppDispatch, useInitialEffect,
 } from 'shared/lib';
@@ -8,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { ARTICLE_VIEW_KEY } from 'shared/const/localStorage';
 import { PageLayout } from 'widgets/PageLayout';
 import { ArticleFilters } from 'features/ArticleSort';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import {
     fetchArticleList,
 } from '../../model/services/fetchArticleList/fetchArticleList';
@@ -67,7 +70,6 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
     useInitialEffect(() => {
         const initialView = localStorage.getItem(ARTICLE_VIEW_KEY) as ArticlesView;
         dispatch(initArticlePage(initialView));
-        console.log(view);
     });
 
     return (

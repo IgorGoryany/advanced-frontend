@@ -1655,6 +1655,12 @@
       "userId": 1,
       "text": "asdasdasd",
       "id": 9
+    },
+    {
+      "articleId": 12,
+      "userId": 1,
+      "text": "Ебало на ноль",
+      "id": 10
     }
   ],
   "users": [
@@ -1670,14 +1676,18 @@
       "username": "user",
       "password": "123",
       "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album",
-      "roles": ["USER"]
+      "roles": [
+        "USER"
+      ]
     },
     {
       "id": 2,
       "username": "manager",
       "password": "123",
       "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album",
-      "roles": ["MANAGER"]
+      "roles": [
+        "MANAGER"
+      ]
     }
   ],
   "profile": [

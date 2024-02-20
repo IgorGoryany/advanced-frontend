@@ -1,55 +1,31 @@
 @import "./variables/global";
 @import "reset";
 @import "./themes/dark";
-@import "./themes/normal";
+@import "./themes/light";
 @import "./themes/orange";
 
 .app {
-  font: var(--font-m);
-  background: var(--bg-color);
-  color: var(--primary-color);
-  height: 100vh;
+	font: var(--font-m);
+	background: var(--bg-color);
+	color: var(--primary-color);
+	height: 100vh;
 }
 
 .content-page {
-  display: flex;
+	display: flex;
 }
 
 *::-webkit-scrollbar {
-  width: 12px;            /* ширина scrollbar */
-  height: 8px;
+	width: 12px; /* ширина scrollbar */
+	height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--card-bg);        /* цвет дорожки */
+	background: var(--card-bg); /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color);    /* цвет плашки */
-  border-radius: 20px;       /* закругления плашки */
-  border: 2px solid var(--inverted-primary-color);  /* padding вокруг плашки */
-}
-
-.top-left {
-  bottom: 100%;
-  right: 0;
-  box-shadow: 4px -4px 8px var(--list-box-bg);
-}
-
-.top-right {
-  bottom: 100%;
-  left: 0;
-  box-shadow: -4px -4px 8px var(--list-box-bg);
-}
-
-.bottom-left {
-  top: 100%;
-  right: 0;
-  box-shadow: 4px 4px 8px var(--list-box-bg);
-}
-
-.bottom-right {
-  top: 100%;
-  left: 0;
-  box-shadow: -4px 4px 8px var(--list-box-bg);
+	background-color: var(--primary-color); /* цвет плашки */
+	border-radius: 20px; /* закругления плашки */
+	border: 2px solid var(--inverted-primary-color); /* padding вокруг плашки */
 }

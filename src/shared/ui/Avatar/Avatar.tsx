@@ -1,5 +1,5 @@
 import {
-    CSSProperties, FC, memo, MutableRefObject, useEffect, useMemo, useRef,
+    CSSProperties, FC, memo, useMemo,
 } from 'react';
 import { classNames, Mods } from '../../lib/classNames/classNames';
 import cls from './Avatar.module.scss';
@@ -34,7 +34,10 @@ export const Avatar: FC<AvatarProps> = memo((props: AvatarProps) => {
     ), [position, zoom]);
 
     return (
-        <div className={classNames(cls.avatarWrapper, mods, [className])} style={styleWrapper}>
+        <div
+            className={classNames(cls.avatarWrapper, mods, [className])}
+            style={styleWrapper}
+        >
             <img
                 src={src}
                 alt={alt}

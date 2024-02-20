@@ -1,6 +1,7 @@
 import {
     FC, MutableRefObject, ReactNode, useRef,
     UIEvent,
+    forwardRef,
 } from 'react';
 import {
     classNames, Mods, useAppDispatch, useThrottle,
@@ -31,6 +32,7 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
         onScrollEnd,
         saveScroll = true,
     } = props;
+
     const mods: Mods = {};
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -41,6 +43,7 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
     ));
 
     useInfiniteScroll({
+        // @ts-ignore
         wrapperRef,
         triggerRef,
         callback: onScrollEnd,
@@ -56,11 +59,13 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
     }, 100);
 
     useLayoutInitialEffect(() => {
+        // @ts-ignore
         wrapperRef.current.scrollTop = scrollPosition;
     });
 
     return (
         <main
+            // @ts-ignore
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.page, mods, [className])}

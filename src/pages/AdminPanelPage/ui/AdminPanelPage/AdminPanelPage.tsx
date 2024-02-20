@@ -1,4 +1,6 @@
-import { FC, memo } from 'react';
+import {
+    FC, memo, useReducer, useRef,
+} from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import { PageLayout } from 'widgets/PageLayout';
@@ -14,6 +16,7 @@ const AdminPanelPage: FC<AdminPanelPageProps> = memo(
         } = props;
 
         const mods: Mods = {};
+        const ref = useRef<HTMLDivElement | null>(null);
 
         const { t } = useTranslation('admin_panel');
         return (

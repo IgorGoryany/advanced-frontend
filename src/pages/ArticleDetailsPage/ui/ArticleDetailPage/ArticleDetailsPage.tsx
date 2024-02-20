@@ -1,4 +1,6 @@
-import { FC, memo, useCallback } from 'react';
+import {
+    FC, memo, useCallback, useRef,
+} from 'react';
 import {
     classNames,
     DynamicModuleLoader,
@@ -12,6 +14,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
     Button, ButtonTheme, Text, TextTheme,
+    VStack,
 } from 'shared/ui';
 import { routePaths } from 'shared/config';
 import { PageLayout } from 'widgets/PageLayout';
@@ -49,6 +52,7 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
     const onBackToList = useCallback(() => {
         navigate(routePaths.articles);
     }, [navigate]);
+    const ref = useRef<HTMLDivElement | null>(null);
 
     useInitialEffect(() => {
         dispatch(fetchCommentByArticleId(id));
@@ -87,8 +91,10 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
                     {t('Назад к списку')}
                 </Button>
                 <ArticleDetails id={id} />
-                <ArticleRecommendationList />
-                <ArticleDetailsComments />
+                <VStack gap="32" max>
+                    <ArticleRecommendationList />
+                    <ArticleDetailsComments />
+                </VStack>
             </PageLayout>
         </DynamicModuleLoader>
     );

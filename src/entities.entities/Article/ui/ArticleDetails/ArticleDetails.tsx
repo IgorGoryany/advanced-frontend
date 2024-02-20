@@ -11,7 +11,7 @@ import {
 } from 'shared/ui';
 import ViewsIcon from 'shared/assets/icons/ViewsIcon.svg';
 import DateIcon from 'shared/assets/icons/DateIcon.svg';
-import { ArticleBlockType } from 'entities.entities/Article/model/consts/ArticleType';
+import { ArticleBlockType } from '../../model/consts/ArticleType';
 import {
     ArticleParagraphsBlock,
 } from '../ArticleParagraphsBlock/ArticleParagraphsBlock';

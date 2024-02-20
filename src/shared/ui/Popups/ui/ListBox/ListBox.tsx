@@ -2,10 +2,11 @@ import { Fragment, memo, ReactNode } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { Listbox as HListBox } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types';
-import { HStack } from '../../Stack/HStack/HStack';
-import { Button, ButtonTheme } from '../../Button/Button';
+import { genericMemo } from 'shared/const/genericMemo';
+import { HStack } from '../../../Stack/HStack/HStack';
+import { Button, ButtonTheme } from '../../../Button/Button';
 import cls from './ListBox.module.scss';
-import popupCls from '../styles/Popups.module.scss';
+import popupCls from '../../styles/Popups.module.scss';
 
 export interface ListBoxItem<T extends string> {
     value: T;
@@ -23,7 +24,6 @@ interface ListBoxProps<T extends string> {
     direction?: DropdownDirection;
     label?: string
 }
-const genericMemo: <T>(component: T) => T = memo;
 
 export const ListBox = genericMemo(<T extends string>(props: ListBoxProps<T>) => {
     const {
@@ -72,7 +72,7 @@ export const ListBox = genericMemo(<T extends string>(props: ListBoxProps<T>) =>
                                 <li
                                     className={classNames(cls.option, {
                                         [popupCls.active]: active,
-                                        [cls.disabled]: item.disabled,
+                                        [popupCls.disabled]: item.disabled,
                                     })}
                                 >
                                     {selected && '!!'}

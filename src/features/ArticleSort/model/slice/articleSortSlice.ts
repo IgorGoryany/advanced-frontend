@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 import { ArticleSortType, ArticleType } from 'entities.entities/Article';
 import { SortOrder } from 'shared/types';
 import { ArticleSortSchema } from '../types/ArticleSortSchema';
@@ -14,13 +14,13 @@ export const articleSortSlice = createSlice({
     name: 'articleSort',
     initialState,
     reducers: {
-        setSort: (state, action:PayloadAction<ArticleSortType>) => {
+        setSort: (state, action: PayloadAction<ArticleSortType>) => {
             state.sort = action.payload;
         },
-        setOrder: (state, action:PayloadAction<SortOrder>) => {
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
             state.order = action.payload;
         },
-        setSearch: (state, action:PayloadAction<string>) => {
+        setSearch: (state, action: PayloadAction<string>) => {
             state.search = action.payload;
         },
         setType: (state, action: PayloadAction<ArticleType>) => {

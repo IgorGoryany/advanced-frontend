@@ -1,5 +1,8 @@
 .articleListItem {
   margin-top: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .BIG {
@@ -57,7 +60,9 @@
 .SMALL {
   min-width: 230px;
   max-width: 230px;
-  transition: transform 0.1s, opacity 0.1s;
+  transition:
+    transform 0.1s,
+    opacity 0.1s;
   cursor: pointer;
 
   .createdAt {

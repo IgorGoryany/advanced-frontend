@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import { classNames } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import { PageLayout } from 'widgets/PageLayout';
@@ -10,6 +10,7 @@ interface NotFoundPageProps {
 
 export const NotFoundPage: FC<NotFoundPageProps> = ({ className }) => {
     const { t } = useTranslation();
+    const ref = useRef<HTMLDivElement | null>(null);
     return (
         <PageLayout className={classNames(cls.notFoundPage, {}, [className])}>
             <div>

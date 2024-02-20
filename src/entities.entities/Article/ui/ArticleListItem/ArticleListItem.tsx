@@ -7,7 +7,7 @@ import {
 import ViewsIcon from 'shared/assets/icons/ViewsIcon.svg';
 import { useTranslation } from 'react-i18next';
 import { routePaths } from 'shared/config';
-import { ArticleBlockType } from 'entities.entities/Article/model/consts/ArticleType';
+import { ArticleBlockType } from '../../model/consts/ArticleType';
 import {
     ArticleParagraphsBlock,
 } from '../ArticleParagraphsBlock/ArticleParagraphsBlock';
@@ -18,9 +18,12 @@ import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
     className?: string;
-    article: Article;
+    article?: Article;
     view: ArticlesView
     target?: HTMLAttributeAnchorTarget
+    translateY?: number
+    translateX?: number
+    position?: 'static' | 'relative' | 'absolute' | 'sticky' | 'fixed'
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = memo(
@@ -30,35 +33,45 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
             article,
             view,
             target,
+            translateY,
+            translateX,
+            position = 'absolute',
         } = props;
         const mods: Mods = {};
         const { t } = useTranslation('article');
 
-        const textBlock = article.blocks?.find((block) => (
+        const textBlock = article?.blocks?.find((block) => (
             block.type === ArticleBlockType.TEXT
         )) as ArticleBlockText;
 
-        const types = <Text text={article.type?.join(', ')} className={cls.type} />;
-        const img = <img src={article.img} alt={article.title} className={cls.img} />;
+        const types = <Text text={article?.type?.join(', ')} className={cls.type} />;
+        const img = <img src={article?.img} alt={article?.title} className={cls.img} />;
         const views = (
             <>
-                <Text text={article.views} className={cls.views} />
+                <Text text={article?.views} className={cls.views} />
                 <Icon Svg={ViewsIcon} className={cls.icon} />
             </>
         );
-        const createdAt = <Text text={article.createdAt} className={cls.createdAt} />;
+        const createdAt = <Text text={article?.createdAt} className={cls.createdAt} />;
 
         if (view === 'BIG') {
             return (
-                <div className={classNames(cls.articleListItem, mods, [className, cls[view]])}>
+                <div
+                    style={{
+                        transform: `translateY(${translateY}px)`,
+                    }}
+                    className={
+                        classNames(cls.articleListItem, mods, [className, cls[view]])
+                    }
+                >
                     <Card className={cls.card}>
                         <div className={cls.header}>
-                            <Avatar size={30} className={cls.avatar} src={article.user.avatar} />
-                            <Text text={article.user.username} />
+                            <Avatar size={30} className={cls.avatar} src={article?.user?.avatar} />
+                            <Text text={article?.user?.username} />
                             {createdAt}
                         </div>
                         <Text
-                            title={article.title}
+                            title={article?.title}
                             size={TextSize.L}
                             className={cls.title}
                         />
@@ -73,7 +86,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
                             />
                         )}
                         <div className={cls.footer}>
-                            <AppLink to={routePaths.article_details + article.id}>
+                            <AppLink to={routePaths.article_details + article?.id}>
                                 <Button
                                     theme={ButtonTheme.OUTLINED}
                                 >
@@ -88,9 +101,13 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
         }
         return (
             <AppLink
-                to={routePaths.article_details + article.id}
+                to={routePaths.article_details + article?.id}
                 target={target}
                 className={classNames(cls.articleListItem, mods, [className, cls[view]])}
+                style={{
+                    transform: `translate(${translateX || 0}px, ${translateY || 0}px)`,
+                    position,
+                }}
             >
                 <Card className={cls.card}>
                     <div className={cls.imgWrapper}>
@@ -101,7 +118,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
                         {types}
                         {views}
                     </div>
-                    <Text title={article.title} className={cls.title} />
+                    <Text title={article?.title} className={cls.title} />
                 </Card>
             </AppLink>
         );

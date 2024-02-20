@@ -1,13 +1,14 @@
 import {
-    Fragment, memo, ReactNode,
+    Fragment, memo, ReactNode, useCallback,
 } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types';
-import { AppLink } from '../../AppLink/AppLink';
-import { Button, ButtonTheme } from '../../Button/Button';
+import { genericMemo } from 'shared/const/genericMemo';
+import { AppLink } from '../../../AppLink/AppLink';
+import { Button, ButtonTheme } from '../../../Button/Button';
 import cls from './Dropdown.module.scss';
-import popupCls from '../styles/Popups.module.scss';
+import popupCls from '../../styles/Popups.module.scss';
 
 export interface DropdownItem<T extends string> {
     content: T;
@@ -23,8 +24,6 @@ interface DropdownProps<T extends string> {
     trigger: ReactNode;
 }
 
-const genericMemo: <T>(component: T) => T = memo;
-
 export const Dropdown = genericMemo(
     <T extends string>(props: DropdownProps<T>) => {
         const {
@@ -36,9 +35,9 @@ export const Dropdown = genericMemo(
 
         const mods: Mods = {};
 
-        const menuItemMods = (active: boolean): Mods => ({
+        const menuItemMods = useCallback((active: boolean): Mods => ({
             [popupCls.active]: active,
-        });
+        }), []);
         return (
             <Menu as="div" className={classNames(popupCls.popup, mods, [className])}>
                 <Menu.Button
@@ -47,16 +46,15 @@ export const Dropdown = genericMemo(
                 >
                     {trigger}
                 </Menu.Button>
-                <Menu.Items className={classNames(cls.menu, mods, [cls[direction]])}>
+                <Menu.Items className={classNames(cls.menu, mods, [popupCls[direction]])}>
                     {items.map((item) => {
                         const content = ({ active } : {active: boolean}) => (
-                            <button
-                                type="button"
+                            <Button
                                 onClick={item.onClick}
                                 className={classNames(cls.menuItem, menuItemMods(active))}
                             >
                                 {item.content}
-                            </button>
+                            </Button>
                         );
                         if (item.href) {
                             return (
