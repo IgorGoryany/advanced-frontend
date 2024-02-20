@@ -1,8 +1,3 @@
-.listBox {
-  position: relative;
-  width: fit-content;
-}
-
 .options {
   background: var(--list-box-bg);
   position: absolute;
@@ -19,9 +14,7 @@
   border-radius: 12px;
 }
 
-.active {
-  background: var(--inverted-primary-color);
-}
+
 
 .disabled {
   opacity: 0.7;

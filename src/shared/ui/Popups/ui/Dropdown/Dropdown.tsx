@@ -4,8 +4,10 @@ import {
 import { classNames, Mods } from 'shared/lib';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types';
-import { AppLink } from '../AppLink/AppLink';
+import { AppLink } from '../../AppLink/AppLink';
+import { Button, ButtonTheme } from '../../Button/Button';
 import cls from './Dropdown.module.scss';
+import popupCls from '../styles/Popups.module.scss';
 
 export interface DropdownItem<T extends string> {
     content: T;
@@ -35,12 +37,17 @@ export const Dropdown = genericMemo(
         const mods: Mods = {};
 
         const menuItemMods = (active: boolean): Mods => ({
-            [cls.active]: active,
+            [popupCls.active]: active,
         });
         return (
-            <Menu as="div" className={classNames(cls.dropdown, mods, [className])}>
-                <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
-                <Menu.Items className={classNames(cls.menu, mods, [direction])}>
+            <Menu as="div" className={classNames(popupCls.popup, mods, [className])}>
+                <Menu.Button
+                    as={Button}
+                    theme={ButtonTheme.CLEAR}
+                >
+                    {trigger}
+                </Menu.Button>
+                <Menu.Items className={classNames(cls.menu, mods, [cls[direction]])}>
                     {items.map((item) => {
                         const content = ({ active } : {active: boolean}) => (
                             <button
