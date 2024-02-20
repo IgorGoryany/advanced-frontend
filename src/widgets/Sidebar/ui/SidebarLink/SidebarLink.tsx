@@ -7,11 +7,12 @@ import { useAuth } from 'entities.entities/User';
 import cls from './SidebarLink.module.scss';
 
 interface SidebarLinksProps {
-    path: string
-    Icon: React.VFC<React.SVGProps<SVGSVGElement>>
-    text: string
-    open?: boolean
-    authOnly?: boolean
+    path: string;
+    Icon: React.VFC<React.SVGProps<SVGSVGElement>>;
+    text: string;
+    open?: boolean;
+    authOnly?: boolean;
+    tooltip?: string;
 }
 
 export const SidebarLink: FC<SidebarLinksProps> = memo((props: SidebarLinksProps) => {
@@ -21,6 +22,7 @@ export const SidebarLink: FC<SidebarLinksProps> = memo((props: SidebarLinksProps
         Icon,
         open,
         authOnly,
+        tooltip,
     } = props;
 
     const { t } = useTranslation();

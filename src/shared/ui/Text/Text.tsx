@@ -19,15 +19,19 @@ export enum TextSize {
     L = 'size_l',
 }
 
+type TextWrap = 'warp' | 'nowrap' | 'pretty'
+
 interface TextProps {
-    className?: string
-    title?: string | number
-    text?: string | number
-    theme?: TextTheme
-    titleAlign?: TextAlign
-    textAlign?: TextAlign
-    align?: TextAlign
-    size?: TextSize
+    className?: string;
+    title?: string | number;
+    text?: string | number;
+    theme?: TextTheme;
+    titleAlign?: TextAlign;
+    textAlign?: TextAlign;
+    align?: TextAlign;
+    size?: TextSize;
+    textWrap?: TextWrap;
+    titleWrap?: TextWrap;
     'data-testid'?: string;
 }
 
@@ -49,6 +53,8 @@ export const Text = memo((props: TextProps) => {
         align = TextAlign.LEFT,
         textAlign = '',
         size = TextSize.M,
+        textWrap = 'pretty',
+        titleWrap = 'pretty',
         'data-testid': dataTestId = 'Text',
     } = props;
 
@@ -62,7 +68,7 @@ export const Text = memo((props: TextProps) => {
             {title && (
                 <HeaderTag
                     data-testid={`${dataTestId}.Title`}
-                    className={classNames(cls.title, {}, [cls[titleAlign]])}
+                    className={classNames(cls.title, {}, [cls[titleAlign], cls[titleWrap]])}
                 >
                     {title}
                 </HeaderTag>
@@ -70,7 +76,7 @@ export const Text = memo((props: TextProps) => {
             {text && (
                 <p
                     data-testid={`${dataTestId}.Text`}
-                    className={classNames(cls.text, {}, [cls[textAlign]])}
+                    className={classNames(cls.text, {}, [cls[textAlign], cls[textWrap]])}
                 >
                     {text}
                 </p>

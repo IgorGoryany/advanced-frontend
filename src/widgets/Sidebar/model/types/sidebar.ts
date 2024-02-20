@@ -5,4 +5,5 @@ export interface sidebarLinkType {
     text: string,
     Icon: React.VFC<React.SVGProps<SVGSVGElement>>
     authOnly?: boolean
+    tooltip?: string;
 }
