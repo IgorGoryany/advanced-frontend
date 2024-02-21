@@ -9,7 +9,8 @@ const meta = {
     component: CommentCard,
     tags: ['autodocs'],
     args: {
-        comments: {
+
+        comment: {
             id: 1,
             user: { id: 1, username: 'Mjbaron' },
             text: 'some comment',
@@ -22,19 +23,27 @@ type Story = StoryObj<typeof meta>;
 
 export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
+    args: {
+
+    },
 };
 export const Light: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
+    args: {
+
+    },
 };
 export const DarkLoading: Story = {
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})],
     args: {
+
         isLoading: true,
     },
 };
 export const LightLoading: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})],
     args: {
+
         isLoading: true,
     },
 };

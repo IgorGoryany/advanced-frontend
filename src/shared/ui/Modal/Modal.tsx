@@ -1,8 +1,8 @@
 import {
-    FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
+    FC, ReactNode,
 } from 'react';
+import { useModal, classNames, useTheme } from '../../lib';
 import { Overlay } from '../Overlay/Overlay';
-import { classNames, useTheme } from '../../lib';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -14,8 +14,6 @@ interface ModalProps {
     children: ReactNode
 }
 
-const ANIMATION_DELAY = 200;
-
 export const Modal: FC<ModalProps> = (props) => {
     const {
         className,
@@ -26,56 +24,22 @@ export const Modal: FC<ModalProps> = (props) => {
     } = props;
     const { theme } = useTheme();
 
-    const [isClosing, setIsClosing] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-    const [isOpened, setIsOpened] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true);
-            timerRef.current = setTimeout(() => {
-                onClose();
-                setIsClosing(false);
-            }, ANIMATION_DELAY);
-        }
-    }, [onClose]);
+    const {
+        close,
+        isClosing,
+        isMounted,
+        isOpened,
+    } = useModal({
+        onClose,
+        isOpen,
+        animationDelay: 200,
+        lazy,
+    });
 
     const mods: Record<string, boolean | undefined> = {
         [cls.opened]: isOpened,
         [cls.isClosing]: isClosing,
     };
-
-    const onKeydown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler();
-        }
-    }, [closeHandler]);
-
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeydown);
-        } else {
-            window.removeEventListener('keydown', onKeydown);
-        }
-        return () => {
-            clearTimeout(timerRef.current);
-        };
-    }, [isOpen, onKeydown]);
-
-    useEffect(() => {
-        if (isOpen && !isMounted) {
-            setIsMounted(true);
-
-            setTimeout(() => {
-                setIsOpened(true);
-            }, 0);
-        } else if (isOpen && isMounted) {
-            setIsOpened(true);
-        } else {
-            setIsOpened(false);
-        }
-    }, [isMounted, isOpen]);
 
     if (!isMounted && lazy) {
         return null;
@@ -84,7 +48,7 @@ export const Modal: FC<ModalProps> = (props) => {
     return (
         <Portal>
             <div className={classNames(cls.modal, mods, [className, theme])}>
-                <Overlay onClick={closeHandler} />
+                <Overlay onClick={close} />
                 <div className={cls.content}>
                     {children}
                 </div>

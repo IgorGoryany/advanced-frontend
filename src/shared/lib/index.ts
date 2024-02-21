@@ -17,3 +17,4 @@ export { useLayoutInitialEffect } from './hooks/useLayoutInitialEffect/useLayout
 export { useDebounce } from './hooks/useDebounce/useDebounce';
 export { addQueryParams } from './url/addQueryParams/addQueryParams';
 export { useDevice } from './hooks/useDevice/useDevice';
+export { useModal } from './hooks/useModal/useModal';

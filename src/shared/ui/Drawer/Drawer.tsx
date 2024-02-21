@@ -1,6 +1,7 @@
 import { FC, memo, ReactNode } from 'react';
-import { classNames, Mods, useTheme } from 'shared/lib';
-import { useTranslation } from 'react-i18next';
+import {
+    classNames, useModal, useTheme,
+} from '../../lib';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Drawer.module.scss';
@@ -10,6 +11,7 @@ interface DrawerProps {
     children: ReactNode
     isOpen?: boolean
     onClose?: () => void
+    lazy?: boolean
 }
 
 export const Drawer: FC<DrawerProps> = memo(
@@ -19,18 +21,29 @@ export const Drawer: FC<DrawerProps> = memo(
             isOpen,
             onClose,
             children,
+            lazy,
         } = props;
         const { theme } = useTheme();
+        const {
+            close,
+            isClosing,
+            isOpened,
+        } = useModal({
+            onClose,
+            isOpen,
+            lazy,
+            animationDelay: 200,
+        });
 
-        const mods: Mods = {
-            [cls.opened]: isOpen,
+        const mods: Record<string, boolean | undefined> = {
+            [cls.opened]: isOpened,
+            [cls.isClosing]: isClosing,
         };
 
-        const { t } = useTranslation();
         return (
             <Portal>
                 <div className={classNames(cls.drawer, mods, [className, theme, 'app_drawer'])}>
-                    <Overlay onClick={onClose} />
+                    <Overlay onClick={close} />
                     <div className={cls.content}>
                         {children}
                     </div>

@@ -5,9 +5,12 @@ import { StoreDecorator, ThemeDecorator } from 'shared/config';
 import { Drawer } from './Drawer';
 
 const meta = {
-    title: 'Drawer/Drawer',
+    title: 'shared/Drawer',
     component: Drawer,
     tags: ['autodocs'],
+    args: {
+        isOpen: true,
+    },
 } as Meta<typeof Drawer>;
 
 export default meta;

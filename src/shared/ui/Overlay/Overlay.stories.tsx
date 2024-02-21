@@ -5,7 +5,7 @@ import { StoreDecorator, ThemeDecorator } from 'shared/config';
 import { Overlay } from './Overlay';
 
 const meta = {
-    title: 'Overlay/Overlay',
+    title: 'shared/Overlay',
     component: Overlay,
     tags: ['autodocs'],
 } as Meta<typeof Overlay>;
