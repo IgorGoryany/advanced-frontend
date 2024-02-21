@@ -1,7 +1,9 @@
 import {
     FormEvent, memo, useCallback,
 } from 'react';
-import { classNames, DynamicModuleLoader, ReducersList } from 'shared/lib';
+import {
+    classNames, DynamicModuleLoader, ReducersList, useAppDispatch,
+} from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
     Button,
@@ -10,7 +12,7 @@ import {
     Text,
     TextTheme,
 } from 'shared/ui';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -22,14 +24,15 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 export interface LoginFormProps {
     className?: string
     isOpen?: boolean
+    onSuccess: () => void
 }
 
 const initialReducers: ReducersList = { loginForm: loginReducer };
 
 const LoginForm = memo((props:LoginFormProps) => {
-    const { className, isOpen } = props;
+    const { className, isOpen, onSuccess } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -44,9 +47,12 @@ const LoginForm = memo((props:LoginFormProps) => {
         dispatch(loginAction.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, onSuccess, password, username]);
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => event.preventDefault();
 

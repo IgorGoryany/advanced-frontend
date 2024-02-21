@@ -12,10 +12,12 @@ export const NotificationItem = memo((props: NotificationProps) => {
         className, description, title, href,
     } = props;
 
+    const classes = classNames(cls.notificationItem, {}, [className]);
+
     const content = (
         <Card
             theme="outlined"
-            className={classNames(cls.notificationItem, {}, [className])}
+            className={classes}
         >
             <Text title={title} text={description} titleWrap="nowrap" />
         </Card>
@@ -23,7 +25,7 @@ export const NotificationItem = memo((props: NotificationProps) => {
 
     if (href) {
         return (
-            <AppLink to={href}>
+            <AppLink to={href} className={classes}>
                 {content}
             </AppLink>
         );

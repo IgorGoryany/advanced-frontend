@@ -5,27 +5,31 @@
 @import "./themes/orange";
 
 .app {
-	font: var(--font-m);
-	background: var(--bg-color);
-	color: var(--primary-color);
-	height: 100vh;
+  background: var(--bg-color);
+  height: 100vh;
+}
+
+.app,
+.app_drawer {
+  font: var(--font-m);
+  color: var(--primary-color);
 }
 
 .content-page {
-	display: flex;
+  display: flex;
 }
 
 *::-webkit-scrollbar {
-	width: 12px; /* ширина scrollbar */
-	height: 8px;
+  width: 12px; /* ширина scrollbar */
+  height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-	background: var(--card-bg); /* цвет дорожки */
+  background: transparent; /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: var(--primary-color); /* цвет плашки */
-	border-radius: 20px; /* закругления плашки */
-	border: 2px solid var(--inverted-primary-color); /* padding вокруг плашки */
+  background-color: var(--primary-color); /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: 2px solid var(--inverted-primary-color); /* padding вокруг плашки */
 }

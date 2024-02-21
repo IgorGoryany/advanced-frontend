@@ -1683,6 +1683,12 @@
       "userId": 1,
       "text": "Ебало на ноль",
       "id": 10
+    },
+    {
+      "articleId": 7,
+      "userId": 1,
+      "text": "fasfasfsfasf",
+      "id": 11
     }
   ],
   "users": [
@@ -1691,7 +1697,9 @@
       "username": "admin",
       "password": "123",
       "avatar": "https://sun9-47.userapi.com/impf/c836332/v836332484/4b320/zGt2w4yBgAQ.jpg?size=1280x960&quality=96&sign=3654f13cf55dc46103b6219fd2115c8f&type=album",
-      "roles": ["ADMIN"]
+      "roles": [
+        "ADMIN"
+      ]
     },
     {
       "id": 2,

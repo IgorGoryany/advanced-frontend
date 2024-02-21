@@ -23,3 +23,5 @@ export { Dropdown } from './Popups/ui/Dropdown/Dropdown';
 export type { DropdownItem } from './Popups/ui/Dropdown/Dropdown';
 export type { ListBoxItem } from './Popups/ui/ListBox/ListBox';
 export { Popover } from './Popups/ui/Popover/Popover';
+export { Drawer } from './Drawer/Drawer';
+export { Overlay } from './Overlay/Overlay';

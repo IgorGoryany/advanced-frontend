@@ -16,3 +16,4 @@ export { useInfiniteScroll } from './hooks/useInfiniteScroll/useInfiniteScroll';
 export { useLayoutInitialEffect } from './hooks/useLayoutInitialEffect/useLayoutInitialEffect';
 export { useDebounce } from './hooks/useDebounce/useDebounce';
 export { addQueryParams } from './url/addQueryParams/addQueryParams';
+export { useDevice } from './hooks/useDevice/useDevice';

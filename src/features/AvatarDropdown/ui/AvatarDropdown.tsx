@@ -1,9 +1,11 @@
-import { User, isUserAdmin, useAuth } from 'entities.entities/User';
+import { User, isUserAdmin } from 'entities.entities/User';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { routePaths } from 'shared/config';
-import { Avatar, Dropdown, DropdownItem } from 'shared/ui';
+import {
+    Avatar, Dropdown, DropdownItem,
+} from 'shared/ui';
 
 interface AvatarDropdownProps {
   className?: string;
@@ -49,6 +51,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     return (
         <Dropdown
+            className={className}
             direction="bottom-left"
             trigger={<Avatar src={authData?.avatar} size={30} />}
             items={dropdownItems}

@@ -1,0 +1,14 @@
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--overlay-color);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  cursor: pointer;
+  z-index: -1;
+  backdrop-filter: blur(2px);
+}

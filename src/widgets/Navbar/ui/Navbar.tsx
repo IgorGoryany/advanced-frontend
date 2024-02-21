@@ -1,17 +1,14 @@
 import {
-    FC, memo, useCallback, useMemo, useState,
+    FC, memo, useCallback, useState,
 } from 'react';
-import { classNames } from 'shared/lib';
+import { classNames, useAppDispatch } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
 import {
-    Button, ButtonTheme, DropdownItem, HStack,
+    Button, ButtonTheme, HStack,
 } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import { isUserAdmin, useAuth, userAction } from 'entities.entities/User';
+import { useAuth, userAction } from 'entities.entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-import { routePaths } from 'shared/config';
-import { redirect } from 'react-router-dom';
 import { NotificationButton } from 'features/NotificationButton';
 import { AvatarDropdown } from 'features/AvatarDropdown';
 import cls from './Navbar.module.scss';
@@ -23,9 +20,8 @@ interface NavbarProps {
 export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const authData = useAuth();
-    const isAdmin = useSelector(isUserAdmin);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -36,7 +32,6 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
     }, []);
 
     const onLogout = useCallback(() => {
-        setIsAuthModal(false);
         dispatch(userAction.logout(USER_LOCALSTORAGE_KEY));
     }, [dispatch]);
 

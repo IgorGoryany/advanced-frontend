@@ -1,5 +1,5 @@
 import {
-    Fragment, memo, ReactNode, useCallback,
+    Fragment, ReactNode, useCallback,
 } from 'react';
 import { classNames, Mods } from 'shared/lib';
 import { Menu } from '@headlessui/react';
@@ -49,6 +49,7 @@ export const Dropdown = genericMemo(
                 <Menu.Items className={classNames(cls.menu, mods, [popupCls[direction]])}>
                     {items.map((item) => {
                         const content = ({ active } : {active: boolean}) => (
+                            // eslint-disable-next-line react/button-has-type
                             <Button
                                 onClick={item.onClick}
                                 className={classNames(cls.menuItem, menuItemMods(active))}
