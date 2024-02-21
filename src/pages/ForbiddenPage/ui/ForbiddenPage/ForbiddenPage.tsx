@@ -1,8 +1,8 @@
-import { FC, memo, useRef } from 'react';
-import { classNames, Mods } from 'shared/lib';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextAlign } from 'shared/ui';
-import { PageLayout } from 'widgets/PageLayout';
+import { classNames, Mods } from '@/shared/lib';
+import { Text, TextAlign } from '@/shared/ui';
+import { PageLayout } from '@/widgets/PageLayout';
 
 interface ForbiddenPageProps {
     className?: string;
@@ -15,7 +15,6 @@ export const ForbiddenPage: FC<ForbiddenPageProps> = memo(
         } = props;
 
         const mods: Mods = {};
-        const ref = useRef<HTMLDivElement | null>(null);
 
         const { t } = useTranslation();
         return (

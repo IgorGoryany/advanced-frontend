@@ -1,8 +1,8 @@
 import { FC, memo, useMemo } from 'react';
-import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { TabItem, Tabs } from 'shared/ui';
-import { ArticleType } from 'entities.entities/Article';
+import { classNames, Mods } from '@/shared/lib';
+import { TabItem, Tabs } from '@/shared/ui';
+import { ArticleType } from '@/entities/Article';
 
 interface ArticleSortTabsProps {
     className?: string;

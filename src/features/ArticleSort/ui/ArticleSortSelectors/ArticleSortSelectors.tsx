@@ -2,14 +2,12 @@ import {
     FC, memo, useCallback, useMemo,
 } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames, Mods, useAppDispatch } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { Select, SelectOption } from 'shared/ui';
-import { SortOrder } from 'shared/types';
-import { ArticleSortType } from 'entities.entities/Article';
-import { ArticleSortSchema } from '../../model/types/ArticleSortSchema';
+import { classNames, Mods, useAppDispatch } from '@/shared/lib';
+import { Select, SelectOption } from '@/shared/ui';
+import { SortOrder } from '@/shared/types';
+import { ArticleSortType } from '@/entities/Article';
 import {
-    getArticleSort,
     getArticleSortOrder,
     getArticleSortSort,
 } from '../../model/selectors/getArticleSort';

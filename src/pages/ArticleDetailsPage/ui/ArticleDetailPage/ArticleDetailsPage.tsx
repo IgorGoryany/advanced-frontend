@@ -1,6 +1,8 @@
 import {
-    FC, memo, useCallback, useRef,
+    FC, memo, useCallback,
 } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
     classNames,
     DynamicModuleLoader,
@@ -8,19 +10,17 @@ import {
     ReducersList,
     useAppDispatch,
     useInitialEffect,
-} from 'shared/lib';
-import { ArticleDetails } from 'entities.entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+} from '@/shared/lib';
+import { ArticleDetails } from '@/entities/Article';
 import {
     Button, ButtonTheme, Text, TextTheme,
     VStack,
-} from 'shared/ui';
-import { routePaths } from 'shared/config';
-import { PageLayout } from 'widgets/PageLayout';
+} from '@/shared/ui';
+import { routePaths } from '@/shared/config';
+import { PageLayout } from '@/widgets/PageLayout';
 import {
     ArticleRecommendationList,
-} from 'features/ArticleRecommendationList';
+} from '@/features/ArticleRecommendationList';
 import {
     ArticleDetailsComments,
 } from '../ArticleDetailsComments/ArticleDetailsComments';
@@ -52,7 +52,6 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
     const onBackToList = useCallback(() => {
         navigate(routePaths.articles);
     }, [navigate]);
-    const ref = useRef<HTMLDivElement | null>(null);
 
     useInitialEffect(() => {
         dispatch(fetchCommentByArticleId(id));

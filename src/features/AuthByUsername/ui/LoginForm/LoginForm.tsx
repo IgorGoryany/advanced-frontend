@@ -1,18 +1,18 @@
 import {
     FormEvent, memo, useCallback,
 } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import {
     classNames, DynamicModuleLoader, ReducersList, useAppDispatch,
-} from 'shared/lib';
-import { useTranslation } from 'react-i18next';
+} from '@/shared/lib';
 import {
     Button,
     ButtonTheme,
     Input,
     Text,
     TextTheme,
-} from 'shared/ui';
-import { useSelector } from 'react-redux';
+} from '@/shared/ui';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';

@@ -110,6 +110,7 @@ module.exports = {
                 '**/src/shared/lib/tests/**/*.{ts,tsx}',
                 '**/src/shared/config/Storybook/**/*.{ts,tsx}',
                 '**/config/**/*.{ts,tsx}',
+                '**/scripts/**/*.{ts}',
             ],
             rules: {
                 'import/no-extraneous-dependencies': 'off',

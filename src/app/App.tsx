@@ -1,10 +1,10 @@
-import { classNames, useTheme } from 'shared/lib';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserMounted, userAction } from 'entities.entities/User';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import { classNames, useTheme } from '@/shared/lib';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { getUserMounted, userAction } from '@/entities/User';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { AppRouter } from './providers/router/ui/AppRouter';
 import './styles/index.scss';
 

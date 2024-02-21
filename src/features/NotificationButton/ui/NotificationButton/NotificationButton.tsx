@@ -1,9 +1,9 @@
+import { memo, useCallback, useState } from 'react';
 import {
     Button, ButtonTheme, Drawer, Icon, Popover,
-} from 'shared/ui';
-import NotificationIcon from 'shared/assets/icons/Notification.svg';
-import { memo, useCallback, useState } from 'react';
-import { classNames, useDevice } from 'shared/lib';
+} from '@/shared/ui';
+import NotificationIcon from '@/shared/assets/icons/Notification.svg';
+import { AnimationProvider, classNames, useDevice } from '@/shared/lib';
 import { NotificationList } from '../NotificationList/NotificationList';
 import cls from './NotificationButton.module.scss';
 
@@ -38,11 +38,13 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         return (
             <>
                 {trigger}
-                <Drawer isOpen={isDrawer} onClose={onCloseDrawer}>
-                    <div>
-                        <NotificationList />
-                    </div>
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer isOpen={isDrawer} onClose={onCloseDrawer}>
+                        <div>
+                            <NotificationList />
+                        </div>
+                    </Drawer>
+                </AnimationProvider>
             </>
         );
     }

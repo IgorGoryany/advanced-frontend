@@ -1,15 +1,15 @@
 import {
     memo, useCallback, useMemo,
 } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import {
     DynamicModuleLoader, ReducersList, useAppDispatch, useInitialEffect,
-} from 'shared/lib';
-import { useSelector } from 'react-redux';
-import { ProfileCard, ValidateProfileError } from 'entities.entities/Profile';
-import { Currency } from 'entities.entities/Currency';
-import { Country } from 'entities.entities/Country';
-import { Text, TextTheme, VStack } from 'shared/ui';
-import { useTranslation } from 'react-i18next';
+} from '@/shared/lib';
+import { ProfileCard, ValidateProfileError } from '@/entities/Profile';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { Text, TextTheme, VStack } from '@/shared/ui';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { profileAction, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

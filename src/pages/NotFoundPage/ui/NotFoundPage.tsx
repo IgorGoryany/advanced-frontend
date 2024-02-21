@@ -1,7 +1,7 @@
-import { FC, useRef } from 'react';
-import { classNames } from 'shared/lib';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageLayout } from 'widgets/PageLayout';
+import { classNames } from '@/shared/lib';
+import { PageLayout } from '@/widgets/PageLayout';
 import cls from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
@@ -10,7 +10,6 @@ interface NotFoundPageProps {
 
 export const NotFoundPage: FC<NotFoundPageProps> = ({ className }) => {
     const { t } = useTranslation();
-    const ref = useRef<HTMLDivElement | null>(null);
     return (
         <PageLayout className={classNames(cls.notFoundPage, {}, [className])}>
             <div>

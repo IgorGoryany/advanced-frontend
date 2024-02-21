@@ -1,12 +1,12 @@
 import { FC, memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import {
     classNames, DynamicModuleLoader, Mods, ReducersList, useAppDispatch,
-} from 'shared/lib';
-import { useTranslation } from 'react-i18next';
+} from '@/shared/lib';
 import {
     Button, ButtonTheme, HStack, Input, Text, TextTheme,
-} from 'shared/ui';
-import { useSelector } from 'react-redux';
+} from '@/shared/ui';
 import { addCommentFormAction, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import {
     getAddCommentFormError,

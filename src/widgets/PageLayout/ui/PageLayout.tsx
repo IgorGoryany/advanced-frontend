@@ -1,15 +1,14 @@
 import {
     FC, MutableRefObject, ReactNode, useRef,
     UIEvent,
-    forwardRef,
 } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import {
     classNames, Mods, useAppDispatch, useThrottle,
     useInfiniteScroll, useLayoutInitialEffect,
-} from 'shared/lib';
-import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { StateSchema } from 'app/providers/StoreProvider';
+} from '@/shared/lib';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import cls from './PageLayout.module.scss';
 import { scrollSaveAction } from '../model/slice/scrollSaveSlice';
 import {

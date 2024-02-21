@@ -1,11 +1,11 @@
-import { User, isUserAdmin } from 'entities.entities/User';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { routePaths } from 'shared/config';
+import { User, isUserAdmin } from '@/entities/User';
+import { routePaths } from '@/shared/config';
 import {
     Avatar, Dropdown, DropdownItem,
-} from 'shared/ui';
+} from '@/shared/ui';
 
 interface AvatarDropdownProps {
   className?: string;

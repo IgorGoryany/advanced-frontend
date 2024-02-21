@@ -1,4 +1,4 @@
-import { ProfileSchema } from 'entities.entities/Profile';
+import { ProfileSchema } from '@/entities/Profile';
 import { profileAction, profileReducer } from './profileSlice';
 
 describe('profileSlice.test', () => {

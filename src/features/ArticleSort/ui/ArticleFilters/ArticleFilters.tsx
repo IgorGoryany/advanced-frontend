@@ -1,6 +1,12 @@
 import {
-    FC, memo, useCallback, useMemo,
+    FC, memo, useCallback,
 } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
+import {
+    Card, Input, TabItem,
+} from '@/shared/ui';
 import {
     classNames,
     DynamicModuleLoader,
@@ -9,14 +15,8 @@ import {
     useAppDispatch,
     useDebounce,
     useInitialEffect,
-} from 'shared/lib';
-import { useTranslation } from 'react-i18next';
-import {
-    Card, Input, TabItem, Tabs,
-} from 'shared/ui';
-import { useSelector } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
-import { ArticlesView, ArticleType } from 'entities.entities/Article';
+} from '@/shared/lib';
+import { ArticlesView, ArticleType } from '@/entities/Article';
 import {
     ArticleViewSelector,
 } from '../ArticleViewSelector/ArticleViewSelector';

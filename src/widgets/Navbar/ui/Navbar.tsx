@@ -1,16 +1,16 @@
 import {
     FC, memo, useCallback, useState,
 } from 'react';
-import { classNames, useAppDispatch } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
+import { classNames, useAppDispatch } from '@/shared/lib';
 import {
     Button, ButtonTheme, HStack,
-} from 'shared/ui';
-import { LoginModal } from 'features/AuthByUsername';
-import { useAuth, userAction } from 'entities.entities/User';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-import { NotificationButton } from 'features/NotificationButton';
-import { AvatarDropdown } from 'features/AvatarDropdown';
+} from '@/shared/ui';
+import { LoginModal } from '@/features/AuthByUsername';
+import { useAuth, userAction } from '@/entities/User';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import { NotificationButton } from '@/features/NotificationButton';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

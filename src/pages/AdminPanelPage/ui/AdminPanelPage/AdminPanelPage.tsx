@@ -1,9 +1,9 @@
 import {
-    FC, memo, useReducer, useRef,
+    FC, memo, useRef,
 } from 'react';
-import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { PageLayout } from 'widgets/PageLayout';
+import { classNames, Mods } from '@/shared/lib';
+import { PageLayout } from '@/widgets/PageLayout';
 
 interface AdminPanelPageProps {
     className?: string;

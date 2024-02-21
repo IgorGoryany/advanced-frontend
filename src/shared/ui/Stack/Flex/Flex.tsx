@@ -1,7 +1,7 @@
 import {
     DetailedHTMLProps, HTMLAttributes, JSXElementConstructor, ReactNode,
 } from 'react';
-import { classNames, Mods } from 'shared/lib';
+import { classNames, Mods } from '@/shared/lib';
 import cls from './Flex.module.scss';
 
 type FlexAlign = 'start' | 'end' | 'center';

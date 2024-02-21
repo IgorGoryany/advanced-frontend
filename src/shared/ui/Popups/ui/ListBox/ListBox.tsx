@@ -1,8 +1,8 @@
-import { Fragment, memo, ReactNode } from 'react';
-import { classNames, Mods } from 'shared/lib';
+import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { DropdownDirection } from 'shared/types';
-import { genericMemo } from 'shared/const/genericMemo';
+import { classNames, Mods } from '@/shared/lib';
+import { DropdownDirection } from '@/shared/types';
+import { genericMemo } from '@/shared/const/genericMemo';
 import { HStack } from '../../../Stack/HStack/HStack';
 import { Button, ButtonTheme } from '../../../Button/Button';
 import cls from './ListBox.module.scss';

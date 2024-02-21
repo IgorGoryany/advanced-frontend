@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleType } from 'entities.entities/Article';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleType } from '@/entities/Article';
 import {
     getArticleSortOrder, getArticleSortSearch, getArticleSortSort, getArticleSortType,
 } from './getArticleSort';

@@ -1,13 +1,13 @@
-import { MainPage } from 'pages/MainPage';
-import { AboutPage } from 'pages/AboutPage';
-import { ProfilePage } from 'pages/ProfilePage';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { AppRoutesProps, routePaths } from 'shared/config';
-import { ArticlePage } from 'pages/ArticlePage';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
-import { AdminPanelPage } from 'pages/AdminPanelPage';
-import { ForbiddenPage } from 'pages/ForbiddenPage';
 import React from 'react';
+import { MainPage } from '@/pages/MainPage';
+import { AboutPage } from '@/pages/AboutPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { AppRoutesProps, routePaths } from '@/shared/config';
+import { ArticlePage } from '@/pages/ArticlePage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
 
 export const routerConfig: AppRoutesProps[] = [
     {

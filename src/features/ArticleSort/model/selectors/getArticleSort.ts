@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ArticleType } from 'entities.entities/Article';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleType } from '@/entities/Article';
 
 export const getArticleSortSort = (state: StateSchema) => state.articleSort?.sort || 'createdAt';
 export const getArticleSortOrder = (state: StateSchema) => state.articleSort?.order || 'asc';

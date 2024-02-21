@@ -1,16 +1,14 @@
 import {
-    FC, memo, useCallback, useRef,
+    FC, memo, useCallback,
 } from 'react';
+import { useSelector } from 'react-redux';
 import {
     classNames, DynamicModuleLoader, Mods, ReducersList, useAppDispatch, useInitialEffect,
-} from 'shared/lib';
-import { useTranslation } from 'react-i18next';
-import { ArticleList, ArticlesView } from 'entities.entities/Article';
-import { useSelector } from 'react-redux';
-import { ARTICLE_VIEW_KEY } from 'shared/const/localStorage';
-import { PageLayout } from 'widgets/PageLayout';
-import { ArticleFilters } from 'features/ArticleSort';
-import { useVirtualizer } from '@tanstack/react-virtual';
+} from '@/shared/lib';
+import { ArticleList, ArticlesView } from '@/entities/Article';
+import { ARTICLE_VIEW_KEY } from '@/shared/const/localStorage';
+import { PageLayout } from '@/widgets/PageLayout';
+import { ArticleFilters } from '@/features/ArticleSort';
 import {
     fetchArticleList,
 } from '../../model/services/fetchArticleList/fetchArticleList';
@@ -42,7 +40,6 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
     const {
         className,
     } = props;
-    const { t } = useTranslation('article');
     const mods: Mods = {};
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);

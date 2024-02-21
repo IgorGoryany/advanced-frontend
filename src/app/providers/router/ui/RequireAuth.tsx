@@ -1,19 +1,17 @@
-import { getUserRole, useAuth, UserRole } from 'entities.entities/User';
-import { useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { routePaths } from 'shared/config';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { routePaths } from '@/shared/config';
+import { getUserRole, useAuth, UserRole } from '@/entities/User';
 
 interface RequireAuthProps {
-    children: JSX.Element,
+    children: ReactNode,
     roles?: UserRole[]
 }
 
 export const RequireAuth = ({ children, roles }: RequireAuthProps) => {
     const user = useAuth();
     const location = useLocation();
-    const { t } = useTranslation();
     const userRoles = useSelector(getUserRole);
 
     const hasRequireRoles = useMemo(() => {

@@ -1,9 +1,8 @@
 import { ReactNode } from 'react';
-import { classNames, Mods } from 'shared/lib';
 import { Popover as HPopover } from '@headlessui/react';
-import { DropdownDirection } from 'shared/types';
-import { genericMemo } from 'shared/const/genericMemo';
-import { Button } from '../../../Button/Button';
+import { classNames, Mods } from '@/shared/lib';
+import { DropdownDirection } from '@/shared/types';
+import { genericMemo } from '@/shared/const/genericMemo';
 import cls from './Popover.module.scss';
 import popupCls from '../../styles/Popups.module.scss';
 

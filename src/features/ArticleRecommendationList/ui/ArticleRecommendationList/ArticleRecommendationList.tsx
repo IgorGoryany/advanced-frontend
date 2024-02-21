@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { classNames, Mods } from 'shared/lib';
 import { useTranslation } from 'react-i18next';
-import { ArticleList } from 'entities.entities/Article';
-import { Text, TextSize, VStack } from 'shared/ui';
+import { classNames, Mods } from '@/shared/lib';
+import { ArticleList } from '@/entities/Article';
+import { Text, TextSize, VStack } from '@/shared/ui';
 import {
     useArticleRecommendationListQuery,
 } from '../../api/articleRecomendationApi';

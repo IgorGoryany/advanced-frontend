@@ -1,8 +1,8 @@
 import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppLink, AppLinkTheme, HStack } from 'shared/ui';
-import { classNames } from 'shared/lib';
-import { useAuth } from 'entities.entities/User';
+import { AppLink, AppLinkTheme, HStack } from '@/shared/ui';
+import { classNames } from '@/shared/lib';
+import { useAuth } from '@/entities/User';
 
 import cls from './SidebarLink.module.scss';
 
@@ -12,7 +12,6 @@ interface SidebarLinksProps {
     text: string;
     open?: boolean;
     authOnly?: boolean;
-    tooltip?: string;
 }
 
 export const SidebarLink: FC<SidebarLinksProps> = memo((props: SidebarLinksProps) => {
@@ -22,7 +21,6 @@ export const SidebarLink: FC<SidebarLinksProps> = memo((props: SidebarLinksProps
         Icon,
         open,
         authOnly,
-        tooltip,
     } = props;
 
     const { t } = useTranslation();

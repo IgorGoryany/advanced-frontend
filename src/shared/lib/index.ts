@@ -1,4 +1,4 @@
-export { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+export { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export { DynamicModuleLoader } from './components/DynamicModuleLoader/DynamicModuleLoader';
 export type { ReducersList } from './components/DynamicModuleLoader/DynamicModuleLoader';
@@ -18,3 +18,4 @@ export { useDebounce } from './hooks/useDebounce/useDebounce';
 export { addQueryParams } from './url/addQueryParams/addQueryParams';
 export { useDevice } from './hooks/useDevice/useDevice';
 export { useModal } from './hooks/useModal/useModal';
+export { AnimationProvider, useAnimationsContext } from './components/AnimationProvider/AnimationProvider';

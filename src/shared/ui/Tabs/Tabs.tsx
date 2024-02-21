@@ -1,7 +1,7 @@
 import {
-    FC, memo, ReactNode, useCallback,
+    memo, ReactNode, useCallback,
 } from 'react';
-import { classNames, Mods } from 'shared/lib';
+import { classNames, Mods } from '@/shared/lib';
 import { Card } from '../Card/Card';
 import cls from './Tabs.module.scss';
 

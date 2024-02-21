@@ -1,11 +1,11 @@
 import React, { FC, memo } from 'react';
-import { classNames, Mods } from 'shared/lib';
-import { ArticlesView } from 'entities.entities/Article';
-import SmallArticleViewIcon from 'shared/assets/icons/SmallArticleViewIcon.svg';
-import BigArticleViewIcon from 'shared/assets/icons/BigArticleViewIcon.svg';
+import { classNames, Mods } from '@/shared/lib';
+import { ArticlesView } from '@/entities/Article';
+import SmallArticleViewIcon from '@/shared/assets/icons/SmallArticleViewIcon.svg';
+import BigArticleViewIcon from '@/shared/assets/icons/BigArticleViewIcon.svg';
 import {
     Button, ButtonTheme, HStack, Icon,
-} from 'shared/ui';
+} from '@/shared/ui';
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

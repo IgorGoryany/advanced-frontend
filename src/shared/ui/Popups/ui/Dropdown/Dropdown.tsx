@@ -1,10 +1,10 @@
 import {
     Fragment, ReactNode, useCallback,
 } from 'react';
-import { classNames, Mods } from 'shared/lib';
 import { Menu } from '@headlessui/react';
-import { DropdownDirection } from 'shared/types';
-import { genericMemo } from 'shared/const/genericMemo';
+import { classNames, Mods } from '@/shared/lib';
+import { DropdownDirection } from '@/shared/types';
+import { genericMemo } from '@/shared/const/genericMemo';
 import { AppLink } from '../../../AppLink/AppLink';
 import { Button, ButtonTheme } from '../../../Button/Button';
 import cls from './Dropdown.module.scss';
