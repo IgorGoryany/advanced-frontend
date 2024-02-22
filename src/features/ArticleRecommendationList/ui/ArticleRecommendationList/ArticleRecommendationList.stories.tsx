@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+// @ts-ignore
 import withMock from 'storybook-addon-mock';
 import { Theme } from '@/shared/lib';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config';

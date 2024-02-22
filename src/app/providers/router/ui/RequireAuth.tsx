@@ -5,7 +5,7 @@ import { routePaths } from '@/shared/config';
 import { getUserRole, useAuth, UserRole } from '@/entities/User';
 
 interface RequireAuthProps {
-    children: ReactNode,
+    children: JSX.Element,
     roles?: UserRole[]
 }
 

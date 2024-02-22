@@ -34,7 +34,7 @@ module.exports = {
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
         'react/jsx-filename-extension': [1, {
-            extensions: ['.js', '.tsx'],
+            extensions: ['.js', '.tsx', '.ts'],
         }],
         'react/function-component-definition': [2, {
             namedComponents: ['arrow-function'],
@@ -110,7 +110,8 @@ module.exports = {
                 '**/src/shared/lib/tests/**/*.{ts,tsx}',
                 '**/src/shared/config/Storybook/**/*.{ts,tsx}',
                 '**/config/**/*.{ts,tsx}',
-                '**/scripts/**/*.{ts}',
+                './scripts/**/*.{ts}',
+                './vite.config.ts',
             ],
             rules: {
                 'import/no-extraneous-dependencies': 'off',

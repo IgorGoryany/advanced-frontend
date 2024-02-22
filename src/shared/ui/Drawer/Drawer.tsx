@@ -5,6 +5,7 @@ import {
     useEffect,
 } from 'react';
 import {
+    AnimationProvider,
     classNames, useAnimationsContext, useTheme,
 } from '../../lib';
 import { Overlay } from '../Overlay/Overlay';
@@ -102,7 +103,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
     );
 });
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerLazy = (props: DrawerProps) => {
     const { isLoaded } = useAnimationsContext();
 
     if (!isLoaded) {
@@ -110,4 +111,10 @@ export const Drawer = memo((props: DrawerProps) => {
     }
 
     return <DrawerContent {...props} />;
-});
+};
+
+export const Drawer = (props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerLazy {...props} />
+    </AnimationProvider>
+);

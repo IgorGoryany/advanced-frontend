@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Popover as HPopover } from '@headlessui/react';
 import { classNames, Mods } from '@/shared/lib';
 import { DropdownDirection } from '@/shared/types';
@@ -28,7 +28,7 @@ export const Popover = genericMemo((props: PopoverProps) => {
 
     return (
         <HPopover className={classNames(popupCls.popup, mods, [className])}>
-            <HPopover.Button className={popupCls.trigger}>{trigger}</HPopover.Button>
+            <HPopover.Button as={Fragment}>{trigger}</HPopover.Button>
             <HPopover.Panel className={classNames(cls.panel, {}, [popupCls[direction], panelClassName])}>
                 {children}
             </HPopover.Panel>

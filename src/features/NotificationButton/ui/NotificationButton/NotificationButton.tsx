@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import {
     Button, ButtonTheme, Drawer, Icon, Popover,
 } from '@/shared/ui';
-import NotificationIcon from '@/shared/assets/icons/Notification.svg';
+import NotificationIcon from '@/shared/assets/icons/Notification.svg?react';
 import { AnimationProvider, classNames, useDevice } from '@/shared/lib';
 import { NotificationList } from '../NotificationList/NotificationList';
 import cls from './NotificationButton.module.scss';

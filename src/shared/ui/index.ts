@@ -25,3 +25,4 @@ export type { ListBoxItem } from './Popups/ui/ListBox/ListBox';
 export { Popover } from './Popups/ui/Popover/Popover';
 export { Drawer } from './Drawer/Drawer';
 export { Overlay } from './Overlay/Overlay';
+export { StarRating } from './StarRating/StarRating';

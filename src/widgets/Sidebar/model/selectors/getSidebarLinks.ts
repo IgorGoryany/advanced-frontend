@@ -1,10 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { getUserAuthData } from '@/entities/User';
-import HomePageIcon from '@/shared/assets/icons/HomePageIcon.svg';
+import HomePageIcon from '@/shared/assets/icons/HomePageIcon.svg?react';
 import { routePaths } from '@/shared/config';
-import AboutPageIcon from '@/shared/assets/icons/AboutPageIcon.svg';
-import ProfilePageIcon from '@/shared/assets/icons/ProfilePageIcon.svg';
-import ArticlePageIcon from '@/shared/assets/icons/ArticlePageIcon.svg';
+import AboutPageIcon from '@/shared/assets/icons/AboutPageIcon.svg?react';
+import ProfilePageIcon from '@/shared/assets/icons/ProfilePageIcon.svg?react';
+import ArticlePageIcon from '@/shared/assets/icons/ArticlePageIcon.svg?react';
 import { sidebarLinkType } from '../types/sidebar';
 
 export const getSidebarLinks = createSelector(

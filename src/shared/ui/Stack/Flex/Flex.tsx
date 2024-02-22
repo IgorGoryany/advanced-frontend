@@ -1,14 +1,13 @@
 import {
     DetailedHTMLProps, HTMLAttributes, JSXElementConstructor, ReactNode,
 } from 'react';
-import { classNames, Mods } from '@/shared/lib';
 import cls from './Flex.module.scss';
+import { classNames, Mods } from '@/shared/lib';
 
 type FlexAlign = 'start' | 'end' | 'center';
 type FlexJustify = FlexAlign | 'between';
 type FlexDirection = 'row' | 'column';
 type FlexGap = '4' | 4 | '8' | 8 | '16' | 16 | '32' | 32;
-
 type ReactTag = keyof JSX.IntrinsicElements | JSXElementConstructor<any>;
 
 const justifyClasses: Record<FlexJustify, string> = {
