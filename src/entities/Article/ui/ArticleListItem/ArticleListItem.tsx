@@ -5,7 +5,7 @@ import {
     AppLink,
     Avatar, Button, ButtonTheme, Card, Icon, Text, TextSize,
 } from '@/shared/ui';
-import ViewsIcon from '@/shared/assets/icons/ViewsIcon.svg';
+import ViewsIcon from '@/shared/assets/icons/ViewsIcon.svg?react';
 import { routePaths } from '@/shared/config';
 import { ArticleBlockType } from '../../model/consts/ArticleType';
 import {

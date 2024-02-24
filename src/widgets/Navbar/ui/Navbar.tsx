@@ -40,7 +40,7 @@ export const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={classes}>
-                <HStack gap={16} className={cls.items}>
+                <HStack gap={16} className={cls.items} align="center">
                     <NotificationButton />
                     <AvatarDropdown
                         authData={authData}

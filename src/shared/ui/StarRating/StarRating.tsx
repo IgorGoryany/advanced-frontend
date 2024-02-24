@@ -1,7 +1,6 @@
 import {
     FC, memo, useCallback, useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '../../lib';
 import cls from './StarRating.module.scss';
 import { HStack } from '../Stack/HStack/HStack';
@@ -52,7 +51,6 @@ export const StarRating: FC<StarRatingProps> = memo(
             [cls.starIcon]: !isSelected,
         };
 
-        const { t } = useTranslation();
         return (
             <HStack
                 max

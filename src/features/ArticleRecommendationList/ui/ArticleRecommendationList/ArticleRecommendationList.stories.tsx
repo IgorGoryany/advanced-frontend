@@ -3,27 +3,27 @@ import type { Meta, StoryObj } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import { Theme } from '@/shared/lib';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config';
-// @ts-ignore
-import { Article, ArticleType } from '@/entities/Article';
+import { Article } from '@/entities/Article';
 import { ArticleRecommendationList } from './ArticleRecommendationList';
+import testImage from '@/shared/assets/test/storybook.jpg';
 
 const article: Article = {
     id: 1,
     type: [],
     views: 1231,
-    img: 'asdasd',
+    img: testImage,
     title: '123',
     blocks: [],
     user: { id: 1, username: 'asda' },
     createdAt: '123',
-    subtitle: 'asdasd',
+    subtitle: 'Hello Storybook',
 };
 
 const meta = {
     title: 'features/ArticleRecommendationList',
     component: ArticleRecommendationList,
     tags: ['autodocs'],
-    decorators: [withMock, StoreDecorator({})],
+    decorators: [StoreDecorator({})],
     parameters: {
         mockData: [
             {

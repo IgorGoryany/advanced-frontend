@@ -29,6 +29,7 @@ import {
     fetchCommentByArticleId,
 } from '../../model/services/fetchCommentByArticleId/fetchCommentByArticleId';
 import cls from './ArticleDetailsPage.module.scss';
+import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailPageProps {
     className?: string;
@@ -89,8 +90,9 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
                 <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
                     {t('Назад к списку')}
                 </Button>
-                <ArticleDetails id={id} />
                 <VStack gap="32" max>
+                    <ArticleDetails id={id} />
+                    <ArticleRating articleId={id} />
                     <ArticleRecommendationList />
                     <ArticleDetailsComments />
                 </VStack>

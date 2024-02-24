@@ -9,8 +9,8 @@ import {
 import {
     TextAlign, Avatar, Icon, Text, TextSize, VStack, HStack,
 } from '@/shared/ui';
-import ViewsIcon from '@/shared/assets/icons/ViewsIcon.svg';
-import DateIcon from '@/shared/assets/icons/DateIcon.svg';
+import ViewsIcon from '@/shared/assets/icons/ViewsIcon.svg?react';
+import DateIcon from '@/shared/assets/icons/DateIcon.svg?react';
 import { ArticleBlockType } from '../../model/consts/ArticleType';
 import {
     ArticleParagraphsBlock,

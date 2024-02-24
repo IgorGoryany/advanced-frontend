@@ -8,8 +8,8 @@ const meta = {
     component: NotificationItem,
     tags: ['autodocs'],
     args: {
-        readonly: true,
-        data: {},
+        title: 'Уведомление',
+        description: 'Hello Storybook',
     },
 } as Meta<typeof NotificationItem>;
 

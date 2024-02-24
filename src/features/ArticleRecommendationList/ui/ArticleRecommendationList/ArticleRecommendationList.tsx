@@ -7,6 +7,8 @@ import {
     useArticleRecommendationListQuery,
 } from '../../api/articleRecomendationApi';
 
+import cls from './ArticleRecommendationList.module.scss';
+
 interface ArticleRecommendationListProps {
     className?: string;
 }
@@ -27,7 +29,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
     }
 
     return (
-        <VStack max>
+        <VStack max className={cls.articleRecommendationList}>
             <Text title={t('Рекомендации')} size={TextSize.L} />
             <ArticleList
                 className={classNames('', mods, [className])}

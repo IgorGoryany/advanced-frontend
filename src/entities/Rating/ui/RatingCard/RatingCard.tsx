@@ -19,7 +19,6 @@ import {
 interface RatingCardProps {
     className?: string;
     title: string;
-    onSelect?: (starNumber?: number) => void;
     selectedStars?: number;
     hasFeedback?: boolean;
     FeedbackTitle?: string;
@@ -32,7 +31,6 @@ export const RatingCard = memo(
         const {
             className,
             title,
-            onSelect,
             onCancel,
             onAccept,
             hasFeedback,

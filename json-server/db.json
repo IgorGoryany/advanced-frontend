@@ -1711,7 +1711,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": 3,
       "username": "manager",
       "password": "123",
       "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album",
@@ -1742,6 +1742,70 @@
       "city": "Dzerzhinsk",
       "username": "LaurenCogan",
       "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album"
+    }
+  ],
+  "article-rating": [
+    {
+      "id": 1,
+      "articleId": "1",
+      "rate": 2,
+      "userId": "1",
+      "feedback": "Хорошая статья"
+    },
+    {
+      "id": 2,
+      "articleId": "2",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "Хорошая статья"
+    },
+    {
+      "id": 3,
+      "articleId": "3",
+      "rate": 3,
+      "userId": "1",
+      "feedback": "Хорошая статья"
+    },
+    {
+      "id": 4,
+      "articleId": "4",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "Хорошая статья"
+    },
+    {
+      "rate": 5,
+      "feedback": "Заебись статья, мне нравится",
+      "articleId": "5",
+      "userId": "1",
+      "id": 5
+    },
+    {
+      "rate": 1,
+      "feedback": "хуета",
+      "articleId": "6",
+      "userId": "1",
+      "id": 6
+    },
+    {
+      "rate": 3,
+      "feedback": "Norm",
+      "articleId": "10",
+      "userId": "1",
+      "id": 7
+    },
+    {
+      "rate": 4,
+      "articleId": "18",
+      "userId": "1",
+      "id": 8
+    },
+    {
+      "rate": 4,
+      "feedback": "Ничо так статья! Мне зашло",
+      "articleId": "20",
+      "userId": "1",
+      "id": 9
     }
   ]
 }

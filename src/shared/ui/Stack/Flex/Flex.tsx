@@ -52,9 +52,9 @@ export const Flex = (props: FlexProps) => {
     const {
         className,
         children,
-        justify = 'start',
+        justify,
         direction = 'row',
-        align = 'center',
+        align,
         gap,
         max,
         role,
@@ -68,8 +68,8 @@ export const Flex = (props: FlexProps) => {
     };
     const additional = [
         className,
-        justifyClasses[justify],
-        alignClasses[align],
+        justify && justifyClasses[justify],
+        align && alignClasses[align],
         directionClasses[direction],
         gap && gapClasses[gap],
     ];

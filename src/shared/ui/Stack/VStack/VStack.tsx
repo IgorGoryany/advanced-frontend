@@ -4,7 +4,7 @@ type VStackProps = Omit<FlexProps, 'direction'>
 
 export const VStack = (props: VStackProps) => {
     const {
-        align = 'start',
+        align,
     } = props;
 
     return (
