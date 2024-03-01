@@ -118,7 +118,7 @@ module.exports = {
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/control-has-associated-label': 'off', // выруби если чо
-        'import-path-checker-fsd/path-checker': ['error', { alias: '@' }],
+        'import-path-checker-fsd/absolute-path-checker': ['error', { alias: '@' }],
         'import-path-checker-fsd/import-only-from-public-api': ['error',
             {
                 alias: '@',
