@@ -1,22 +1,29 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
+
+import userEvent from '@testing-library/user-event';
+
 import {
     componentRender,
-} from '@/shared/lib/tests/componentRender/componentRender';
+} from '@/shared/lib/testing';
+
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar.tsx', () => {
-    test('test render', () => {
+    test('test render', async () => {
         componentRender(<Sidebar />);
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
-
-    test('test toggle', () => {
+    test('test toggle', async () => {
         componentRender(<Sidebar />);
         const toggleBtn = screen.getByTestId('toggle');
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-        fireEvent.click(toggleBtn);
+        await act(async () => {
+            await userEvent.click(toggleBtn);
+        });
         expect(screen.getByTestId('sidebar')).toHaveClass('open');
-        fireEvent.click(toggleBtn);
+        await act(async () => {
+            await userEvent.click(toggleBtn);
+        });
         expect(screen.getByTestId('sidebar')).not.toHaveClass('open');
     });
     //

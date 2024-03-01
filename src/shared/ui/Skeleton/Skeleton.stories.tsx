@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from '../../lib/theme/ThemeContext/ThemeContext';
 import { StoreDecorator } from '../../config/Storybook/StoreDecorator';
 import { ThemeDecorator } from '../../config/Storybook/ThemeDecorator';
+
 import { Skeleton } from './Skeleton';
 
 const meta = {

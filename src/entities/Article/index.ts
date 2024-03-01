@@ -6,5 +6,5 @@ export type {
     ArticleSortType,
 } from './model/types/article';
 export { ArticleList } from './ui/ArticleList/ArticleList';
-export { ArticleType } from './model/consts/ArticleType';
+export { ArticleType, ArticleBlockType } from './model/consts/ArticleType';
 export { getArticleDetailsData } from './model/selectors/getArticleDetails/getArticleDetails';

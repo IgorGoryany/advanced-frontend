@@ -20,12 +20,27 @@ module.exports = {
     },
     plugins: [
         'react',
+        'react-hooks',
         '@typescript-eslint',
         'i18next',
-        'react-hooks',
-        'ubgbigtv-fsd',
+        'unused-imports',
+        'import-path-checker-fsd',
     ],
     rules: {
+        'no-unused-vars': 'off',
+        'no-param-reassign': 'off',
+        'no-undef': 'off',
+        'max-len': ['error', {
+            code: 120,
+            ignoreComments: true,
+            ignoreUrls: true,
+            tabWidth: 4,
+        }],
+        'no-unsafe-optional-chaining': 0,
+        'jsx-quotes': ['error', 'prefer-double'],
+        'no-restricted-globals': ['error', 'event', 'fdescribe'],
+        'no-shadow': 'off',
+        'no-underscore-dangle': 'off',
         'consistent-return': 'off',
         'react/jsx-indent': [2, 4, {
             checkAttributes: true,
@@ -41,19 +56,51 @@ module.exports = {
         }],
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        'no-unused-vars': 'off',
-        'react/jsx-props-no-spreading': 'off',
-        'no-shadow': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'warn',
-        'no-underscore-dangle': 'off',
+        'import/order': [
+            'error',
+            {
+                'newlines-between': 'always-and-inside-groups',
+                groups: [
+                    'builtin',
+                    'external',
+                    'internal',
+                    'parent',
+                    'sibling',
+                    'index',
+                    'type',
+                    'object',
+                ],
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                    },
+                    {
+                        pattern: '@storybook/react',
+                        group: 'external',
+                    },
+                    {
+                        pattern: '*.scss',
+                        group: 'object',
+                    },
+                ],
+            },
+
+        ],
         'i18next/no-literal-string': [2, {
             markupOnly: true,
             ignoreAttribute: [
                 'data-testid',
                 'to',
+                'as',
                 'name',
                 'position',
                 'border',
@@ -70,21 +117,40 @@ module.exports = {
         }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
-        'max-len': ['error', {
-            code: 120,
-            ignoreComments: true,
-            ignoreUrls: true,
-            tabWidth: 4,
-        }],
-        'no-unsafe-optional-chaining': 0,
-        'jsx-quotes': ['error', 'prefer-double'],
-        'no-restricted-globals': ['error', 'event', 'fdescribe'],
-        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
-        'no-param-reassign': 'off',
-        'no-undef': 'off',
         'jsx-a11y/control-has-associated-label': 'off', // выруби если чо
-        'ubgbigtv-fsd/path-checker': 'error',
+        'import-path-checker-fsd/path-checker': ['error', { alias: '@' }],
+        'import-path-checker-fsd/import-only-from-public-api': ['error',
+            {
+                alias: '@',
+                ignoreDirs: [
+                    'shared/assets',
+                    'shared/api',
+                    'shared/const',
+                ],
+                testingFilePatterns: [
+                    '**/*.testProps.ts',
+                    '**/*.test.{ts,tsx}',
+                    '**/*.stories.{ts,tsx}',
+                    '**/StoreDecorator.tsx',
+                    '**/ThemeDecorator.tsx',
+                    '**/componentRender.tsx',
+
+                ],
+            }],
+        'import-path-checker-fsd/import-only-from-the-lower-layers': ['error',
+            {
+                alias: '@',
+                testingFilePatterns: [
+                    '**/*.testProps.ts',
+                    '**/*.test.{ts,tsx}',
+                    '**/*.stories.{ts,tsx}',
+                    '**/StoreDecorator.tsx',
+                    '**/ThemeDecorator.tsx',
+                    '**/componentRender.tsx',
+                ],
+                ignoreImportPatterns: ['**/StoreProvider', '**/User'],
+                ignoreTypeImports: true,
+            }],
     },
 
     globals: {
@@ -96,7 +162,6 @@ module.exports = {
         {
             files: [
                 '**/src/**/*.{test,stories}.{ts,tsx}',
-                '**/src/shared/ui/**/*.tsx',
             ],
             rules: {
                 'i18next/no-literal-string': 'off',
@@ -107,10 +172,10 @@ module.exports = {
         {
             files: [
                 '**/src/**/*.{test,stories}.{ts,tsx}',
-                '**/src/shared/lib/tests/**/*.{ts,tsx}',
+                '**/src/shared/lib/testing/**/*.{ts,tsx}',
                 '**/src/shared/config/Storybook/**/*.{ts,tsx}',
                 '**/config/**/*.{ts,tsx}',
-                './scripts/**/*.{ts}',
+                '**/scripts/**/*.{ts,js}',
                 './vite.config.ts',
             ],
             rules: {

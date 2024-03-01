@@ -1,28 +1,33 @@
 import {
-    FC, MutableRefObject, ReactNode, useRef,
-    UIEvent,
+    FC, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import {
-    classNames, Mods, useAppDispatch, useThrottle,
-    useInfiniteScroll, useLayoutInitialEffect,
+    classNames,
+    Mods,
+    useAppDispatch,
+    useInfiniteScroll,
+    useLayoutInitialEffect,
+    useThrottle,
 } from '@/shared/lib';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import cls from './PageLayout.module.scss';
-import { scrollSaveAction } from '../model/slice/scrollSaveSlice';
-import {
-    getScrollSaveScrollByPath,
-} from '../model/selectors/getScrollSave';
+import { PAGE_ID } from '@/shared/const/ids';
 
-interface PageProps {
+import { TestProps } from '@/shared/types';
+
+import { scrollSaveAction } from '../model/slice/scrollSaveSlice';
+import { getScrollSaveScrollByPath } from '../model/selectors/getScrollSave';
+
+import cls from './PageLayout.module.scss';
+
+interface PageProps extends TestProps {
     className?: string;
     children?: ReactNode
     onScrollEnd?: () => void
     saveScroll?: boolean
 }
-
-export const PAGE_ID = 'PAGE_ID';
 
 export const PageLayout: FC<PageProps> = (props: PageProps) => {
     const {
@@ -30,6 +35,7 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
         children,
         onScrollEnd,
         saveScroll = true,
+        'data-testid': dataTestId,
     } = props;
 
     const mods: Mods = {};
@@ -64,7 +70,7 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
 
     return (
         <main
-            // @ts-ignore
+            data-testid={dataTestId}
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.page, mods, [className])}

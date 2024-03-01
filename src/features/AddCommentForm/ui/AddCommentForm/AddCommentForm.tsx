@@ -1,17 +1,20 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import {
     classNames, DynamicModuleLoader, Mods, ReducersList, useAppDispatch,
 } from '@/shared/lib';
 import {
     Button, ButtonTheme, HStack, Input, Text, TextTheme,
 } from '@/shared/ui';
+
 import { addCommentFormAction, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
 import {
     getAddCommentFormError,
     getAddCommentFormText,
 } from '../../model/selectors/getAddCommentForm';
+
 import cls from './AddCommentForm.module.scss';
 
 interface AddCommentFormProps {
@@ -50,6 +53,7 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
                 {error && <Text text={error} theme={TextTheme.ERROR} />}
                 <HStack
                     justify="between"
+                    align="center"
                     max
                     className={classNames(cls.addCommentForm, mods, [className])}
                 >

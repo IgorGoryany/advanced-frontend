@@ -1,10 +1,12 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import {
     Text, TextSize, TextTheme, VStack,
 } from '@/shared/ui';
 import { NotificationItem, NotificationLoader } from '@/entities/Notification';
 import { classNames } from '@/shared/lib';
+
 import { useNotification } from '../../api/notificationApi';
 
 import cls from './NotificationList.module.scss';

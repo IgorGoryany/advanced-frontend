@@ -3,7 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from '@/shared/lib';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config';
 import TestImg from '@/shared/assets/test/storybook.jpg';
+
 import { Article } from '../../model/types/article';
+
 import { ArticleListItem } from './ArticleListItem';
 
 const article = {

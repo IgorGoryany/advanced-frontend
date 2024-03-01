@@ -1,8 +1,9 @@
 import {
-    ChangeEvent, FC, memo, useCallback, useId, useMemo,
+    ChangeEvent, memo, useCallback, useId, useMemo,
 } from 'react';
-import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods } from '../../lib';
+
 import cls from './Select.module.scss';
 
 export interface SelectOption<T extends string = string> {

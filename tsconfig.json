@@ -14,7 +14,13 @@
         },
         "moduleResolution": "node",
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+      "lib": [
+        "dom",
+        "es5",
+        "scripthost",
+        "es2021.promise"
+      ]
     },
     "ts-node": {
         "compilerOptions": {

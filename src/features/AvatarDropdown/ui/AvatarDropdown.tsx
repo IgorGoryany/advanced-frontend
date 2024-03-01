@@ -1,8 +1,9 @@
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { User, isUserAdmin } from '@/entities/User';
-import { routePaths } from '@/shared/config';
+import { getAdminPanelRoute, getProfileRoute } from '@/shared/config';
 import {
     Avatar, Dropdown, DropdownItem,
 } from '@/shared/ui';
@@ -10,7 +11,7 @@ import {
 interface AvatarDropdownProps {
   className?: string;
   onLogout: () => void;
-  authData?: User
+  authData: User
 }
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
@@ -25,11 +26,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             return [
                 {
                     content: t('Админская панель'),
-                    href: routePaths.admin_panel,
+                    href: getAdminPanelRoute(),
                 },
                 {
                     content: t('Профиль'),
-                    href: routePaths.profile + authData?.id,
+                    href: getProfileRoute(authData.id),
                 },
                 {
                     content: t('Выйти'),
@@ -40,7 +41,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         return [
             {
                 content: t('Профиль'),
-                href: routePaths.profile + authData?.id,
+                href: getProfileRoute(authData.id),
             },
             {
                 content: t('Выйти'),

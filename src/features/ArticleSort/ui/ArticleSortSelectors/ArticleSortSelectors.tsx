@@ -3,15 +3,18 @@ import {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods, useAppDispatch } from '@/shared/lib';
 import { Select, SelectOption } from '@/shared/ui';
 import { SortOrder } from '@/shared/types';
 import { ArticleSortType } from '@/entities/Article';
+
 import {
     getArticleSortOrder,
     getArticleSortSort,
 } from '../../model/selectors/getArticleSort';
 import { articleSortAction } from '../../model/slice/articleSortSlice';
+
 import cls from './ArticleSortSelectors.module.scss';
 
 interface ArticleSortSelectorsProps {

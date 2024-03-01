@@ -1,9 +1,12 @@
 import {
     FC, memo, useCallback,
 } from 'react';
-import CopyCodeIcon from '@/shared/assets/icons/CopyCode.svg?react';
+
+import CopyCodeIcon from '@/shared/assets/icons/CopyCode.svg';
+
 import { classNames, Mods } from '../../lib';
 import { Button } from '../Button/Button';
+
 import cls from './Code.module.scss';
 
 interface CodeProps {

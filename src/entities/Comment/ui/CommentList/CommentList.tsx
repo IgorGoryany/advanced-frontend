@@ -1,7 +1,9 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods } from '@/shared/lib';
 import { Text, VStack } from '@/shared/ui';
+
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../model/types/comment';
 

@@ -1,10 +1,12 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article, ArticlesView } from '@/entities/Article';
+
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList';
 
-const articleAdapter = createEntityAdapter<Article>({
+export const articleAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 

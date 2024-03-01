@@ -8,19 +8,27 @@ import { useTranslation } from 'react-i18next';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
 import { useVirtualizer } from '@tanstack/react-virtual';
+
 import {
     HStack, Text, TextAlign, TextSize,
 } from '@/shared/ui';
 import { classNames, Mods, useDebounce } from '@/shared/lib';
-import { PAGE_ID } from '@/widgets/PageLayout';
+
+import { PAGE_ID } from '@/shared/const/ids';
+
+// eslint-disable-next-line import-path-checker-fsd/import-only-from-the-lower-layers
+import { PageLayout } from '@/widgets/PageLayout';
+
 import { ArticleListItemLoader } from '../ArticleListItem/ArticleListItemLoader';
 import { Article, ArticlesView } from '../../model/types/article';
-import cls from './ArticleList.module.scss';
+
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
     className?: string;
-    articles?: Article[]
+    articles: Article[]
     isLoading?: boolean
     error?: FetchBaseQueryError | SerializedError | string
     view?: ArticlesView
@@ -73,7 +81,6 @@ export const ArticleList: FC<ArticleListProps> = memo(
             overscan: 1,
             scrollMargin: 0,
             getScrollElement: () => document.getElementById(PAGE_ID) as HTMLDivElement,
-            // debug: true,
         });
 
         const resizeHandler = useDebounce((e: UIEvent) => {
@@ -98,6 +105,37 @@ export const ArticleList: FC<ArticleListProps> = memo(
                 element?.removeEventListener('resize', resizeHandler);
             };
         }, [resizeHandler]);
+
+        const content = (
+            <div
+                style={{
+                    height: rowVirtualizer.getTotalSize(),
+                    width: '100%',
+                }}
+                className={classNames(cls.articleList, mods, [cls.listWrapper, className, cls[view]])}
+            >
+                {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+                    if (virtualRow.index + 1 > (articles.length || 0)) {
+                        return (
+                            <ArticleListItemLoader
+                                view={view}
+                                key={virtualRow.key}
+                                translateY={virtualRow.start}
+                            />
+                        );
+                    }
+                    return (
+                        <ArticleListItem
+                            target={target}
+                            article={articles[virtualRow.index]}
+                            key={articles[virtualRow.index]?.id}
+                            view={view}
+                            translateY={virtualRow.start}
+                        />
+                    );
+                })}
+            </div>
+        );
 
         if (error) {
             return (
@@ -138,35 +176,14 @@ export const ArticleList: FC<ArticleListProps> = memo(
             );
         }
 
-        return (
-            <div
-                style={{
-                    height: rowVirtualizer.getTotalSize(),
-                    width: '100%',
-                }}
-                className={classNames(cls.articleList, mods, [cls.listWrapper, className, cls[view]])}
-            >
-                {rowVirtualizer.getVirtualItems().map((virtualRow) => {
-                    if (virtualRow.index + 1 > (articles?.length || 0)) {
-                        return (
-                            <ArticleListItemLoader
-                                view={view}
-                                key={virtualRow.key}
-                                translateY={virtualRow.start}
-                            />
-                        );
-                    }
-                    return (
-                        <ArticleListItem
-                            target={target}
-                            article={articles?.[virtualRow.index]}
-                            key={articles?.[virtualRow.index]?.id}
-                            view={view}
-                            translateY={virtualRow.start}
-                        />
-                    );
-                })}
-            </div>
-        );
+        if (__PROJECT__ === 'storybook') {
+            return (
+                <PageLayout>
+                    {content}
+                </PageLayout>
+            );
+        }
+
+        return content;
     },
 );

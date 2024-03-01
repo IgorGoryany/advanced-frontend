@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import type { Preview } from '@storybook/react';
 import { MemoryRouter } from 'react-router-dom';
+
 import { Theme } from '../../src/shared/lib';
 import '../../src/app/styles/index.scss';
 import { ThemeProvider } from '../../src/app/providers/ThemeProvider';

@@ -1,4 +1,5 @@
-import { StateSchema } from '@/shared/config';
+import { StateSchema } from '@/app/providers/StoreProvider';
+
 import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,

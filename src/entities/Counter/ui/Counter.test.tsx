@@ -1,12 +1,13 @@
 import { fireEvent, screen } from '@testing-library/react';
+
 import {
     componentRender,
-} from '@/shared/lib/tests/componentRender/componentRender';
+} from '@/shared/lib/testing';
+
 import { Counter } from './Counter';
 
 describe('Counter.tsx', () => {
     test('test render', () => {
-    // eslint-disable-next-line i18next/no-literal-string
         componentRender(<Counter />, {
             initialState: { counter: { value: 10 } },
         });
@@ -14,7 +15,6 @@ describe('Counter.tsx', () => {
     });
 
     test('test increment', () => {
-    // eslint-disable-next-line i18next/no-literal-string
         componentRender(<Counter />, {
             initialState: { counter: { value: 10 } },
         });
@@ -25,7 +25,6 @@ describe('Counter.tsx', () => {
     });
 
     test('test decrement', () => {
-    // eslint-disable-next-line i18next/no-literal-string
         componentRender(<Counter />, {
             initialState: { counter: { value: 10 } },
         });

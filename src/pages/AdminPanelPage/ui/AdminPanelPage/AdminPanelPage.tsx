@@ -2,6 +2,7 @@ import {
     FC, memo, useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods } from '@/shared/lib';
 import { PageLayout } from '@/widgets/PageLayout';
 

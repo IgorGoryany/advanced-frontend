@@ -1,9 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 // @ts-ignore
 import { Theme } from '@/shared/lib';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config';
-import { NotificationList } from './NotificationList';
+
 import { Notification } from '@/entities/Notification';
+
+import { NotificationList } from './NotificationList';
 
 const notification: Notification = {
     userId: '1',

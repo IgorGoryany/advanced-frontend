@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 // @ts-ignore
-import withMock from 'storybook-addon-mock';
+
 import { Theme } from '@/shared/lib';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config';
 import { Article } from '@/entities/Article';
-import { ArticleRecommendationList } from './ArticleRecommendationList';
+
 import testImage from '@/shared/assets/test/storybook.jpg';
+
+import { ArticleRecommendationList } from './ArticleRecommendationList';
 
 const article: Article = {
     id: 1,

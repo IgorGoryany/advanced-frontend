@@ -1,9 +1,15 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import HomePageIcon from '@/shared/assets/icons/HomePageIcon.svg?react';
-import { routePaths } from '@/shared/config';
-import AboutPageIcon from '@/shared/assets/icons/AboutPageIcon.svg?react';
-import ProfilePageIcon from '@/shared/assets/icons/ProfilePageIcon.svg?react';
-import ArticlePageIcon from '@/shared/assets/icons/ArticlePageIcon.svg?react';
+import HomePageIcon from '@/shared/assets/icons/HomePageIcon.svg';
+import {
+    getAboutRoute,
+    getArticlesRoute,
+    getMainRoute,
+    getProfileRoute,
+} from '@/shared/config';
+import AboutPageIcon from '@/shared/assets/icons/AboutPageIcon.svg';
+import ProfilePageIcon from '@/shared/assets/icons/ProfilePageIcon.svg';
+import ArticlePageIcon from '@/shared/assets/icons/ArticlePageIcon.svg';
+
 import { getSidebarLinks } from './getSidebarLinks';
 
 describe('getArticleDetailsComments.test', () => {
@@ -16,23 +22,23 @@ describe('getArticleDetailsComments.test', () => {
         expect(getSidebarLinks(state as StateSchema)).toEqual([
             {
                 Icon: HomePageIcon,
-                path: routePaths.main,
+                path: getMainRoute(),
                 text: 'Главная',
             },
             {
                 Icon: AboutPageIcon,
-                path: routePaths.about,
+                path: getAboutRoute(),
                 text: 'О сайте',
             },
             {
                 Icon: ProfilePageIcon,
-                path: `${routePaths.profile}1`,
+                path: getProfileRoute(1),
                 text: 'Профиль',
                 authOnly: true,
             },
             {
                 Icon: ArticlePageIcon,
-                path: routePaths.articles,
+                path: getArticlesRoute(),
                 text: 'Статьи',
                 authOnly: true,
             },
@@ -45,12 +51,12 @@ describe('getArticleDetailsComments.test', () => {
             expect(getSidebarLinks(state as StateSchema)).toEqual([
                 {
                     Icon: HomePageIcon,
-                    path: routePaths.main,
+                    path: getMainRoute(),
                     text: 'Главная',
                 },
                 {
                     Icon: AboutPageIcon,
-                    path: routePaths.about,
+                    path: getAboutRoute(),
                     text: 'О сайте',
                 }]);
         },

@@ -1,8 +1,11 @@
 import {
     memo, ReactNode, useCallback,
 } from 'react';
+
 import { classNames, Mods } from '@/shared/lib';
+
 import { Card } from '../Card/Card';
+
 import cls from './Tabs.module.scss';
 
 export interface TabItem<T extends string = string> {

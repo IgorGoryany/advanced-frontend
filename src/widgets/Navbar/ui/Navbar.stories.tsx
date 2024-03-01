@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from '@/shared/lib';
 import { StoreDecorator, ThemeDecorator } from '@/shared/config';
+
 import { Navbar } from './Navbar';
 
 const meta = {

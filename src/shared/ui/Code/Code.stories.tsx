@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from '../../lib/theme/ThemeContext/ThemeContext';
-import { StoreDecorator } from '../../config/Storybook/StoreDecorator';
-import { ThemeDecorator } from '../../config/Storybook/ThemeDecorator';
+import { Theme } from '@/shared/lib';
+import { StoreDecorator, ThemeDecorator } from '@/shared/config';
+
 import { Code } from './Code';
 
 const meta = {

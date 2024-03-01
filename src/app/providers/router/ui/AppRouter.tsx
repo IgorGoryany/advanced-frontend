@@ -3,10 +3,11 @@ import React, {
 } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { AppRoutesProps } from '@/shared/config';
 import { PageLoader } from '@/widgets/PageLoader';
+
+import { AppRoutesProps, routerConfig } from '../config/routerConfig';
+
 import { RequireAuth } from './RequireAuth';
-import { routerConfig } from '../config/routerConfig';
 
 const AppRouter = memo(() => {
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {

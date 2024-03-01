@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { ThemeDecorator } from '@/shared/config';
 import { Theme } from '@/shared/lib';
+
 import { NotificationItem } from './NotificationItem';
 
 const meta = {

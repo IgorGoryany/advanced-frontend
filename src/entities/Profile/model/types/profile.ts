@@ -1,5 +1,6 @@
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
+import type { Currency } from '@/entities/Currency';
+import type { Country } from '@/entities/Country';
+
 import { ValidateProfileError } from '../consts/ValidateProfileError';
 
 export interface Profile {

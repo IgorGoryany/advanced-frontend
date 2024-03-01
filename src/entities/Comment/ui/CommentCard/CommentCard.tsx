@@ -1,11 +1,14 @@
 import { FC, memo } from 'react';
+
 import { classNames, Mods } from '@/shared/lib';
 import {
     AppLink, Avatar, HStack, Skeleton, Text, VStack,
 } from '@/shared/ui';
-import { routePaths } from '@/shared/config';
-import cls from './CommentCard.module.scss';
+import { getProfileRoute } from '@/shared/config';
+
 import { Comment } from '../../model/types/comment';
+
+import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
     className?: string;
@@ -46,7 +49,7 @@ export const CommentCard: FC<CommentCardProps> = memo(
 
         return (
             <VStack gap="4" className={classNames(cls.commentCard, mods, [className])}>
-                <AppLink to={`${routePaths.profile}${user.id}`}>
+                <AppLink to={getProfileRoute(user.id)}>
                     <HStack gap="8">
                         {user.avatar
                             ? (

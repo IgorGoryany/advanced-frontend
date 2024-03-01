@@ -1,18 +1,21 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { RatingCard } from '@/entities/Rating';
+
+import { Skeleton } from '@/shared/ui';
+import { useAuth } from '@/entities/User';
+
 import {
     useGetArticleRating,
     useSetArticleRating,
-} from '@/features/ArticleRating/api/articleRatingApi';
-import { Skeleton } from '@/shared/ui';
-import { useAuth } from '@/entities/User';
+} from '../../api/articleRatingApi';
 
 export interface ArticleRatingProps {
     className?: string;
     articleId: string;
     /**
-    * @deprecated only for a Storybook
+    * @deprecated Нужен для отображения загрузки в сторибуке
     * */
     storybookLoading?: boolean;
 }
@@ -62,8 +65,14 @@ const ArticleRating: FC<ArticleRatingProps> = memo(
             handleSetStarRatting(starNumber);
         }, [handleSetStarRatting]);
 
-        if (isLoadingGetData || storybookLoading) {
-            return <Skeleton width="100%" height={120} border="20px" />;
+        const loader = <Skeleton width="100%" height={120} border="20px" />;
+
+        if (storybookLoading && __PROJECT__ === 'storybook') {
+            return loader;
+        }
+
+        if (isLoadingGetData) {
+            return loader;
         }
 
         if (setError) title = t('Не удалось поставить оценку, попробуйте позже');

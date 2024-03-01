@@ -2,6 +2,7 @@ import {
     FC, memo, useCallback,
 } from 'react';
 import { useSelector } from 'react-redux';
+
 import {
     classNames, DynamicModuleLoader, Mods, ReducersList, useAppDispatch, useInitialEffect,
 } from '@/shared/lib';
@@ -9,6 +10,9 @@ import { ArticleList, ArticlesView } from '@/entities/Article';
 import { ARTICLE_VIEW_KEY } from '@/shared/const/localStorage';
 import { PageLayout } from '@/widgets/PageLayout';
 import { ArticleFilters } from '@/features/ArticleSort';
+
+import { articlesForTest } from '@/shared/const/testing';
+
 import {
     fetchArticleList,
 } from '../../model/services/fetchArticleList/fetchArticleList';
@@ -26,6 +30,7 @@ import {
     articlePageReducer,
     getArticles,
 } from '../../model/slice/atriclePageSlice';
+
 import cls from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
@@ -68,6 +73,24 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
         const initialView = localStorage.getItem(ARTICLE_VIEW_KEY) as ArticlesView;
         dispatch(initArticlePage(initialView));
     });
+
+    if (__PROJECT__ === 'storybook') {
+        return (
+            <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+                <ArticleFilters
+                    view={view}
+                    onViewClick={onViewClick}
+                    onChangeSort={onChangeSort}
+                />
+                <ArticleList
+                    view={view}
+                    error={error}
+                    isLoading={isLoading}
+                    articles={articlesForTest}
+                />
+            </DynamicModuleLoader>
+        );
+    }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>

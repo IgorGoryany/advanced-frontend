@@ -1,13 +1,18 @@
 import React, { FC, useMemo, useState } from 'react';
+
 import { useSelector } from 'react-redux';
+
 import { classNames } from '@/shared/lib';
 import {
     Button, ButtonSize, ButtonTheme, HStack, VStack,
 } from '@/shared/ui';
-import { ThemeSwitcher } from '@/features/ThemeSwither';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LangSwitcher } from '@/features/LangSwitcher';
-import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
+
 import { SidebarLink } from '../SidebarLink/SidebarLink';
+
+import { getSidebarLinks } from '../../model/selectors/getSidebarLinks';
+
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -15,10 +20,10 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-    const [open, setOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const toggleSidebar = () => {
-        setOpen((prevState) => !prevState);
+        setIsOpen((prevState) => !prevState);
     };
     const sidebarLinksList = useSelector(getSidebarLinks);
 
@@ -30,16 +35,16 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 text={text}
                 Icon={Icon}
                 path={path}
-                open={open}
+                open={isOpen}
                 authOnly={authOnly}
             />
         </li>
-    )), [open, sidebarLinksList]);
+    )), [isOpen, sidebarLinksList]);
 
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(cls.sidebar, { [cls.open]: open }, [className])}
+            className={classNames(cls.sidebar, { [cls.open]: isOpen }, [className])}
         >
             <Button
                 data-testid="toggle"
@@ -50,14 +55,14 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
                 square
                 size={ButtonSize.L}
             >
-                {open ? '<' : '>'}
+                {isOpen ? '<' : '>'}
             </Button>
             <VStack Tag="ul" max gap="16" className={cls.links}>
                 {linksList}
             </VStack>
             <HStack justify="center" className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher short={!open} className={cls.langSwitch} />
+                <LangSwitcher short={!isOpen} className={cls.langSwitch} />
             </HStack>
         </aside>
     );

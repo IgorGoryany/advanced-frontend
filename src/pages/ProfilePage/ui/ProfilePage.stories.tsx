@@ -5,6 +5,7 @@ import { StoreDecorator, ThemeDecorator } from '@/shared/config';
 import img from '@/shared/assets/test/storybook.png';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+
 import ProfilePage from './ProfilePage';
 
 const meta = {

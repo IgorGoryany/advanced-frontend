@@ -2,6 +2,7 @@ import {
     FormEvent, memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods, useDevice } from '@/shared/lib';
 import {
     Button,

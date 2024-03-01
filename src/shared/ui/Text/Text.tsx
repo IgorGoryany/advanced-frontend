@@ -1,5 +1,7 @@
 import { memo } from 'react';
+
 import { classNames, Mods } from '../../lib';
+
 import cls from './Text.module.scss';
 
 export enum TextTheme {
@@ -49,9 +51,9 @@ export const Text = memo((props: TextProps) => {
         title,
         text,
         theme = TextTheme.PRIMARY,
-        titleAlign = '',
+        titleAlign = TextAlign.LEFT,
         align = TextAlign.LEFT,
-        textAlign = '',
+        textAlign = TextAlign.LEFT,
         size = TextSize.M,
         textWrap = 'pretty',
         titleWrap = 'pretty',

@@ -26,3 +26,4 @@ export { Popover } from './Popups/ui/Popover/Popover';
 export { Drawer } from './Drawer/Drawer';
 export { Overlay } from './Overlay/Overlay';
 export { StarRating } from './StarRating/StarRating';
+export { Code } from './Code/Code';

@@ -1,5 +1,6 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/testing';
 import { Article } from '@/entities/Article';
+
 import {
     fetchArticleRecommendation,
 } from './fetchArticleRecommendation';

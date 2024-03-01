@@ -1,9 +1,11 @@
 import {
     FC, ReactNode,
 } from 'react';
+
 import { useModal, classNames, useTheme } from '../../lib';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
+
 import cls from './Modal.module.scss';
 
 interface ModalProps {

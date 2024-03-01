@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildСssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';

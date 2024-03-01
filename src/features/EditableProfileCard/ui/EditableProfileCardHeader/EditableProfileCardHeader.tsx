@@ -1,11 +1,13 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { classNames, Mods, useAppDispatch } from '@/shared/lib';
 import {
     Button, ButtonTheme, HStack, Text,
 } from '@/shared/ui';
 import { useAuth } from '@/entities/User';
+
 import {
     getProfileData,
 } from '../../model/selectors/getProfileData/getProfileData';

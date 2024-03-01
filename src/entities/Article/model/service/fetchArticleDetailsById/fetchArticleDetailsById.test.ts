@@ -1,8 +1,10 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/testing';
+
+import { Article } from '../../types/article';
+
 import {
     fetchArticleDetailsById,
 } from './fetchArticleDetailsById';
-import { Article } from '../../types/article';
 
 const article: DeepPartial<Article> = {
     blocks: [],

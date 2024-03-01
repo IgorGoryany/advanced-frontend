@@ -5,6 +5,23 @@
 
 import path from 'path';
 
+const vm = require('vm');
+
+const { createContext } = vm;
+
+/**
+ * Temporary solution for issue [jsdom / ReferenceError: AggregateError is not defined]{@link https://github.com/jsdom/jsdom/issues/3205}
+ */
+function newCreateContext(context: any) {
+    if (context && !context.AggregateError && typeof AggregateError === 'function') {
+        context.AggregateError = AggregateError;
+    }
+
+    return createContext(context);
+}
+
+vm.createContext = newCreateContext;
+
 export default {
     globals: {
         __IS_DEV__: false,
@@ -42,7 +59,20 @@ export default {
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^@/(.*)': '<rootDir>src/$1',
     },
+    reporters: [
+        'default',
+        [
+            'jest-html-reporters', {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                // openReport: true,
+                inlineSource: true,
+            },
+        ],
+    ],
+    // modulePathIgnorePatterns: ['<rootDir>/src/shared/assets/icons/'],
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
@@ -86,7 +116,7 @@ export default {
 
     // A set of global variables that need to be available in all test environments
 
-    // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
+    // The maximum amount of workers used to run your testing. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
     // maxWorkers: "50%",
 
     // An array of directory names to be searched recursively up from the requiring module's location
@@ -108,11 +138,10 @@ export default {
     // A preset that is used as a base for Jest's configuration
     // preset: undefined,
 
-    // Run tests from one or more projects
+    // Run testing from one or more projects
     // projects: undefined,
 
     // Use this configuration option to add custom reporters to Jest
-    // reporters: undefined,
 
     // Automatically reset mock state before every test
     // resetMocks: false,
@@ -126,7 +155,7 @@ export default {
     // Automatically restore mock state and implementation before every test
     // restoreMocks: false,
 
-    // The root directory that Jest should scan for tests and modules within
+    // The root directory that Jest should scan for testing and modules within
 
     // A list of paths to directories that Jest should use to search for files in
     // roots: [
@@ -158,7 +187,7 @@ export default {
 
     // The glob patterns Jest uses to detect test files
 
-    // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
+    // An array of regexp pattern strings that are matched against all test paths, matched testing are skipped
     // testPathIgnorePatterns: [
     //   "\\\\node_modules\\\\"
     // ],
@@ -193,7 +222,7 @@ export default {
     // Indicates whether each individual test should be reported during the run
     // verbose: undefined,
 
-    // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
+    // An array of regexp patterns that are matched against all source file paths before re-running testing in watch mode
     // watchPathIgnorePatterns: [],
 
     // Whether to use watchman for file crawling

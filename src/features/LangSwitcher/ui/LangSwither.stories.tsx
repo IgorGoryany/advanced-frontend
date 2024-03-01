@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from '../../../shared/lib';
 import { ThemeDecorator } from '../../../shared/config';
+
 import { LangSwitcher } from './LangSwitcher';
 
 const meta = {

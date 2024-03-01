@@ -4,12 +4,16 @@ import {
     useCallback,
     useEffect,
 } from 'react';
+
 import {
     AnimationProvider,
-    classNames, useAnimationsContext, useTheme,
+    classNames,
+    useAnimationsContext,
+    useTheme,
 } from '../../lib';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
+
 import cls from './Drawer.module.scss';
 
 interface DrawerProps {
@@ -17,7 +21,6 @@ interface DrawerProps {
     children: ReactNode
     isOpen?: boolean
     onClose?: () => void
-    lazy?: boolean
 }
 
 const height = window.innerHeight - 100;
@@ -34,7 +37,6 @@ export const DrawerContent = memo((props: DrawerProps) => {
         children,
         onClose,
         isOpen,
-        lazy,
     } = props;
 
     const openDrawer = useCallback(() => {

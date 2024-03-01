@@ -3,14 +3,16 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import {
     classNames, DynamicModuleLoader, Mods, ReducersList, useAppDispatch,
 } from '@/shared/lib';
 import {
     TextAlign, Avatar, Icon, Text, TextSize, VStack, HStack,
 } from '@/shared/ui';
-import ViewsIcon from '@/shared/assets/icons/ViewsIcon.svg?react';
-import DateIcon from '@/shared/assets/icons/DateIcon.svg?react';
+import ViewsIcon from '@/shared/assets/icons/ViewsIcon.svg';
+import DateIcon from '@/shared/assets/icons/DateIcon.svg';
+
 import { ArticleBlockType } from '../../model/consts/ArticleType';
 import {
     ArticleParagraphsBlock,
@@ -28,6 +30,7 @@ import {
 } from '../../model/selectors/getArticleDetails/getArticleDetails';
 import { ArticleDetailsLoader } from '../ArticleDetailsLoader/ArticleDetailsLoader';
 import { ArticleBlock } from '../../model/types/article';
+
 import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

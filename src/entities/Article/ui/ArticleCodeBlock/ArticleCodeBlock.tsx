@@ -1,7 +1,10 @@
 import { FC, memo } from 'react';
+
 import { classNames } from '@/shared/lib';
-import { Code } from '@/shared/ui/Code/Code';
+import { Code } from '@/shared/ui';
+
 import { ArticleBlockCode } from '../../model/types/article';
+
 import cls from './ArticleCodeBlock.module.scss';
 
 interface ArticleCodeBlockProps {

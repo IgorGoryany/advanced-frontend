@@ -1,5 +1,6 @@
-import { FC, memo } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods } from '@/shared/lib';
 import {
     TextAlign, Avatar,
@@ -8,9 +9,9 @@ import {
     Text,
     TextTheme, HStack, VStack,
 } from '@/shared/ui';
-import { Currency, CurrencySelect } from '@/entities/Currency';
-import { Country, CountrySelect } from '@/entities/Country';
+
 import { Profile } from '../model/types/profile';
+
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -19,14 +20,14 @@ interface ProfileCardProps {
     isLoading?: boolean
     error?: string
     readonly?: boolean
+    countrySelect: ReactNode;
+    currencySelect: ReactNode;
     onChangeLastName?: (value: string) => void
     onChangeFirstName?: (value: string) => void
     onChangeUsername?: (value: string) => void
     onChangeAge?: (value: string) => void
     onChangeCity?: (value: string) => void
     onChangeAvatar?: (value: string) => void
-    onChangeCurrency?: (value: Currency) => void
-    onChangeCountry?: (value: Country) => void
 }
 
 export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) => {
@@ -42,8 +43,8 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
         onChangeAge,
         onChangeCity,
         onChangeAvatar,
-        onChangeCurrency,
-        onChangeCountry,
+        countrySelect,
+        currencySelect,
     } = props;
     const mods: Mods = {
         [cls.editing]: !readonly,
@@ -54,6 +55,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
         return (
             <HStack
                 justify="center"
+                align="center"
                 max
                 className={classNames(cls.profileCard, mods, [className, cls.loading])}
             >
@@ -66,6 +68,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
         return (
             <HStack
                 justify="center"
+                align="center"
                 max
                 className={classNames(cls.profileCard, mods, [className, cls.error])}
             >
@@ -132,18 +135,8 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                     data-testid="ProfileCard.city"
                 />
             )}
-            <CurrencySelect
-                value={data?.currency}
-                disabled={readonly}
-                onChange={onChangeCurrency}
-                data-testid="ProfileCard.currency"
-            />
-            <CountrySelect
-                value={data?.country}
-                disabled={readonly}
-                onChange={onChangeCountry}
-                data-testid="ProfileCard.country"
-            />
+            {currencySelect}
+            {countrySelect}
             {!readonly && (
                 <Input
                     placeholder={t('Ссылка на автар')}

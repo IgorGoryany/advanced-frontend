@@ -4,6 +4,7 @@ import { Theme } from '../../lib/theme/ThemeContext/ThemeContext';
 import { StoreDecorator } from '../../config/Storybook/StoreDecorator';
 import { ThemeDecorator } from '../../config/Storybook/ThemeDecorator';
 import { Text } from '../Text/Text';
+
 import { Card } from './Card';
 
 const meta = {

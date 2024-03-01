@@ -1,5 +1,6 @@
 import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { AppLink, AppLinkTheme, HStack } from '@/shared/ui';
 import { classNames } from '@/shared/lib';
 import { useAuth } from '@/entities/User';

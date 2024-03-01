@@ -1,11 +1,15 @@
 import {
     FC, memo, useCallback, useState,
 } from 'react';
+
+import StarIcon from '@/shared/assets/icons/Star.svg';
+
 import { classNames, Mods } from '../../lib';
-import cls from './StarRating.module.scss';
+
 import { HStack } from '../Stack/HStack/HStack';
-import StarIcon from '@/shared/assets/icons/Star.svg?react';
-import { Icon } from '@/shared/ui';
+import { Icon } from '../Icon/Icon';
+
+import cls from './StarRating.module.scss';
 
 interface StarRatingProps {
     className?: string;

@@ -1,8 +1,10 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods } from '@/shared/lib';
 import { ArticleList } from '@/entities/Article';
 import { Text, TextSize, VStack } from '@/shared/ui';
+
 import {
     useArticleRecommendationListQuery,
 } from '../../api/articleRecomendationApi';
@@ -20,7 +22,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
 
     const mods: Mods = {};
 
-    const { data: articles, isLoading, error } = useArticleRecommendationListQuery();
+    const { data: articles = [], isLoading, error } = useArticleRecommendationListQuery();
 
     const { t } = useTranslation('article');
 

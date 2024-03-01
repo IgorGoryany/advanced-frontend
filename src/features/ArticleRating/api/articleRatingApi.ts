@@ -1,4 +1,5 @@
 import { rtkApi } from '@/shared/api/rtkApi';
+
 import { ArticleRatingSchema } from '../model/types/ArticleRatingSchema';
 
 interface ArticleRatingParams {

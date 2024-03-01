@@ -1,45 +1,56 @@
 import React from 'react';
+import { RouteProps } from 'react-router-dom';
+
 import { MainPage } from '@/pages/MainPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import { AppRoutesProps, routePaths } from '@/shared/config';
+import {
+    getAboutRoute,
+    getAdminPanelRoute,
+    getArticleDetailsRoute,
+    getArticlesRoute,
+    getForbiddenRoute,
+    getMainRoute,
+    getProfileRoute,
+} from '@/shared/config';
 import { ArticlePage } from '@/pages/ArticlePage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { UserRole } from '@/entities/User';
+
+export type AppRoutesProps = RouteProps & {
+    authOnly?: boolean
+    roles?: UserRole[]
+}
 
 export const routerConfig: AppRoutesProps[] = [
     {
-        path: routePaths.main,
+        path: getMainRoute(),
         element: <MainPage />,
     },
     {
-        path: routePaths.about,
+        path: getAboutRoute(),
         element: <AboutPage />,
     },
     {
-        path: `${routePaths.profile}:id`,
+        path: getProfileRoute(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     {
-        path: routePaths.articles,
+        path: getArticlesRoute(),
         element: <ArticlePage />,
         authOnly: true,
     },
     {
-        path: `${routePaths.article_details}:id`,
+        path: getArticleDetailsRoute(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     {
-        path: `${routePaths.article_details}:id`,
-        element: <ArticleDetailsPage />,
-        authOnly: true,
-    },
-    {
-        path: `${routePaths.admin_panel}`,
+        path: getAdminPanelRoute(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: ['ADMIN'],
@@ -47,12 +58,12 @@ export const routerConfig: AppRoutesProps[] = [
 
     //! last
     {
-        path: `${routePaths.forbidden}`,
+        path: getForbiddenRoute(),
         element: <ForbiddenPage />,
         authOnly: true,
     },
     {
-        path: routePaths.notFound,
+        path: '*',
         element: <NotFoundPage />,
     },
 ];

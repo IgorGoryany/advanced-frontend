@@ -16,11 +16,11 @@ files.forEach((sourceFile) => {
         .forEach((importStringLiteral) => {
             const literalValue = importStringLiteral.getLiteralValue();
 
-            if (literalValue.includes('.svg') && !literalValue.includes('.svg?react')) {
+            if (literalValue.includes('.svg?react')) {
                 const literalValueWithoutEntities = literalValue.split('entities.entities');
                 importStringLiteral
                     .setLiteralValue(
-                        `${literalValue}?react`,
+                        literalValue.replace('?react', ''),
                     );
             }
         });

@@ -2,13 +2,17 @@ import {
     Fragment, ReactNode, useCallback,
 } from 'react';
 import { Menu } from '@headlessui/react';
+
 import { classNames, Mods } from '@/shared/lib';
 import { DropdownDirection } from '@/shared/types';
 import { genericMemo } from '@/shared/const/genericMemo';
+
 import { AppLink } from '../../../AppLink/AppLink';
 import { Button, ButtonTheme } from '../../../Button/Button';
-import cls from './Dropdown.module.scss';
+
 import popupCls from '../../styles/Popups.module.scss';
+
+import cls from './Dropdown.module.scss';
 
 export interface DropdownItem<T extends string> {
     content: T;

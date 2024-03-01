@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from '@/shared/lib';
+
 import { PageError } from './PageError';
 
 const meta = {

@@ -1,10 +1,17 @@
 import { createSelector } from '@reduxjs/toolkit';
+
 import { getUserAuthData } from '@/entities/User';
-import HomePageIcon from '@/shared/assets/icons/HomePageIcon.svg?react';
-import { routePaths } from '@/shared/config';
-import AboutPageIcon from '@/shared/assets/icons/AboutPageIcon.svg?react';
-import ProfilePageIcon from '@/shared/assets/icons/ProfilePageIcon.svg?react';
-import ArticlePageIcon from '@/shared/assets/icons/ArticlePageIcon.svg?react';
+import HomePageIcon from '@/shared/assets/icons/HomePageIcon.svg';
+import {
+    getAboutRoute,
+    getArticlesRoute,
+    getMainRoute,
+    getProfileRoute,
+} from '@/shared/config';
+import AboutPageIcon from '@/shared/assets/icons/AboutPageIcon.svg';
+import ProfilePageIcon from '@/shared/assets/icons/ProfilePageIcon.svg';
+import ArticlePageIcon from '@/shared/assets/icons/ArticlePageIcon.svg';
+
 import { sidebarLinkType } from '../types/sidebar';
 
 export const getSidebarLinks = createSelector(
@@ -13,12 +20,12 @@ export const getSidebarLinks = createSelector(
         const sidebarLinksList: sidebarLinkType[] = [
             {
                 Icon: HomePageIcon,
-                path: routePaths.main,
+                path: getMainRoute(),
                 text: 'Главная',
             },
             {
                 Icon: AboutPageIcon,
-                path: routePaths.about,
+                path: getAboutRoute(),
                 text: 'О сайте',
             },
         ];
@@ -27,13 +34,13 @@ export const getSidebarLinks = createSelector(
             sidebarLinksList.push(
                 {
                     Icon: ProfilePageIcon,
-                    path: routePaths.profile + userData.id,
+                    path: getProfileRoute(userData.id),
                     text: 'Профиль',
                     authOnly: true,
                 },
                 {
                     Icon: ArticlePageIcon,
-                    path: routePaths.articles,
+                    path: getArticlesRoute(),
                     text: 'Статьи',
                     authOnly: true,
                 },

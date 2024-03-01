@@ -4,6 +4,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+
 import {
     Card, Input, TabItem,
 } from '@/shared/ui';
@@ -17,6 +18,7 @@ import {
     useInitialEffect,
 } from '@/shared/lib';
 import { ArticlesView, ArticleType } from '@/entities/Article';
+
 import {
     ArticleViewSelector,
 } from '../ArticleViewSelector/ArticleViewSelector';
@@ -27,6 +29,7 @@ import { articleSortAction, articleSortReducer } from '../../model/slice/article
 import { getArticleSortSearch, getArticleSortType } from '../../model/selectors/getArticleSort';
 import { ArticleSortSelectors } from '../ArticleSortSelectors/ArticleSortSelectors';
 import { ArticleSortTabs } from '../ArticleSortTabs/ArticleSortTabs';
+
 import cls from './ArticleFilters.module.scss';
 
 const reducers: ReducersList = {

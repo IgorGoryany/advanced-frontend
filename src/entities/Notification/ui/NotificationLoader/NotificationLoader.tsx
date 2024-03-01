@@ -1,6 +1,8 @@
 import { memo } from 'react';
+
 import { classNames } from '@/shared/lib';
 import { Card, Skeleton, VStack } from '@/shared/ui';
+
 import cls from './NotificationLoader.module.scss';
 
 interface NotificationProps {

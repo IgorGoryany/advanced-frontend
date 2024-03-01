@@ -1,7 +1,9 @@
 import {
     FC, HTMLAttributes, memo, ReactNode,
 } from 'react';
+
 import { classNames, Mods } from '../../lib';
+
 import cls from './Card.module.scss';
 
 export type CardTheme = 'normal' | 'outlined'

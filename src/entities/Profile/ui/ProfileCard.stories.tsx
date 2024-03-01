@@ -3,12 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config';
 import { Theme } from '@/shared/lib';
 import img from '@/shared/assets/test/storybook.jpg';
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country/testing';
+import { Currency } from '@/entities/Currency/testing';
+
 import { ProfileCard } from './ProfileCard';
 
 const meta = {
-    title: 'entities/ProfileCard',
+    title: 'entities/Profile/ProfileCard',
     component: ProfileCard,
     tags: ['autodocs'],
     args: {

@@ -3,13 +3,15 @@ import {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+
 import {
     DynamicModuleLoader, ReducersList, useAppDispatch, useInitialEffect,
 } from '@/shared/lib';
 import { ProfileCard, ValidateProfileError } from '@/entities/Profile';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+import { Country, CountrySelect } from '@/entities/Country';
 import { Text, TextTheme, VStack } from '@/shared/ui';
+
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { profileAction, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -78,7 +80,7 @@ export const EditableProfileCard = memo(({ id }:EditableProfileCardProps) => {
         dispatch(profileAction.editForm({ currency: value || Currency.RUB }));
     }, [dispatch]);
 
-    const onChangeCounty = useCallback((value: Country) => {
+    const onChangeCountry = useCallback((value: Country) => {
         dispatch(profileAction.editForm({ country: value || Country.Russia }));
     }, [dispatch]);
 
@@ -109,8 +111,22 @@ export const EditableProfileCard = memo(({ id }:EditableProfileCardProps) => {
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
                     onChangeAvatar={onChangeAvatar}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCounty}
+                    currencySelect={(
+                        <CurrencySelect
+                            value={formData?.currency}
+                            disabled={readonly}
+                            onChange={onChangeCurrency}
+                            data-testid="ProfileCard.currency"
+                        />
+                    )}
+                    countrySelect={(
+                        <CountrySelect
+                            value={formData?.country}
+                            disabled={readonly}
+                            onChange={onChangeCountry}
+                            data-testid="ProfileCard.country"
+                        />
+                    )}
                 />
             </VStack>
         </DynamicModuleLoader>

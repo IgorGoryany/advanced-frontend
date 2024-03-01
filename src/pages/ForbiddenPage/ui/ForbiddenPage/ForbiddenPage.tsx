@@ -1,5 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods } from '@/shared/lib';
 import { Text, TextAlign } from '@/shared/ui';
 import { PageLayout } from '@/widgets/PageLayout';

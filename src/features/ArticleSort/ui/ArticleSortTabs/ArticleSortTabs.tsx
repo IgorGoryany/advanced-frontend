@@ -1,5 +1,6 @@
 import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames, Mods } from '@/shared/lib';
 import { TabItem, Tabs } from '@/shared/ui';
 import { ArticleType } from '@/entities/Article';

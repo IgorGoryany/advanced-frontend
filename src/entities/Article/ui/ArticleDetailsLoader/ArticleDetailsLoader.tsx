@@ -1,4 +1,5 @@
 import { memo } from 'react';
+
 import { HStack, Skeleton, VStack } from '@/shared/ui';
 
 interface ArticleDetailsLoaderProps {

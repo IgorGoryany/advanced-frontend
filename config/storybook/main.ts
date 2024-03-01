@@ -1,9 +1,12 @@
-import type { StorybookConfig } from '@storybook/react-webpack5';
-import webpack, { Configuration, RuleSetRule } from 'webpack';
 import path from 'path';
+
+import webpack, { Configuration, RuleSetRule } from 'webpack';
+
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildСssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
+
+import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
     stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],

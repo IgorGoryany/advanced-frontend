@@ -1,9 +1,12 @@
 import { FC, memo } from 'react';
+
 import { classNames, Mods } from '@/shared/lib';
 import {
     Card, Skeleton,
 } from '@/shared/ui';
+
 import { ArticlesView } from '../../model/types/article';
+
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {

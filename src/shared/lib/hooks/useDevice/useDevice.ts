@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { useDebounce } from '../useDebounce/useDebounce';
 
 export const useDevice = () => {

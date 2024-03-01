@@ -1,6 +1,7 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/testing';
 import { Article } from '@/entities/Article';
 import { StateSchema } from '@/app/providers/StoreProvider';
+
 import {
     fetchArticleList,
 } from './fetchArticleList';
