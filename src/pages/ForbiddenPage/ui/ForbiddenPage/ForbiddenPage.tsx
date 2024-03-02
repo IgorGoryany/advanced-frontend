@@ -1,7 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames, Mods } from '@/shared/lib';
 import { Text, TextAlign } from '@/shared/ui';
 import { PageLayout } from '@/widgets/PageLayout';
 
@@ -15,11 +14,12 @@ export const ForbiddenPage: FC<ForbiddenPageProps> = memo(
             className,
         } = props;
 
-        const mods: Mods = {};
-
         const { t } = useTranslation();
         return (
-            <PageLayout className={classNames('', mods, [className])}>
+            <PageLayout
+                data-testid="ForbiddenPage"
+                className={className}
+            >
                 <Text title={t('У вас нет доступа к этой странице')} titleAlign={TextAlign.CENTER} />
             </PageLayout>
         );

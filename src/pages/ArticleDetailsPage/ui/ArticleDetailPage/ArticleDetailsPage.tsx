@@ -64,7 +64,10 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
 
     if (__PROJECT__ === 'storybook') {
         return (
-            <PageLayout className={classNames(cls.articleDetailPage, mods, [className])}>
+            <PageLayout
+                data-testid="ArticleDetailsPage"
+                className={classNames(cls.articleDetailPage, mods, [className])}
+            >
                 <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
                     {t('Назад к списку')}
                 </Button>
@@ -73,9 +76,28 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
             </PageLayout>
         );
     }
+
+    if (__PROJECT__ === 'jest') {
+        return (
+            <PageLayout
+                data-testid="ArticleDetailsPage"
+                className={classNames(cls.articleDetailPage, mods, [className])}
+            >
+                <Button onClick={onBackToList} theme={ButtonTheme.OUTLINED}>
+                    {t('Назад к списку')}
+                </Button>
+                <ArticleDetails id="1" />
+                <ArticleDetailsComments />
+            </PageLayout>
+        );
+    }
+
     if (!id) {
         return (
-            <PageLayout className={classNames(cls.articleDetailPage, mods, [className])}>
+            <PageLayout
+                data-testid="ArticleDetailsPage"
+                className={classNames(cls.articleDetailPage, mods, [className])}
+            >
                 <Text
                     title={t('Не удалось загрузить статью')}
                     text={t('Попробуйте перезагрузить страницу')}
@@ -88,6 +110,7 @@ const ArticleDetailsPage: FC<ArticleDetailPageProps> = (props: ArticleDetailPage
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <PageLayout
+                data-testid="ArticleDetailsPage"
                 saveScroll={false}
                 className={classNames(cls.articleDetailPage, mods, [className])}
             >

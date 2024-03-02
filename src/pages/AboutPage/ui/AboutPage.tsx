@@ -6,7 +6,7 @@ const AboutPage = () => {
     const { t } = useTranslation('about');
 
     return (
-        <PageLayout data-testid="about-page-data-testid">
+        <PageLayout data-testid="AboutPage">
             {t('О сайте')}
         </PageLayout>
     );

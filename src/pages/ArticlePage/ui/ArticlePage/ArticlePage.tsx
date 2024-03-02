@@ -91,10 +91,33 @@ const ArticlePage: FC<ArticlePageProps> = (props: ArticlePageProps) => {
             </DynamicModuleLoader>
         );
     }
+    if (__PROJECT__ === 'jest') {
+        return (
+            <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+                <PageLayout
+                    data-testid="ArticlePage"
+                    className={classNames(cls.articlePage, mods, [className])}
+                >
+                    <ArticleFilters
+                        view={view}
+                        onViewClick={onViewClick}
+                        onChangeSort={onChangeSort}
+                    />
+                    <ArticleList
+                        view={view}
+                        error={error}
+                        isLoading={isLoading}
+                        articles={articles}
+                    />
+                </PageLayout>
+            </DynamicModuleLoader>
+        );
+    }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <PageLayout
+                data-testid="ArticlePage"
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.articlePage, mods, [className])}
             >

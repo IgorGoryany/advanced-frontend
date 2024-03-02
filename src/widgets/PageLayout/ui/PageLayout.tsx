@@ -48,7 +48,6 @@ export const PageLayout: FC<PageProps> = (props: PageProps) => {
     ));
 
     useInfiniteScroll({
-        // @ts-ignore
         wrapperRef,
         triggerRef,
         callback: onScrollEnd,

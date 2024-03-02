@@ -1,9 +1,8 @@
 import {
-    FC, memo, useRef,
+    FC, memo,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames, Mods } from '@/shared/lib';
 import { PageLayout } from '@/widgets/PageLayout';
 
 interface AdminPanelPageProps {
@@ -16,12 +15,12 @@ const AdminPanelPage: FC<AdminPanelPageProps> = memo(
             className,
         } = props;
 
-        const mods: Mods = {};
-        const ref = useRef<HTMLDivElement | null>(null);
-
         const { t } = useTranslation('admin_panel');
         return (
-            <PageLayout className={classNames('', mods, [className])}>
+            <PageLayout
+                data-testid="AdminPanelPage"
+                className={className}
+            >
                 {t('Админсая панель')}
             </PageLayout>
         );

@@ -3,11 +3,16 @@ import { useEffect, useState } from 'react';
 import { useDebounce } from '../useDebounce/useDebounce';
 
 export const useDevice = () => {
-    const [isMobile, setIsMobile] = useState(
-        window
+    let initialState: boolean;
+    if (__PROJECT__ === 'jest') {
+        initialState = false;
+    } else {
+        initialState = window
             .matchMedia('(pointer:coarse)')
-            .matches,
-    );
+            .matches;
+    }
+
+    const [isMobile, setIsMobile] = useState(initialState);
 
     const resizeHandler = useDebounce(() => {
         setIsMobile(window.matchMedia('(pointer:coarse)').matches);

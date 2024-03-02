@@ -5,7 +5,7 @@ import { PageLayout } from '@/widgets/PageLayout';
 const MainPage = () => {
     const { t } = useTranslation('main');
     return (
-        <PageLayout>
+        <PageLayout data-testid="MainPage">
             <div>{t('Главная страница')}</div>
         </PageLayout>
     );

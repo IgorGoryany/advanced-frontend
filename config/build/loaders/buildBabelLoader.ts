@@ -26,7 +26,7 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
                         '@babel/plugin-transform-typescript',
                         { isTSX: isTsx },
                     ],
-                    isTsx && [
+                    isTsx && !isDev && [
                         babelRemovePropsPlugin,
                         { props: ['data-testid'] },
                     ],

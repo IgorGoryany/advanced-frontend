@@ -1718,6 +1718,13 @@
       "roles": [
         "MANAGER"
       ]
+    },
+    {
+      "id": 4,
+      "username": "testuser",
+      "password": "123",
+      "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album",
+      "roles": []
     }
   ],
   "profile": [
@@ -1741,6 +1748,28 @@
       "country": "Россия",
       "city": "Dzerzhinsk",
       "username": "LaurenCogan",
+      "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album"
+    },
+    {
+      "id": 3,
+      "first": "Манагер",
+      "lastname": "Дебиленко",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Россия",
+      "city": "Хуйня",
+      "username": "LaurenCogan",
+      "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album"
+    },
+    {
+      "id": 4,
+      "first": "test",
+      "lastname": "user",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Россия",
+      "city": "testCountry",
+      "username": "testuser",
       "avatar": "https://sun9-68.userapi.com/impf/c824409/v824409851/fca00/aGQuUsQM-TM.jpg?size=1620x2160&quality=96&sign=511bd599f11958886661b70d4727da2f&type=album"
     }
   ],
