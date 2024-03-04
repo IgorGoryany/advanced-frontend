@@ -1,4 +1,6 @@
-import { FC, memo, useCallback } from 'react';
+import {
+    FC, FormEvent, memo, useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -43,7 +45,8 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
             dispatch(addCommentFormAction.setText(value || ''));
         }, [dispatch]);
 
-        const onSendHandler = useCallback(() => {
+        const onSendHandler = useCallback((e: FormEvent) => {
+            e.preventDefault();
             onSendComment(text || '');
             dispatch(addCommentFormAction.setText(''));
         }, [dispatch, onSendComment, text]);
@@ -51,25 +54,31 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
         return (
             <DynamicModuleLoader reducers={reducers}>
                 {error && <Text text={error} theme={TextTheme.ERROR} />}
-                <HStack
-                    justify="between"
-                    align="center"
-                    max
-                    className={classNames(cls.addCommentForm, mods, [className])}
-                >
-                    <Input
-                        className={cls.input}
-                        placeholder={t('Введите текст комментария')}
-                        value={text}
-                        onChange={onTextChange}
-                    />
-                    <Button
-                        onClick={onSendHandler}
-                        theme={ButtonTheme.OUTLINED}
+                <form onSubmit={onSendHandler}>
+                    <HStack
+                        data-testid="AddCommentForm"
+                        justify="between"
+                        align="center"
+                        max
+                        className={classNames(cls.addCommentForm, mods, [className])}
                     >
-                        {t('Отправить')}
-                    </Button>
-                </HStack>
+                        <Input
+                            data-testid="AddCommentForm.input"
+                            className={cls.input}
+                            placeholder={t('Введите текст комментария')}
+                            value={text}
+                            onChange={onTextChange}
+                        />
+                        <Button
+                            data-testid="AddCommentForm.sendButton"
+                            type="submit"
+                            onClick={onSendHandler}
+                            theme={ButtonTheme.OUTLINED}
+                        >
+                            {t('Отправить')}
+                        </Button>
+                    </HStack>
+                </form>
             </DynamicModuleLoader>
         );
     },

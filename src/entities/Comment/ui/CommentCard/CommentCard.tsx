@@ -48,7 +48,11 @@ export const CommentCard: FC<CommentCardProps> = memo(
         }
 
         return (
-            <VStack gap="4" className={classNames(cls.commentCard, mods, [className])}>
+            <VStack
+                data-testid="CommentCard"
+                gap="4"
+                className={classNames(cls.commentCard, mods, [className])}
+            >
                 <AppLink to={getProfileRoute(user.id)}>
                     <HStack gap="8">
                         {user.avatar

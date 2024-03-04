@@ -24,7 +24,7 @@ export const Input = memo((props: InputProps) => {
         placeholder = '',
         autofocus,
         disabled,
-        ...otherProps
+        ...restProps
     } = props;
     const mods: Mods = {
         [cls.disabled]: disabled,
@@ -73,7 +73,7 @@ export const Input = memo((props: InputProps) => {
                         className={cls.input}
                         onChange={onChangeHandler}
                         disabled={disabled}
-                        {...otherProps}
+                        {...restProps}
                     />
                     {isFocused && (
                         <span

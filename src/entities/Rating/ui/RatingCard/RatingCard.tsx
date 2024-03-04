@@ -75,8 +75,12 @@ export const RatingCard = memo(
 
         const content = (
             <>
-                <Text title={FeedbackTitle} />
+                <Text
+                    data-testid="RatingCard.Modal.feedback"
+                    title={FeedbackTitle}
+                />
                 <Input
+                    data-testid="RatingCard.Modal.input"
                     value={feedbackValue}
                     onChange={onChange}
                     placeholder={t('Ваш отзыв')}
@@ -87,11 +91,12 @@ export const RatingCard = memo(
         return (
             <Card className={classNames('', mods, [className])}>
                 <VStack max gap="16" justify="center" align="center">
-                    <Text title={title} />
+                    <Text title={title} data-testid="RatingCard.title" />
                     <StarRating
                         selectedStars={selectedStars}
                         onSelect={onSelectStars}
                         size={50}
+                        margin={20}
                     />
                 </VStack>
                 {!isMobile && (
@@ -100,10 +105,18 @@ export const RatingCard = memo(
                             <VStack max gap={32}>
                                 {content}
                                 <HStack max justify="end" gap={16}>
-                                    <Button theme={ButtonTheme.OUTLINED_RED} onClick={onCancelGiveFeedback}>
+                                    <Button
+                                        data-testid="RatingCard.Modal.closeButton"
+                                        theme={ButtonTheme.OUTLINED_RED}
+                                        onClick={onCancelGiveFeedback}
+                                    >
                                         {t('Закрыть')}
                                     </Button>
-                                    <Button theme={ButtonTheme.OUTLINED} type="submit">
+                                    <Button
+                                        data-testid="RatingCard.Modal.sendButton"
+                                        theme={ButtonTheme.OUTLINED}
+                                        type="submit"
+                                    >
                                         {t('Отправить')}
                                     </Button>
                                 </HStack>
@@ -116,7 +129,12 @@ export const RatingCard = memo(
                         <form onSubmit={onSubmit}>
                             <VStack max gap={32}>
                                 {content}
-                                <Button max theme={ButtonTheme.OUTLINED} type="submit">
+                                <Button
+                                    max
+                                    theme={ButtonTheme.OUTLINED}
+                                    type="submit"
+                                    data-testid="RatingCard.Modal.sendButton"
+                                >
                                     {t('Отправить')}
                                 </Button>
                             </VStack>

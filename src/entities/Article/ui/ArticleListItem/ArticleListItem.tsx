@@ -66,6 +66,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
         if (view === 'BIG') {
             return (
                 <div
+                    data-testid="ArticleListItem"
                     style={{
                         transform: `translateY(${translateY}px)`,
                     }}
@@ -80,6 +81,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
                             {createdAt}
                         </div>
                         <Text
+                            data-testid="ArticleListItem"
                             title={article.title}
                             size={TextSize.L}
                             className={cls.title}
@@ -110,6 +112,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
         }
         return (
             <AppLink
+                data-testid="ArticleListItem"
                 to={getArticleDetailsRoute(article.id)}
                 target={target}
                 className={classNames(cls.articleListItem, mods, [className, cls[view]])}
@@ -127,7 +130,11 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo(
                         {types}
                         {views}
                     </div>
-                    <Text title={article.title} className={cls.title} />
+                    <Text
+                        data-testid="ArticleListItem"
+                        title={article.title}
+                        className={cls.title}
+                    />
                 </Card>
             </AppLink>
         );

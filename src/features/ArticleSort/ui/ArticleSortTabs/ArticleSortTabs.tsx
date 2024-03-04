@@ -46,6 +46,7 @@ export const ArticleSortTabs: FC<ArticleSortTabsProps> = memo(
 
         return (
             <Tabs<ArticleType>
+                data-testid="ArticleSort.Tabs"
                 tabs={tabs}
                 onTabClick={onTabClick}
                 value={type}

@@ -6,12 +6,10 @@ import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 
 import {
-    Card, Input, TabItem,
+    Card, HStack, Input, TabItem,
 } from '@/shared/ui';
 import {
-    classNames,
     DynamicModuleLoader,
-    Mods,
     ReducersList,
     useAppDispatch,
     useDebounce,
@@ -52,7 +50,6 @@ const ArticleFilters: FC<ArticleFiltersProps> = memo(
             onChangeSort,
         } = props;
         const { t } = useTranslation('article');
-        const mods: Mods = {};
         const dispatch = useAppDispatch();
         const search = useSelector(getArticleSortSearch);
         const type = useSelector(getArticleSortType);
@@ -77,13 +74,14 @@ const ArticleFilters: FC<ArticleFiltersProps> = memo(
 
         return (
             <DynamicModuleLoader reducers={reducers}>
-                <div className={classNames(cls.articlePageFilters, mods, [className])}>
-                    <div className={cls.sortWrapper}>
+                <div className={className}>
+                    <HStack align="center" justify="between">
                         <ArticleSortSelectors onChangeSort={onChangeSort} />
                         <ArticleViewSelector view={view} onViewClick={onViewClick} />
-                    </div>
+                    </HStack>
                     <Card className={cls.search}>
                         <Input
+                            data-testid="ArticleSort.input"
                             value={search}
                             onChange={onChangeSearch}
                             placeholder={t('Поиск')}

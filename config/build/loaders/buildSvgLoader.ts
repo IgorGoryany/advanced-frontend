@@ -1,4 +1,9 @@
 export const buildSvgLoader = () => ({
     test: /\.svg$/,
-    use: ['@svgr/webpack'],
+    use: [{
+        loader: '@svgr/webpack',
+        options: {
+            icon: true,
+        },
+    }],
 });

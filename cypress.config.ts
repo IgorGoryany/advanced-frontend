@@ -12,6 +12,7 @@ export default defineConfig({
                 username: 'testuser',
                 password: '123',
             },
+            authorizationHeaders: { Authorization: 'asdasd' },
         },
     },
 });

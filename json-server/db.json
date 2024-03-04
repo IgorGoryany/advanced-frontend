@@ -1689,6 +1689,48 @@
       "userId": 1,
       "text": "fasfasfsfasf",
       "id": 11
+    },
+    {
+      "articleId": 2,
+      "userId": 1,
+      "text": "asdasdasd",
+      "id": 12
+    },
+    {
+      "articleId": 2,
+      "userId": 1,
+      "text": "asdasdasd",
+      "id": 13
+    },
+    {
+      "articleId": 2,
+      "userId": 1,
+      "text": "asdasdasd",
+      "id": 14
+    },
+    {
+      "articleId": 2,
+      "userId": 1,
+      "text": "asdasd",
+      "id": 15
+    },
+    {
+      "articleId": 8,
+      "userId": 1,
+      "text": "asdasdasd",
+      "id": 16
+    },
+    {
+      "articleId": 8,
+      "userId": 1,
+      "text": "sdadasdasd",
+      "id": 17
+    },
+    {
+      "articleId": 8,
+      "userId": 1,
+      "text": "asdasdas",
+      "id": 18
     }
   ],
   "users": [
@@ -1835,6 +1877,13 @@
       "articleId": "20",
       "userId": "1",
       "id": 9
+    },
+    {
+      "rate": 3,
+      "feedback": "asdasd",
+      "articleId": "8",
+      "userId": "1",
+      "id": 10
     }
   ]
 }

@@ -45,16 +45,12 @@ const ArticleRating: FC<ArticleRatingProps> = memo(
             : t('Оцените статью');
 
         const handleSetStarRatting = useCallback((starNumber: number, feedback?: string) => {
-            try {
-                setArticleRating({
-                    rate: starNumber,
-                    feedback,
-                    articleId,
-                    userId: userId ?? '',
-                });
-            } catch (e) {
-                console.log(e);
-            }
+            setArticleRating({
+                rate: starNumber,
+                feedback,
+                articleId,
+                userId: userId ?? '',
+            });
         }, [articleId, setArticleRating, userId]);
 
         const onAccept = useCallback((starNumber: number, feedback?: string) => {

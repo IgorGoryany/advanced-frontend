@@ -108,6 +108,7 @@ export const ArticleList: FC<ArticleListProps> = memo(
 
         const content = (
             <div
+                data-testid="ArticleList"
                 style={{
                     height: rowVirtualizer.getTotalSize(),
                     width: '100%',
@@ -151,6 +152,7 @@ export const ArticleList: FC<ArticleListProps> = memo(
         if (!isLoading && !articles?.length) {
             return (
                 <Text
+                    data-testid="ArticleListNotFound"
                     className={cls.notFound}
                     size={TextSize.L}
                     title={t('Статьи не найдены')}
@@ -169,7 +171,7 @@ export const ArticleList: FC<ArticleListProps> = memo(
 
         if (view === 'SMALL') {
             return (
-                <HStack wrap gap={32}>
+                <HStack wrap gap={32} data-testid="ArticleList">
                     {articles?.map(renderArticle)}
                     {isLoading && cardLoaders(view)}
                 </HStack>

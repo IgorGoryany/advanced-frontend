@@ -10,7 +10,7 @@ import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { AppRouter } from './providers/router/ui/AppRouter';
 import './styles/index.scss';
 
-const App = () => {
+export const App = () => {
     const { theme } = useTheme();
 
     const dispatch = useDispatch();
@@ -33,5 +33,3 @@ const App = () => {
         </div>
     );
 };
-
-export { App };

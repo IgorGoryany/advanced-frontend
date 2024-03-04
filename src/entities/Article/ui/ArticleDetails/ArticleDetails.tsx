@@ -107,14 +107,20 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
                         className={cls.title}
                         size={TextSize.L}
                     />
-                    <VStack>
+                    <VStack data-testid="ArticleDetails.Info">
                         <HStack gap="8" className={cls.info}>
                             <Icon Svg={ViewsIcon} />
-                            <Text text={articleDetails?.views} />
+                            <Text
+                                text={articleDetails?.views}
+                                data-testid="ArticleDetails.Info.Views"
+                            />
                         </HStack>
                         <HStack gap="8" className={cls.info}>
                             <Icon Svg={DateIcon} />
-                            <Text text={articleDetails?.createdAt} />
+                            <Text
+                                text={articleDetails?.createdAt}
+                                data-testid="ArticleDetails.Info.CreatedAt"
+                            />
                         </HStack>
                     </VStack>
                     {articleDetails?.blocks.map(renderBlock)}

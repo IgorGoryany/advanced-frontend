@@ -19,7 +19,8 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
     };
     return (
         <Button
-            // onClick={toggleLanguage}
+            data-testid="LangSwitcher"
+            onClick={toggleLanguage}
             theme={ButtonTheme.CLEAR_INVERTED}
             className={classNames('', {}, [className])}
         >

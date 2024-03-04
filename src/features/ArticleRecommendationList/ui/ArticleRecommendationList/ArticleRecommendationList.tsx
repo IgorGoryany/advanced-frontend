@@ -31,8 +31,16 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
     }
 
     return (
-        <VStack max className={cls.articleRecommendationList}>
-            <Text title={t('Рекомендации')} size={TextSize.L} />
+        <VStack
+            data-testid="ArticleRecommendationList"
+            max
+            className={cls.articleRecommendationList}
+        >
+            <Text
+                data-testid="ArticleRecommendationList.title"
+                title={t('Рекомендации')}
+                size={TextSize.L}
+            />
             <ArticleList
                 className={classNames('', mods, [className])}
                 target="_blank"

@@ -1,5 +1,5 @@
 import {
-    ChangeEvent, memo, useCallback, useId, useMemo,
+    ChangeEvent, ComponentPropsWithoutRef, memo, useCallback, useId, useMemo,
 } from 'react';
 
 import { classNames, Mods } from '../../lib';
@@ -11,7 +11,9 @@ export interface SelectOption<T extends string = string> {
     content: string;
 }
 
-interface SelectProps<T extends string> {
+type SelectAttr = Omit<ComponentPropsWithoutRef<'select'>, 'onChange'>
+
+interface SelectProps<T extends string> extends SelectAttr{
     className?: string
     label?: string
     option?: SelectOption<T>[]
@@ -29,6 +31,7 @@ export const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
         value,
         onChange,
         disabled,
+        ...restProps
     } = props;
     const id = useId();
 
@@ -67,6 +70,7 @@ export const Select = genericMemo(<T extends string>(props: SelectProps<T>) => {
                 className={cls.select}
                 value={value}
                 onChange={onChangeHandler}
+                {...restProps}
             >
                 {optionList}
             </select>

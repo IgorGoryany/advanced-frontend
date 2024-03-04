@@ -1,7 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames, Mods } from '@/shared/lib';
 import { Text, VStack } from '@/shared/ui';
 
 import { CommentCard } from '../CommentCard/CommentCard';
@@ -21,11 +20,14 @@ export const CommentList: FC<CommentListProps> = memo(
             isLoading,
         } = props;
 
-        const mods: Mods = {};
-
         const { t } = useTranslation();
         return (
-            <VStack gap="16" max className={classNames('', mods, [className])}>
+            <VStack
+                data-testid="CommentList"
+                gap="16"
+                max
+                className={className}
+            >
                 {comments?.length
                     ? comments.map((comment) => (
                         <CommentCard

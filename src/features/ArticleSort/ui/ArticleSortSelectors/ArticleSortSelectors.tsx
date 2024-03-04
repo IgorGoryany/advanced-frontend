@@ -77,8 +77,10 @@ export const ArticleSortSelectors: FC<ArticleSortSelectorsProps> = memo(
                     option={sortOptions}
                     value={sort}
                     onChange={onChangeSortHandle}
+                    data-testid="ArticleSort.sortBy"
                 />
                 <Select<SortOrder>
+                    data-testid="ArticleSort.order"
                     value={order}
                     option={orderOptions}
                     onChange={onChangeOrder}

@@ -9,7 +9,7 @@ export const articleForTest = {
     views: 1022,
     createdAt: '26.02.2022',
     user: {
-        id: 1,
+        id: 4,
         username: 'Mjbaron',
         avatar: TestImg,
     },

@@ -59,7 +59,6 @@ export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
                             className={classNames(
                                 cls.icon,
                                 { [cls.notSelected]: viewType.view !== view },
-                                [],
                             )}
                         />
                     </Button>

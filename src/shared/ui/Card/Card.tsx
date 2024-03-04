@@ -22,7 +22,7 @@ export const Card: FC<CardProps> = memo(
             children,
             theme = 'normal',
             max,
-            ...otherProps
+            ...restProps
         } = props;
 
         const mods: Mods = {
@@ -30,7 +30,7 @@ export const Card: FC<CardProps> = memo(
         };
 
         return (
-            <div className={classNames(cls.card, mods, [className, cls[theme]])} {...otherProps}>
+            <div className={classNames(cls.card, mods, [className, cls[theme]])} {...restProps}>
                 {children}
             </div>
         );

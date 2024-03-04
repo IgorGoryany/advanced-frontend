@@ -62,6 +62,7 @@ export const Flex = (props: FlexProps) => {
         role,
         Tag = 'div',
         wrap,
+        ...restProps
     } = props;
 
     const mods: Mods = {
@@ -77,7 +78,7 @@ export const Flex = (props: FlexProps) => {
     ];
 
     return (
-        <Tag role={role} className={classNames(cls.flex, mods, additional)}>
+        <Tag role={role} className={classNames(cls.flex, mods, additional)} {...restProps}>
             {children}
         </Tag>
     );

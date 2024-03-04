@@ -84,10 +84,14 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
     }
 
     return (
-
-        <VStack gap="8" max className={classNames(cls.profileCard, mods, [className])}>
+        <VStack
+            data-testid="ProfileCard"
+            gap="8"
+            max
+            className={classNames(cls.profileCard, mods, [className])}
+        >
             {data?.avatar && (
-                <HStack max justify="center" className={cls.avatar}>
+                <HStack max justify="center" className={cls.avatar} data-testid="ProfileCard.avatar">
                     <Avatar
                         src={data?.avatar}
                         size={100}
@@ -99,7 +103,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo((props: ProfileCardProps) 
                 value={data?.first}
                 disabled={readonly}
                 onChange={onChangeFirstName}
-                data-testid="ProfileCard.first"
+                data-testid="ProfileCard.firstname"
             />
             <Input
                 placeholder={t('Ваша фамилия')}

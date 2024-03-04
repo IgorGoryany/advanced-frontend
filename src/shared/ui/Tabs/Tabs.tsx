@@ -4,6 +4,8 @@ import {
 
 import { classNames, Mods } from '@/shared/lib';
 
+import { TestProps } from '@/shared/types';
+
 import { Card } from '../Card/Card';
 
 import cls from './Tabs.module.scss';
@@ -13,7 +15,7 @@ export interface TabItem<T extends string = string> {
     content: ReactNode
 }
 
-interface TabsProps<T extends string> {
+interface TabsProps<T extends string> extends TestProps {
     className?: string;
     tabs: TabItem<T>[]
     value: T;
@@ -38,8 +40,9 @@ export const Tabs = genericMemo(
 
         return (
             <div className={classNames(cls.tabs, mods, [className])}>
-                {tabs.map((tab) => (
+                {tabs.map((tab, i) => (
                     <Card
+                        data-testid={`${props['data-testid'] ?? 'Tabs'}.${i}`}
                         onClick={clickHandler(tab)}
                         theme={tab.value === value ? 'normal' : 'outlined'}
                         className={cls.tab}
