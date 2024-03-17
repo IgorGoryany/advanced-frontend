@@ -113,6 +113,7 @@ module.exports = {
                 'Tag',
                 'theme',
                 'titleWrap',
+                'featureName',
             ],
         }],
         'jsx-a11y/no-static-element-interactions': 'off',

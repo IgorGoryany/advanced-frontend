@@ -25,6 +25,7 @@
     "test:ui:ci": "concurrently --kill-others --raw --success first \"npm run storybook\" \"npm run test:ui\" \"deelay\"",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
+    "remove:feature": "ts-node scripts/refactoring/removeFeature.ts",
     "chromatic": "npx chromatic --project-token=chpt_349036621db5e02"
   },
   "author": "",

@@ -1,6 +1,8 @@
 const fs = require('fs');
-const jsonServer = require('json-server');
+
 const path = require('path');
+
+const jsonServer = require('json-server');
 
 const server = jsonServer.create();
 
@@ -34,6 +36,7 @@ server.post('/login', (req, res) => {
                 username: userFromBd?.username,
                 avatar: userFromBd?.avatar,
                 roles: userFromBd?.roles,
+                features: userFromBd?.features,
             });
         }
 

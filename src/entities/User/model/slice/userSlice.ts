@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { setFeaturesFlag } from '@/shared/features';
+
 import { User, UserSchema } from '../types/user';
 
 const initialState: UserSchema = {
@@ -14,9 +16,11 @@ export const userSlice = createSlice({
             state.authData = action.payload;
         },
         initAuthData: (state, action: PayloadAction<string>) => {
-            const user = localStorage.getItem(action.payload);
-            if (user) {
-                state.authData = JSON.parse(user);
+            const userString = localStorage.getItem(action.payload);
+            if (userString) {
+                const user = JSON.parse(userString) as User;
+                state.authData = user;
+                setFeaturesFlag(user?.features ?? {});
             }
             state._mounted = true;
         },

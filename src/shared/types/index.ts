@@ -1,3 +1,4 @@
-export type { SortOrder } from './sort/SortOrder';
-export type { DropdownDirection } from '@/shared/types/ui/ui';
-export type { TestProps } from './test/testProps';
+export type { SortOrder } from './SortOrder';
+export type { DropdownDirection } from '@/shared/types/ui';
+export type { TestProps } from './testProps';
+export type { FeaturesFlags } from './featuresFlags';
